@@ -108,17 +108,17 @@
     if (e.target == canvas) {
       e.preventDefault();
     }
-  }, {passive: false});
+  }, false);
   document.body.addEventListener("touchend", function(e) {
     if (e.target == canvas) {
       e.preventDefault();
     }
-  }, {passive: false});
+  }, false);
   document.body.addEventListener("touchmove", function(e) {
     if (e.target == canvas) {
       e.preventDefault();
     }
-  }, {passive: false});
+  }, false);
 
   (function drawLoop() {
     requestAnimFrame(drawLoop);

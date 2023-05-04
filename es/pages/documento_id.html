@@ -58,7 +58,7 @@
 	
 		var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
 		var guest = document.getElementById('guest');
-		guest.textContent = " Huespéd # " + guest2process_data.i;
+		guest.textContent += guest2process_data.i;
 
 	$(window).load(function(){
 		$(".fundir").animate({opacity:"1"});

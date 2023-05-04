@@ -2,83 +2,86 @@
 <html>
 <head>
 	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
-<meta charset="utf-8">
-<title>Pasarela de pago</title>
+	<meta charset="utf-8">
+	<title>Pasarela de pago</title>
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="js/api_request.js"></script>
 
 </head>
 
-<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+<body style="background: #EBEBEB;zoom:150%">
 	
-	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:0"> Powered by: </p>
-	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
-	
-	
-	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;z-index:-10" class="dot"></span>
+	<p style="font-weight: bold; font-family: 'DM Sans'; font-size: 24px; position: absolute; top:91.0%; right: 12%;"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class="logo" style="position: absolute; top:86.2%; right: 2%; width: 240px; height: 150px">
+	<span style="position: absolute; top:10%; left:-20%;" class="dot"></span>
 
-	<div class="fundir" id="frame" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:1;display:block;text-align:center">
-		
-		<p style="font-family: 'DM Sans'; font-weight: bold; font-size: 50px;  color: #6B43F1"> Pago </p>
-		
-		
-		<br>
-		
-		
-			<p id="totalmoney_label" class="campo-form">  Importe total </p> 		
-			<p id="totalmoney" class="campo" style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  Calculando ...  </p> 
-		
-			<p id="pagado_label" class="campo-form"> Pagado </p> 		
-			<p id="pagado" class="campo" style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  </p> 
-		
-			<p id="deuda_label" class="campo-form"> Deuda </p> 		
-			<p id="deuda" class="campo" style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  </p> 
-		
-		<input type="button" class="button custom-btn btn-16 " style="font-size: 34px;margin-top:30px" value="Pagar" onclick="location.href='pago.html';">
+
+	<p style="font-family: 'DM Sans'; font-weight: bold; font-size: 50px; position: absolute; top:8%; left: 48.5%; color: #6B43F1"> Pago </p>
+	<svg  width="550" height="640" style="position: absolute; top:10%; left: 40%; z-index:-1; border-radius: 25px">
+		<rect width="550" height="640" style="fill:white;stroke-width:3;stroke:white" />   	
+	</svg>
 	
-	</div>
+	<br>
+	
+	<p id="totalmoney_label" style="white-space: pre-line;padding: 10px; position:absolute; left: 42.5%; top: 20.5%; font-family: 'DM Sans'; font-size: 26px; color: #AAAAAA ; border-radius: 25px"> Importe total </p> 		
+	<p id="totalmoney" style="white-space: pre-line; padding: 10px; width: 20%; position:absolute; left: 42.5%; top: 28%; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px"> Calculando ... </p> 
+			
+	<p id="pagado_label" style="white-space: pre-line;padding: 10px; position:absolute; left: 42.5%; top: 33%; font-family: 'DM Sans'; font-size: 26px; color: #AAAAAA ; border-radius: 25px"> Pagado </p> 		
+	<p id="pagado" style="white-space: pre-line; padding: 10px; width: 20%; position:absolute; left: 42.5%; top: 40%; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px">  </p>
+	
+	
+		
+	<p id="deuda_label" style="white-space: pre-line;padding: 10px; position:absolute; left: 42.5%; top: 45%; font-family: 'DM Sans'; font-size: 26px; color: #AAAAAA ; border-radius: 25px">  Deuda </p> 		
+	<p id="deuda" style="white-space: pre-line; padding: 10px; width: 20%; position:absolute; left: 42.5%; top: 52%; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px">  </p> 
+
+	
+	<input type="button" class="button custom-btn  " style="background-color: #6263D5; font-size: 34px; position:absolute; right:43%; bottom:22%;" value="Pagar" onclick="call_makePayment();">
+	
 </body>
 	
 	<script>
-	
-	
 	
 		postGuest_jsonPago = JSON.parse(localStorage.postGuest);
 		
 		console.log("Prueba pago ",postGuest_jsonPago);
 		
-		let response_web = getReservationInvoiceInformation("http://localhost:5000/getReservationInvoiceInformation?reservationID=" + postGuest_jsonPago.reservationID);
-		
-//		postGuest_jsonPago = JSON.parse(localStorage.postGuest);
-//
-//		console.log("post response",response_web);
-//		
-//		
-//		var totalmoney = document.getElementById('totalmoney');
-//		var pagado = document.getElementById('pagado');
-//		var deuda = document.getElementById('deuda');
-//
-//		totalmoney.textContent += postGuest_jsonPago.total + " €";
-//		pagado.textContent += postGuest_jsonPago.paid + " €";
-//		deuda.textContent += postGuest_jsonPago.balance + " €";
-//		
-//		console.log("Pagado ",postGuest_jsonPago.paid);
+		let response_gmail = fetchAsync_sendGmail()
 
-	</script>
-	
-	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-	
-	<script type="text/javascript">
-	
-		setTimeout( function(){
-		$(".skiptranslate").hide();
-			},1000
-		)
-		function googleTranslateElementInit() {
-		console.log("traduciendo")
-		  new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
-		}
+
 		
+		postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+
+		
+		
+		var totalmoney = document.getElementById('totalmoney');
+		var pagado = document.getElementById('pagado');
+		var deuda = document.getElementById('deuda');
+
+		totalmoney.textContent = postGuest_jsonPago.total + " €";
+		pagado.textContent += postGuest_jsonPago.paid + " €";
+		deuda.textContent += postGuest_jsonPago.balance + " €";
+		
+		console.log("Pagado ",postGuest_jsonPago.paid);
+		console.log("postGuest_jsonPago ",postGuest_jsonPago);
+
+		var body = '{"reservationID": "","checkIn": "","checkOut": "","roomType": "","roomPrice": "","guestName": "","guestAddress": "","guestDocument": "","invoiceNumber": "","amount": "","cardType": "","cardNumber": "","cardCVV": "","cardExpire": ""}';
+		
+		body = JSON.parse(body);
+
+		body.reservationID = postGuest_jsonPago.reservationID;
+		body.checkIn = postGuest_jsonPago.startDate;
+		body.checkOut = postGuest_jsonPago.endDate;
+		body.roomType = postGuest_jsonPago.roomType;
+		body.roomPrice = postGuest_jsonPago.roomPicked_price;
+		body.guestName = postGuest_jsonPago.guestFirstName + " " + postGuest_jsonPago.guestLastName;
+		body.guestDocument = postGuest_jsonPago.guestDocumentType;
+		body.amount  = postGuest_jsonPago.balance;
+
+		function call_makePayment(){ 
+		//flag = makePayment(url, body);
+		window.location.href='pago.html'
+		}
+
+
 	</script>
 </html>

@@ -4,13 +4,7 @@
 	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
 	<meta charset="utf-8">
 	<title>Firma de entrada</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
-	<link href="style_2.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link href="style_2.css" rel="stylesheet" type="text/css">
 	<script src="js/api_request.js"></script>
 </head>
 
@@ -45,126 +39,98 @@
 		h2 {
 			text-align: center;
 		}
-		.unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 </style>
 	
-<body class="unselectable" style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';">
-		<div id="uploadLogo" style="position: absolute; top:10%; left:42.5%; z-index: 10; opacity: 0;"> 
+<body>
+	<div id="uploadLogo" style="position: absolute; top:10%; left:42.5%; z-index: 10; opacity: 0;"> 
 			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 		<lottie-player src="https://assets8.lottiefiles.com/temp/lf20_edwUDF.json"  background="transparent"  speed="1"  style="width: 400px; height: 400px;"  loop  autoplay></lottie-player>
 	</div>
-	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
-	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0;z-index:-2">
 	
+	<span style="position: absolute; top:10%; left:-20%;" class="dot"></span>
 	
-	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
-
-	<div class="row">
-		<div class="fundir" style=" border-radius: 25px;margin-top: 5%;opacity:0">
-			<div id="signature_page" > 
-				
-				<div id="makepdf" style="height:1050px;line-height: 20px;font-family: 'DM Sans';width:inherit;margin:20px;margin-top:-30px">	
-					
-					<h2 style="color:#9642E0; text-align:left; "> Parte de viajeros / Hoja de bienvenida</h2>
-					
-					<p style="font-size: 30px; color: #DE45C4;">  <strong>Datos del establecimiento (OpenCheck) </strong></p>
-					<hr>
-					<p style="font-size: 25px;">
-					<strong>CIF:</strong>&nbsp;B95933255 </p> 
-					<hr>
-					<p style="font-size: 25px;">
-					<strong>Número de parte:</strong>&nbsp;</p> 
-					<hr>
-					<p style="font-size: 25px;">
-					<strong>Nombre del establecimiento:</strong>&nbsp; Hotel Artxanda Mirador S.L. </p>
-					<hr>
-					<p style="font-size: 25px;">
-					<strong>Municipio:</strong>&nbsp; Artxanda</p> 
-					<hr>
-					<p style="font-size: 25px;">
-					<strong>Provincia:</strong>&nbsp; Bilbao</p>  
-					<hr>
-					<br> 
-					<br>
-					<p style="font-size: 30px; color: #DE45C4;"> <strong>Datos del viajero:</strong> </p>
-					<hr>
-					<p>
-					<p style="font-size: 23px;" id="guestDocumentNumber"><strong>Número de documento de identidad:&nbsp;</strong></p> 
-					<hr>
-					<p style="font-size: 23px;" id="guestDocumentType"><strong>Tipo de documento:&nbsp;</strong></p>
-					<hr>
-					<p style="font-size: 23px;" id="guestDocumentExpirationDate"><strong>Fecha de vencimiento del documento:&nbsp;</strong></p>
-					<hr>
-					<p style="font-size: 23px;" id="guestFirstName"><strong>Nombre:&nbsp;</strong></p> 
-					<hr>
-					<p style="font-size: 23px;" id="guestLastName"><strong>Apellido:&nbsp;</strong></p> 
-					<hr>
-					<p style="font-size: 23px;" id="guestBirthDate"><strong>Fecha de nacimiento:&nbsp;</strong></p>
-					<hr>
-					<p style="font-size: 23px;" id="guestCountry"><strong>País de nacionalidad:&nbsp;</strong></p>
-					<hr>
-					<p style="font-size: 23px;" id="startDate"><strong>Fecha de entrada:&nbsp;</strong></p>
-					</p>
-					<hr>
-					<p style="font-size: 20px;">
+	<div id="signature_page"> 
+		
+		<div id="makepdf" style="position: absolute; width: 40%; height: 90%; left: 10%;">	
+			
+			<h2 style="color:#9642E0; text-align:left; font-size: 60px;"> Parte de viajeros / Hoja de bienvenida</h2>
+			<br><!---->
+			
+			<p style="font-size: 35px; color: #DE45C4;">  <strong>Datos del establecimiento </strong></p>
+			<hr>
+			<p style="font-size: 25px;">
+			<strong>CIF:<strong>B95933255 </p> 
+			<hr>
+			<p style="font-size: 25px;">
+			<strong>Número de parte:<strong>xxxxx</p> 
+			<hr>
+			<p style="font-size: 25px;">
+			<strong>Nombre del establecimiento:<strong> Hotel Artxanda </p>
+			<hr>
+			<p style="font-size: 25px;">
+			<strong>Municipio:<strong> Artxanda</p> 
+			<hr>
+			<p style="font-size: 25px;">
+			<strong>Provincia:<strong> Bilbao</p> 
+			<br><br><br><br><br><!-- -->
+			
+			<p style="font-size: 30px; color: #DE45C4;"> <strong>Datos del viajero:</strong> </p>
+			<hr>
+			<p>
+			<p style="font-size: 20px;" id="guestDocumentNumber"><strong>Número de documento de identidad:<strong> </p> 
+			<hr>
+			<p style="font-size: 20px;" id="guestDocumentType"><strong>Tipo de documento:<strong> </p>
+			<hr>
+			<p style="font-size: 20px;" id="guestDocumentExpirationDate"><strong>Fecha de vencimiento del documento:<strong> </p>
+			<hr>
+			<p style="font-size: 20px;" id="guestFirstName"><strong>Nombre:<strong> </p> 
+			<hr>
+			<p style="font-size: 20px;" id="guestLastName"><strong>Apellido:<strong> </p> 
+			<hr>
+			<p style="font-size: 20px;" id="guestBirthDate"><strong>Fecha de nacimiento:<strong> </p>
+			<hr>
+			<p style="font-size: 20px;" id="guestCountry"><strong>País de nacionalidad:<strong> </p>
+			<hr>
+			<p style="font-size: 20px;" id="startDate"><strong>Fecha de entrada:<strong> </p>
+			</p>
+			<hr>
+			<p style="font-size: 20px;">
 					La recogida y tratamiento de estos datos se hará de acuerdo con la Ley Orgánica 3/2018, de 5 de
-		diciembre, de Protección de Datos Personales y garantía de los derechos digitales, y en lo que resulte
-		de aplicación, la relativa a la protección de las personas físicas en lo que respecta al tratamiento de
-		datos personales por parte de autoridades competentes para fines de prevención, investigación,
-		detección o enjuiciamiento de infracciones penales, y al amparo Ley Orgánica 4/2015, de 30 de
-		marzo, de Protección de la Seguridad Ciudadana, artículo 25.1.
-
-					</p>
-					
-						
-				</div>
-			</div>
-		</div>
-	</div>		
-	<div class="row" style="margin-top:100%;">			
-
-		<div class="col-md-12 " style=";margin-top: 40%;">
-		
-			<p style=" font-family: 'DM Sans'; color: #6B43F1; font-size: 48px;display:inline;float:left "><strong style="margin-right: 90px;">Firme <br> aquí</strong></p>
-			<!-- Content -->
-		<div  style="display:inline;float: right;">
-					
-					<canvas id="sig-canvas" width="300" height="180" style="border:1px solid #222222; background-color: white;  color: white;">
-						
-					</canvas>
+					diciembre, de Protección de Datos Personales y garantía de los derechos digitales, y en lo que resulte
+					de aplicación, la relativa a la protección de las personas físicas en lo que respecta al tratamiento de
+					datos personales por parte de autoridades competentes para fines de prevención, investigación,
+					detección o enjuiciamiento de infracciones penales, y al amparo Ley Orgánica 4/2015, de 30 de
+					marzo, de Protección de la Seguridad Ciudadana, artículo 25.1.
+			</p>
 			
-					<canvas hidden id="empty-canvas" width="600%" height="360" style="border:1px solid #222222; background-color: white;  color: white;">
-						
-					</canvas>
+				
+		</div>
+
+		<div  style="position: absolute; top:15%; left: 65%;">
+				
+		 		<canvas id="sig-canvas" width="700%" height="530px" style="border:1px solid #222222; background-color: white;  color: white;">
+		 			
+		 		</canvas>
+		
+		 		<canvas hidden id="empty-canvas" width="600%" height="360" style="border:1px solid #222222; background-color: white;  color: white;">
+		 			
+		 		</canvas>
 
 		</div>
 
-			<br>
-			
-		<div style="color:black; font-size: 14px; margin-top:10px">
-		  
-		  <label selectable="off" for="acepta" style="font-family: 'DM Sans';">
-			<input autocomplete="off" style="color: white;accent-color: #6B43F1;" type="checkbox" id="acepta" name="acepta">
-			He leído y  acepto los términos de uso y política de seguridad.
-		</label>
+		<p style="position: absolute; top:4%; right: 19%; font-family: 'DM Sans'; color: #6B43F1; font-size: 60px; z-index: 3;"><strong>Firme aquí</strong></p>		
+		<button class="btn-5" id="sig-submitBtn"   style="width: 200px; height: 100px; position: absolute; right:16%; bottom:38%; color: #fff; background: #6263D5; border-width: inherit; border-radius: 10px; font-size: 30px;">Aceptar</button>
+
+	    <div style="position: absolute; left: 65%; bottom:50%; color:black; font-size: 30px;">
+      		<input style="color: #6B43F1; width: 30px; height: 30px;" type="checkbox" id="acepta" name="acepta">
+      		<label style="position: relative; top:-5px;" for="scales">He leído y  acepto los términos de uso y política de seguridad.</label>
+   		</div>
+	
+		<div id="atras" style="position:absolute; left:69%; bottom:39%" onclick="location.href='documento_id.html';"> 
+					<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+					<lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_bxgjo2wa.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"  loop autoplay></lottie-player>
 		</div>
 		
-		
-		<div style="text-align:center;width:400px;margin-top:40px">
-		<button class="btn-5" id="sig-submitBtn"   style="width: 200px; height: 100px; z-index:10;color: #fff; background: #6263D5; border-width: inherit; border-radius: 10px; font-size: 30px;">Aceptar</button>
-			<!-- <button class="btn-5" id="sig-submitBtn" onclick="alert($('#acepta').prop('checked'))"   style="width: 100px; height: 50px; position: absolute; right:12%; bottom:25%; color: #fff; background: #6263D5; border-width: inherit; border-radius: 10px;">Aceptar</button> -->			
-			<button type="button" class="button" style="border:white;color:white;background:#6263D5;; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin:0px" onclick="location.href='documento_id.html';"><i class="fa fa-arrow-left"></i></button>
-		</div>			
-	</div>
-	</div>			
 		<script src="js/signature.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
@@ -172,42 +138,26 @@
 	
 		<script>
 			
-			
-		
-	$(window).load(function(){
-		$(".fundir").animate({opacity:"1"});
-	})
-	
-			
 		console.log("localStorage Sig",localStorage.getItem("postGuest") );
-		
-		var postGuest2 = localStorage.getItem("postGuest");				
-		var postGuest_json2 = JSON.parse(postGuest2);
+		console.log("guest_aditional", localStorage.getItem("guest_aditional"));
+
+		var postGuest_json2 = JSON.parse(localStorage.postGuest);
 		console.log("default data",postGuest_json2);
 		
+		var guest_aditional_json = JSON.parse( localStorage.guest_aditional);
 		
+		var guest2process_data = JSON.parse(localStorage.guest2process_data);				
 		
-		var guestDocumentNumber = document.getElementById("guestDocumentNumber");
-		var guestDocumentType = document.getElementById("guestDocumentType");
-		var guestDocumentExpirationDate = document.getElementById("guestDocumentExpirationDate");
-		var guestFirstName = document.getElementById("guestFirstName");
-		var guestLastName = document.getElementById("guestLastName");
-		var guestBirthDate = document.getElementById("guestBirthDate");
-		var guestCountry = document.getElementById("guestCountry");
-		var startDate = document.getElementById("startDate");
+		if (guest2process_data.i == 1){
+				console.log("in window");
+			set_form_info_in_window(postGuest_json2, postGuest_json2.startDate);}
+			
+		else{
+			set_form_info_in_window(guest_aditional_json, postGuest_json2.startDate);
+		};
 
-
-		guestDocumentNumber.textContent += postGuest_json2.guestDocumentNumber;		
-		guestDocumentType.textContent += postGuest_json2.guestDocumentType;		
-		guestDocumentExpirationDate.textContent += postGuest_json2.guestDocumentExpirationDate;		
-		guestFirstName.textContent += postGuest_json2.guestFirstName;		
-		guestLastName.textContent += postGuest_json2.guestLastName;		
-		guestBirthDate.textContent += postGuest_json2.guestBirthDate;		
-		guestCountry.textContent += postGuest_json2.guestCountry;		
-		startDate.textContent += postGuest_json2.startDate;		
 		
-
-		var guestInfo = '{"startDate": "","endDate":"",	"guestFirstName": "","guestLastName":"","guestCountry": "",	"guestZip": "","guestEmail": "",	"guestPhone":"","rooms": "","adults":"","children": ""}';
+		var guestInfo = '{"startDate": "","endDate":"",	"guestFirstName": "","guestLastName":"","guestCountry": "",	"guestZip": "","guestEmail": "",	"guestPhone":"","rooms": "","adults":"","children": "", "roomPicked":""}';
 		
 		var guestInfo_json = JSON.parse(guestInfo);
 		guestInfo_json.startDate = postGuest_json2.startDate;
@@ -220,18 +170,26 @@
 		guestInfo_json.guestCellPhone = postGuest_json2.guestCellPhone;
 		guestInfo_json.adults = postGuest_json2.adults;
 		guestInfo_json.children = postGuest_json2.children;
+		guestInfo_json.roomPicked = postGuest_json2.roomPicked;
 				
 			
-		guestInfo = JSON.stringify(guestInfo_json);
+		//guestInfo = JSON.stringify(guestInfo_json);
 		var tmp_rooms = postGuest_json2.rooms;
+		console.log("Room picked info", guestInfo_json.roomPicked);
+		console.log("Rooms info", postGuest_json2.rooms);
+		console.log("postGuest_json2 with all rooms and their info", postGuest_json2);
 			
 		for(const i in tmp_rooms){
-				var name = tmp_rooms[i].roomTypeName;
-				if(guestInfo_json.roomPicked === name){
-					postGuest_json2.rooms =  tmp_rooms[i][0];
+				//console.log("index",i);
+				//var name = tmp_rooms[i].roomTypeName;
+				if(guestInfo_json.roomPicked === tmp_rooms[i].roomTypeName){
+					postGuest_json2.rooms =  [tmp_rooms[i]];  //tmp_rooms[i][0];
+					console.log("Comparison ",i, "room type", tmp_rooms[i].roomTypeName);
+					//break;
 				}
 			};	
-		
+		console.log("postGuest_json2 just with picked rooms info", postGuest_json2);
+
 		var post_info = '{"rooms":"","guestInfo":""}';
 		var post_info_json = JSON.parse(post_info);
 		post_info_json.rooms = postGuest_json2.rooms;
@@ -239,14 +197,43 @@
 		post_info = JSON.stringify(post_info_json);
 		
 		console.log("Post input info", post_info);
+		console.log("With reservation flag ", localStorage.with_reservation_flag);
+		console.log("guest2process_data.i ", guest2process_data.i);
+			
+		if (localStorage.with_reservation_flag == "false" && guest2process_data.i == 1){
+			console.log("Creando reserva");
+			//console.log("Body de postReservation", post_info);	
+			let reservationID = fetchAsync_postReservation("http://127.0.0.1:5000/postReservation", post_info);
+			console.log("post response: reservationID",reservationID);
 		
-		let reservationID = fetchAsync_postReservation("http://127.0.0.1:5000/postReservation", post_info);
-		console.log("post response: reservationID",reservationID);
+		}
 
 	
 			
 			
-			
+function set_form_info_in_window(postGuest_json2, startDate_in){
+		
+	console.log("Set client infor in window");
+		var guestDocumentNumber = document.getElementById("guestDocumentNumber");
+		var guestDocumentType = document.getElementById("guestDocumentType");
+		var guestDocumentExpirationDate = document.getElementById("guestDocumentExpirationDate");
+		var guestFirstName = document.getElementById("guestFirstName");
+		var guestLastName = document.getElementById("guestLastName");
+		var guestBirthDate = document.getElementById("guestBirthDate");
+		var guestCountry = document.getElementById("guestCountry");
+		var startDate = document.getElementById("startDate");
+		
+		guestDocumentNumber.textContent += postGuest_json2.guestDocumentNumber;		
+		guestDocumentType.textContent += postGuest_json2.guestDocumentType;		
+		guestDocumentExpirationDate.textContent += postGuest_json2.guestDocumentExpirationDate;		
+		guestFirstName.textContent += postGuest_json2.guestFirstName;		
+		guestLastName.textContent += postGuest_json2.guestLastName;		
+		guestBirthDate.textContent += postGuest_json2.guestBirthDate;		
+		guestCountry.textContent += postGuest_json2.guestCountry;		
+		startDate.textContent += startDate_in;		
+		
+	
+}	
 			
 function save_signature(){
 

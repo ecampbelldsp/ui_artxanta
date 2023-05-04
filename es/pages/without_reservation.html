@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=DM Sans" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>Selección de día de reserva</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style_2.css" rel="stylesheet" type="text/css">
+	<link href="keyboard/style_keyboard.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="js/form.js"></script> 
+	<script src="./keyboard/script_keyboard.js"></script> 
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>   
+	<style>
+		.campo-form{
+			white-space: pre-line;
+			padding: 10px;
+			font-family: 'DM Sans';
+			font-size: 16px;
+			color: #AAAAAA ;
+			border-radius: 25px;
+			margin-top:15px;
+			margin-bottom:25px;}
+	</style>
+</head>
+<script src="js/api_request.js"> </script>
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
+
+	<div class="row" style="text-align:center">
+		<div id="waitLogo" style="position: absolute; ; opacity: 0;margin-top:260px;margin-left:-40px"> 
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets9.lottiefiles.com/packages/lf20_7fwvvesa.json"  background="transparent"  speed="1"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>	
+		</div>
+	</div>
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
+				<div   id="frame" style="text-align: center;background-color:transparent;" class="container">
+					<section class="form-section" style="background-color:transparent;">
+				<br><br><br>
+
+				<legend style="font-family: 'DM Sans'; font-weight: bold; font-size: 36px; color: #6B43F1;text-align:center;margin:10px;margin-right:10px; background-color:transparent">  <strong>Visite nuestro sitio web para realizar una reserva</strong></legend>
+		<br><br><br>
+						
+		<img src="image/qr_hotel_website.png" style="position: relative; width: 300px; height: 300px;">
+		
+						
+			<legend style="font-family: 'DM Sans'; font-weight: bold; font-size: 26px; color: #6B43F1;text-align:center;margin:10px;margin-right:10px; background-color:transparent">  https://www.hotelartxanda.com/</legend>
+						
+									<br><br><br> <br><br><br> 
+			<form action="check_in.html">
+				<button id="aceptar" class="button custom-btn btn-16 " style="font-size: 24px;margin-top:-37px;width: 138px; height: 56px;" type="submit" ><strong>Aceptar</strong> <span class="glyphicon glyphicon-send" onclick="location.href='check_in.html';"></span></button>		
+			</form>		
+			</section>
+    		</div>
+	
+	</div>
+		
+		
+<script>
+	
+	
+	localStorage.with_reservation_flag = false;
+	
+	console.log("localStorage.with_reservation_flag", localStorage.with_reservation_flag);
+	
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+	
+			
+	
+</script>
+
+</body>
+</html>
+

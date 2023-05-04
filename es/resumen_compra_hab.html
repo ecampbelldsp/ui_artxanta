@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+<meta charset="utf-8">
+<title>Info Reserva</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style_2.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;z-index:-1" class="dot"></span>
+
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
+<!--
+				<p id="nombre" style="box-shadow: 5px 10px; white-space: pre-line; background-color: white; padding: 0px; border: 2px solid black; width: 50%; position:relative; left: 25%; font-family: 'Lato', sans-serif; font-size: 28px; opacity: 0.8;"> Nombre: </p> 
+	
+			<p id="room" style="box-shadow: 5px 10px; white-space: pre-line; background-color: white; padding: 0px; border: 2px solid black; width: 50%; position:relative; left: 25%; font-family: 'Lato', sans-serif; font-size: 28px; opacity: 0.8;"> Tipo de habitación: </p>
+	
+			<p id="outday" style="box-shadow: 5px 10px; white-space: pre-line; background-color: white; padding: 0px; border: 2px solid black; width: 50%; position:relative; left: 25%; font-family: 'Lato', sans-serif; font-size: 28px; opacity: 0.8;"> Fecha de salida: </p>
+	
+			<p id="document_number" style="box-shadow: 5px 10px; white-space: pre-line; background-color: white; padding: 0px; border: 2px solid black; width: 50%; position:relative; left: 25%; font-family: 'Lato', sans-serif; font-size: 28px; opacity: 0.8;"> ID/passport: </p> 
+-->
+
+
+			<p style="font-family: 'DM Sans'; font-weight: bold; font-size: 50px; color: #6B43F1;margin:60px"> Reserva </p>
+			
+	
+			<p id="hab_label" style="white-space: pre-line;padding: 10px;  font-family: 'DM Sans'; font-size: 20px; color: #AAAAAA ; border-radius: 25px"> Habitación </p> 		
+			<p id="hab" class="campo" style="color: #a0a0a0; width: 75%; display: inline-block;">  </p> 
+			
+						<p id="fecha_label" style="white-space: pre-line;padding: 10px;  font-family: 'DM Sans'; font-size: 20px; color: #AAAAAA ; border-radius: 25px"> Fecha reservada </p> 		
+			<p id="fecha" class="campo" style="color: #a0a0a0; width: 75%; display: inline-block;">  </p>
+	
+	
+		
+			<p id="coste_label" style="white-space: pre-line;padding: 10px; font-family: 'DM Sans'; font-size: 20px; color: #AAAAAA ; border-radius: 25px">  Coste </p> 		
+			<p id="coste" class="campo" style="color: #a0a0a0; width: 75%; display: inline-block;">  </p> 
+			
+<!--					<p id="totalmoney" style=" white-space: pre-line; background-color: black; padding: 20px; border: 2px solid black; width: 50%; position:relative; left: 25%; font-family: 'Lato', sans-serif; font-size: 28px; opacity:1;color: white; "> Importe total: </p>-->
+
+<!--				<p id="pagado" style="white-space: pre-line; background-color: black; padding: 20px; border: 2px solid black; width: 50%; position:relative; left: 25%; font-family: 'Lato', sans-serif; font-size: 28px; opacity: 1; color: white;"> Pagado: </p> -->
+	
+<!--			<p id="deuda" style="white-space: pre-line; background-color: black; padding: 20px; border: 2px solid black; width: 50%; position:relative; left: 25%; font-family: 'Lato', sans-serif; font-size: 28px; opacity: 1; color: white;"> Deuda a pagar: </p> -->
+	
+<!--		<p id="log" style="white-space: pre-line; background-color: white; padding: 10px; border: 2px solid black; width: 50%; position:absolute; top:0%; left: 20%; font-family: 'Lato', sans-serif; font-size: 34px;"> <strong> Resumen de reserva </strong>  <br> <br> <br> Nombre:  <br> <br>  Tipo de habitación:  <br> <br> Fecha de entrada:  <br> <br> Fecha de salida: <br><br> NIF:   <br><br>  Importe total: <br>Total a pagar:</p>-->
+	
+<!--	<input autocomplete="off" type="button" class="button custom-btn btn-16 " style="position:absolute; left:5%; bottom:10%" value="Atrás" onclick="location.href='signature.html';">-->
+	
+<!--
+	<div style="position:absolute; left:5%; bottom:5%;" onclick="location.href='signature.html';"> 
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_bxgjo2wa.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop autoplay></lottie-player>
+</div>
+-->
+	
+		<input autocomplete="off" type="button" class="button custom-btn btn-16 " style="font-size: 24px;margin-top:111px" value="Aceptar" onclick="location.href='documento_id.html';">
+	
+	</div>
+</body>
+	
+	<script>
+	
+		console.log(localStorage.with_reservation_flag);
+	
+		if(localStorage.with_reservation_flag == "false"){
+		var postGuest = localStorage.postGuest;				
+		var postGuest_json = JSON.parse(postGuest);
+		postGuest_json.numberOfGuests = postGuest_json.adults;
+		localStorage.setItem("postGuest", JSON.stringify(postGuest_json));
+			
+		console.log("Number of Guests saved - without reservation flow",postGuest_json.numberOfGuests);
+		
+		var guest2process_data = '{"adults":"","i":1}';
+		guest2process_data = JSON.parse(guest2process_data);
+		guest2process_data.adults = parseInt(postGuest_json.adults);
+		localStorage.setItem("guest2process_data", JSON.stringify(guest2process_data));
+		console.log("guest2process_data.i ", guest2process_data.i );}
+//		}else{
+//					console.log("Number of Guests saved - without reservation flow",postGuest_json.numberOfGuests);
+//
+//		};
+//		
+	
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+	
+	
+		postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+		
+		console.log("Guest info ",postGuest_jsonPago)
+		
+		var hab = document.getElementById('hab');
+		var fecha = document.getElementById('fecha');
+		var coste = document.getElementById('coste');
+
+
+//		nombre.textContent += postGuest_jsonPago.guestFirstName + " " + postGuest_jsonPago.guestLastName;
+//		room.textContent += postGuest_jsonPago.roomType + " No. " + postGuest_jsonPago.roomID;
+//		outday.textContent += postGuest_jsonPago.endDate;
+//		document_number.textContent += postGuest_jsonPago.guestDocumentNumber;
+		hab.textContent += postGuest_jsonPago.roomPicked;
+		fecha.textContent += postGuest_jsonPago.startDate + "  hasta  " + postGuest_jsonPago.endDate;
+		coste.textContent += postGuest_jsonPago.roomPicked_price + " €";
+		
+		//postGuest_jsonPago.balance = postGuest_jsonPago.roomPicked_price;
+		
+		localStorage.postGuest = JSON.stringify(postGuest_jsonPago)
+		
+
+		
+	</script>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+<meta charset="utf-8">
+<title>Llave de habitación</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./css/style.css" rel="stylesheet" type="text/css">
+	
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+     
+	
+	<script type="text/javascript">
+		
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+	</script>
+</head>
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;z-index:-1" class="dot"></span>
+
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 18vh;opacity:0;display:block;text-align:center">
+		<div style="max-height:70%;overflow:hidden;border-radius: 25px;">
+			<img src="image/bienvenida.jpg" style=" border-radius: 25px; z-index: 0;width:100%;height:auto" alt="Hall" width="400" height="450">
+		</div>
+		<p id="roomID" style="font-family: DM Sans; font-size: 50px; font-weight: bold; color: #6B43F1; margin-top: 10px;padding:30px">  <strong>Habitación</strong> <br> </p>
+
+</body>
+	
+	<script>
+
+				postGuest_json = JSON.parse(localStorage.postGuest);
+				console.log(postGuest_json);
+				let text = document.getElementById("roomID");
+				text.textContent += postGuest_json.roomID;
+				body = '{roomID:"",pin:""}';
+				
+
+				setTimeout( function(){window.location.href = "/index.html";
+									  },10000 )
+		
+	</script>
+</html>

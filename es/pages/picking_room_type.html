@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+<meta charset="utf-8">
+<title>Info Reserva</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style_2.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;z-index:-1" class="dot"></span>
+
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
+		<h3  style=" font-weight: bold; font-size: 36px; color: #6B43F1;text-align:center;margin:30px;background-color:transparent">Seleccione una habitación</h3>
+		
+		<div class="row" style="float:left;width:98%;margin:5px;box-shadow: 4px 0px 5px #eee;border-radius:15px;cursor:pointer;"  onClick="picking_room('Standard','room0');" >
+			<div class="" style="overflow-x:hidden;border-radius: 20px;padding:0px;width:40%">
+				<img src="image/a.jpg" alt="logo" class="logo" style="width: 200px ;height: 178px; color: white;  border-radius: 25px">
+			</div>
+			<div class="" style="overflow-x:hidden;padding:10px;text-align: left;width:60%">
+				<p style="  font-weight: bold;"> Standard room</p>
+				<p id="room0" style="  font-weight: bold; color: red; font-size: 13px;"> (No disponible) </p>
+				<p id="price0" style=" font-weight: lighter; font-size: 12px; opacity: 0;"> Precio:</p>		
+				<i class="fa fa-bed" style="color:white;background-color:#5E81F4;border-radius:15px;height:25px;width:25px;padding:3px"></i><span id="guest0" style="  font-weight: lighter; font-size: 12px; opacity: 0;"> Max. huéspedes: </span>	
+			</div>	
+		</div>
+
+		<div class="row" style="float:left;width:98%;margin:5px;box-shadow: 4px 0px 5px #eee;border-radius:15px;cursor:pointer;"  onClick="picking_room('Deluxe King','room1');" >
+			<div class="col-md-2" style="overflow-x:hidden;border-radius: 20px;padding:0px;width:40%">
+				<img src="image/b.jpg" alt="logo" class="logo" style=" width: 200px ;height: 178px; color: white;  border-radius: 25px" >
+			</div>
+			<div class="col-md-7" style="overflow-x:hidden;padding:10px;text-align: left;width:60%">
+				<p style="  font-weight: bold;"> Deluxe King room</p>
+				<p id="room1" style=" font-weight: bold; color: red; font-size: 13px;"> (No disponible)</p>
+				<p id="price1" style="  font-weight: lighter; font-size: 12px; opacity: 0;"> Precio:</p>	
+				<i class="fa fa-bed" style="color:white;background-color:#5E81F4;border-radius:15px;height:25px;width:25px;padding:3px"></i><span id="guest1" style="  font-weight: lighter; font-size: 12px; opacity: 0;"> Max. huéspedes: </span>	
+			</div>	
+		</div>	
+					
+		<div class="row" style="float:left;width:98%;margin:5px;box-shadow: 4px 0px 5px #eee;border-radius:15px;cursor:pointer;"  onClick="picking_room('Deluxe Queen','room2');" >
+			<div class="col-md-5" style="overflow-x:hidden;border-radius: 20px;padding:0px;width:40%">
+				<img src="image/c.jpg" alt="logo" class="logo" style=" width: 200px ;height: 178px; color: white;  border-radius: 25px">
+			</div>
+			<div class="col-md-7" style="overflow-x:hidden;padding:10px;text-align: left;width:60%">
+				<p style="  font-weight: bold;"> Deluxe Queen room</p>
+				<p id="room2" style="  font-weight: bold; color: red; font-size: 13px;"> (No disponible)</p>
+				<p id="price2" style=" font-weight: lighter; font-size: 12px; opacity: 0;"> Precio:</p>	
+				<i class="fa fa-bed" style="color:white;background-color:#5E81F4;border-radius:15px;height:25px;width:25px;padding:3px"></i><span id="guest2" style=" font-weight: lighter; font-size: 12px; opacity: 0;"> Max. huéspedes: </span>	
+			</div>	
+		</div>
+		
+		<div class="row" style="text-align:center;display: inline-block;">
+			<button type="button" class="button" style="border:white;color:white;background:#6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-top:13px;" onclick="location.href='documento_id.html';"><i class="fa fa-arrow-left"></i></button>
+		</div>
+	</div>
+	<br>
+	<script>
+			
+	console.log("guest2process_data", localStorage.guest2process_data);
+	
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+	
+	
+	console.log("Post guest", localStorage.postGuest);
+			
+	var postGuest_json = JSON.parse(localStorage.postGuest);
+		
+	var availableRooms = postGuest_json.availableRooms;
+	var rooms = postGuest_json.rooms;
+	console.log("habi", rooms);
+	console.log("availableRooms",availableRooms);
+		
+	for(const i in availableRooms){
+				
+				var room = availableRooms[i];
+				console.log(room);
+				
+				if("Deluxe Queen" == room){
+					var room2 = document.getElementById("room2");
+					var price2 = document.getElementById("price2");
+					var guest2 = document.getElementById("guest2");
+					
+					price2.style.opacity = 1;
+					guest2.style.opacity = 1;
+					
+					room2.style.color = "blue";
+					room2.textContent = "(DISPONIBLE)";
+					price2.textContent += rooms[0].roomRate + " €";
+					guest2.textContent += rooms[0].maxGuests;
+					console.log("Queen price", i, rooms);
+					
+				}
+
+				if("Deluxe King" == room){
+					var room1 = document.getElementById("room1");
+					var price1 = document.getElementById("price1");
+					var guest1 = document.getElementById("guest1");
+					
+					price1.style.opacity = 1;
+					guest1.style.opacity = 1;
+					
+					
+					room1.style.color = "blue";
+					room1.textContent = "(DISPONIBLE)";
+					price1.textContent += rooms[1].roomRate + " €";
+					guest1.textContent += rooms[1].maxGuests;
+
+				}
+				if("Standard" == room){
+					var room0 = document.getElementById("room0");
+					var price0 = document.getElementById("price0");
+					var guest0 = document.getElementById("guest0");
+					
+					price0.style.opacity = 1;
+					guest0.style.opacity = 1;
+					
+					
+					room0.style.color = "blue";
+					room0.textContent = "(DISPONIBLE)";
+					price0.textContent += rooms[2].roomRate + " €";
+					guest0.textContent += rooms[2].maxGuests;
+					
+
+				}
+				
+			}
+			
+			
+		function get_values(){
+		var postGuest_json = JSON.parse(localStorage.postGuest);
+	    postGuest_json.roomType = document.getElementById("roomType").value;
+		localStorage.postGuest = JSON.stringify(postGuest_json);
+//		console.log("First name",nameValue )
+		console.log(localStorage.postGuest );
+			
+			};
+	
+			
+	function picking_room(room,id){
+	
+		var item = document.getElementById(id);
+		if(item.textContent === "(DISPONIBLE)"){
+					
+					var postGuest_json = JSON.parse(localStorage.postGuest);
+					postGuest_json.roomPicked = room;
+					let list_rooms_json =  postGuest_json.rooms;
+			
+					for( const i in list_rooms_json){
+						
+						if(list_rooms_json[i].roomTypeName ==room){
+						//console.log("for",list_rooms_json[i].roomTypeName);
+						postGuest_json.roomPicked_price = list_rooms_json[i].roomRate;
+						postGuest_json.balance = list_rooms_json[i].roomRate;
+						postGuest_json.paid = 0;
+		   				postGuest_json.total = list_rooms_json[i].roomRate;
+						
+						}
+					};
+					localStorage.postGuest = JSON.stringify(postGuest_json);
+
+					window.location.href = "resumen_compra_hab.html";
+			
+		}
+		
+		
+	}
+	</script>
+</body>
+</html>

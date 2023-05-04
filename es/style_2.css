@@ -1,0 +1,352 @@
+.form-section fieldset {
+    border-radius:25px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.dot {
+  z-index: -1;
+  height: 600px;
+  width: 600px;
+  background-color: #EBEBEB;
+  border-radius: 50%;
+  display: inline-block;
+box-shadow:0px 0px 100px 50px rgba(245,66,206,.5), /*rgba(245,66,206,.5),*/
+
+   0px 0px 20px 0px rgba(245,66,206,.5),
+   0px 0px 5px 0px rgba(245,66,206,.5);
+}
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+.circle {
+ /* width: 250px;
+  height: 250px;*/
+  line-height: 200px;
+  border-radius: 50%;
+  font-size: 50px;
+  text-align: center;
+  background: white;
+  opacity: 1;
+
+ 
+}
+.boton {
+  background-color: #6263D5;  
+  margin:20px;
+  border-radius:15px;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.boton_claro {
+  background-color: #fff;   
+  margin:20px;
+  border-radius:15px;
+  border: none;
+  color: #6263D5;
+  border:1px solid #6263D5;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height:50px;
+  width:100px;
+}
+
+.campo{
+	background-color: #eaeaea;
+	color: black;
+	position: relative;
+	border-radius: 25px;
+	padding:10px;
+	border:none;
+	width:80%;
+	height:44px;
+}
+
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+#sig-canvas {
+  border: 2px dotted #FFFFFF;  /*#CCCCCC  */
+  border-radius: 15px;
+  cursor: crosshair;
+}
+
+body {
+  margin:0;
+  padding: 0;
+/*  background:  #A4A1A1;*/
+/* background-image: url('image/background.jpg'); #EBEBEB */
+ overflow: hidden;
+ background-size: cover;
+ background-color: white;
+ background-blend-mode: darken;
+}
+input[type=text] {
+  transition: width 0.4s ease-in-out;
+}
+.container {
+/*background-blend-mode: lighten;
+background-color: rgba(255,255,255);*/
+  -webkit-transform-style : preserve-3d;
+  -moz-transform-style    : preserve-3d;
+  -o-transform-style      : preserve-3d;
+  -ms-transform-style     : preserve-3d;
+  transform-style         : preserve-3d;
+  z-index: 1;
+
+}
+
+h1 {
+  position: relative;
+  text-align: center;
+  color: #faf9f5;
+  font-size: 100px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+
+button {
+  margin: 20px;   
+  width: 130px;
+  height: 80px;
+}
+.button_big {
+  margin: 20px;
+  width: 430px;
+  height: 180px;
+}
+.custom-btn {
+
+  color: #fff;
+  border-radius: 5px; 
+  padding: 10px 25px;
+  font-family: "DM Sans";
+  font-weight: 500;
+  font-size: 54;  /* 54 */
+  background: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+
+/* 16 */
+.btn-16 {
+  border: none;
+  color: #fff;
+  background-color:#6263D5;
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+ /* height: 100%;
+  top: 0;
+  left: 0;*/
+  direction: rtl;
+  z-index: -1;
+  box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-16:hover {
+  /*color:#6263D5 ;*/
+  /*background-color:#fff;*/
+}
+.btn-16:hover:after {
+  left: auto;
+  right: 0;
+ /* width: 100%;*/
+}
+.btn-16:active {
+  top: 2px;
+}
+
+
+/* 16 */
+
+
+.site {
+    height: 100%;
+}
+
+
+
+.page-content {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: #1abc9c;
+}
+
+#new-content {
+  background: #f1c40f;
+  z-index: 1;
+}
+
+.page-content p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 75px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+
+#new-content p {
+  color: #010101;
+}
+
+.page-content p strong {
+  font-weight: 700;
+}.button {
+}
+.button_big {
+}
+
+/* Calendar Start */
+  ::-webkit-inner-spin-button { 
+  display:none;
+}
+::-webkit-calendar-picker-indicator { background-color:white}
+input[type=date]{
+  font-size:25px;
+}
+::-webkit-datetime-edit-text { color:#555555}
+::-webkit-datetime-edit-month-field { color:#555555 }
+::-webkit-datetime-edit-day-field { color: #555555; }
+::-webkit-datetime-edit-year-field { color:#555555; }
+::-webkit-calendar-picker-indicator{ 
+  background-image: url("image/Calendar-icon.png"); /*http://icons.iconarchive.com/icons/dakirby309/simply-styled/256/Calendar-icon.png */
+      background-position:center;
+       background-size:20px 20px;
+       background-repeat:no-repeat;
+      color:rgba(204,204,204,0);
+}
+/* Circle text shape */
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+
+.arrow {
+  
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  display: inline-block;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-color: #000;
+    border-width: 2px 2px 0 0;
+    position: absolute;
+    transform-origin: 50% 50%;
+  }
+
+  &.left::before { 
+    transform: rotate(-135deg);
+    margin: -15px 0 0 -10px;
+  }
+  &.up::before { 
+    transform: rotate(-45deg); 
+    margin: -10px 0 0 -15px;
+  }
+  &.down::before { 
+    transform: rotate(135deg); 
+    margin: -20px 0 0 -15px;
+  }
+  &.right::before { 
+    transform: rotate(45deg); 
+    margin: -15px 0 0 -20px;
+  }
+  
+  &::after {
+    content: '';
+    display: block;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-color: #000;
+    position: absolute;
+    transform-origin: 50% 50%;
+  }
+  
+  &.left::after { 
+    width: 40px;
+    height: 0;
+    border-width: 2px 0 0 0;
+    transform: translate(-14px, -1px);
+  }
+  
+  &.up::after { 
+    width: 0;
+    height: 40px;
+    border-width: 0 2px 0 0;
+    transform: translate(-1px, -14px);
+  }
+  
+  &.down::after { 
+    width: 0;
+    height: 40px;
+    border-width: 0 2px 0 0;
+    transform: translate(-1px, -26px);
+  }
+  
+  &.right::after { 
+    width: 40px;
+    height: 0;
+    border-width: 2px 0 0 0;
+    transform: translate(-26px, -1px);
+  }
+  
+  &.circle {
+    background: rgba(233,233,180,0.75);
+    border-radius: 50px;
+  }
+  
+  &.debug {
+    outline: 1px solid darkblue;
+
+    &::before {
+      outline: 1px solid red;
+    }
+  }
+}

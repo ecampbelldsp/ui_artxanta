@@ -1,0 +1,22 @@
+Public URL
+
+https://38e7-2-155-24-184.eu.ngrok.io
+
+# Reservation
+
+	GET## Find a reservation by: reservation id
+
+		https://38e7-2-155-24-184.eu.ngrok.io/get_reservation_cloudbeds?reservationId=3468462393326
+
+	GET## Find a reservation by: id document
+
+		https://38e7-2-155-24-184.eu.ngrok.io/find_reservation_cloudbeds?guestIdDocument=8902134
+
+
+	GET## Find reservation by: date-in, date-out and guest name or lastname
+
+		https://38e7-2-155-24-184.eu.ngrok.io/find_reservation_cloudbeds?dateIn=2023-01-01&dateOut=2023-01-10&guestLastName=Test
+
+	PUT## Modify a reservation by: reservation id
+
+		curl -X PUT localhost:8080/put_reservation_cloudbeds -H 'Content-type:application/json' -d '{"propertyID": 212599, "reservationID": 3468462393326, "status": "confirmed", "estimatedArrivalTime": "10:00", "rooms": [{"roomTypeID": "Deluxe King", "checkinDate": "2023-01-01", "checkoutDate": "2023-01-10", "adults": 2, "children": 0}]}'

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+	<meta charset="utf-8">
+	<title>Identificación</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style_2.css" rel="stylesheet" type="text/css">
+	<script src="js/api_request.js"> </script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+</head>
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';;zoom:150%">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:0"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
+
+	<div class="fundir" id="frame" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center; z-index: 10;">
+		<div id="waitLogo" style="position: absolute; top:10%; left:40%; z-index: -2; opacity: 0;">
+			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+			<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_bedcttfp.json"  background="transparent"  speed="1"  style="width: 400px; height: 600px;"  loop  autoplay></lottie-player>
+		</div>
+		<div id="scan" style="opacity: 1">
+
+			<img src="image/scan.gif" style=" width: 150px; height: 150px;margin-top:31px">
+		
+			<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px"> Escanee su</p>
+			<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-40px;">  documento de</p>
+			<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-80px;"> identidad </p>
+			<p id="guest" style="font-family:'DM Sans'; font-size: 20px; font-weight: bold; color: #920909; opacity: 1;margin-top:30px; position: relative; top:-80px;"> Huespéd # </p>
+<!--		Escanee su<br> documento de <br> identidad-->
+			<input autocomplete="off" type="button" class="boton" style=" font-size: 25px; width:270px;margin-top:50px;position: relative; top:-80px; " value="Inscripción manual" onclick="location.href='jot_form.html';">
+	
+			<input id="button_automatic_scan" autocomplete="off" type="button" class="boton " style=" font-size: 25px; width:270px;margin-top:50px; position: relative; top:-80px;" value="Escaneo automático" onclick="scan_function();">
+	
+	
+			<div id="alerta" style="opacity: 0; z-index: 1000; ">
+					<div class="message-box message-box-warn">
+					<i class="fa fa-warning fa-2x"></i>
+						<span id="alerta_message" class="message-text"> Gire el documento para un correcto escaneado.</span>
+					<i class="fa  fa-2x exit-button "></i>
+					</div>
+			</div>		
+			<div  id="atras" style="" onclick="location.href='check_in.html';">
+				<button type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:60px;margin-top:4px;padding: 10px; top:-80px;"><i class="fa fa-arrow-left"></i></button>
+			</div>
+		</div> 
+	</div> 
+			
+
+<script>	
+		
+	if (localStorage.with_reservation_flag == true){
+	fetchAsync_getnumberOfGuests();
+	};
+	
+		var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
+		var guest = document.getElementById('guest');
+		guest.textContent += guest2process_data.i;
+
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+	
+	
+ 		function scan_function(){
+		console.log("scan page");
+		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page");	
+		}
+		
+		
+		
+		
+	</script>
+	
+</body>
+</html>

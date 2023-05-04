@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+<meta charset="utf-8">
+<title>Confirmación de pago</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./css/style.css" rel="stylesheet" type="text/css">
+	<link href="style_2.css" rel="stylesheet" type="text/css">
+	<script src="js/api_request.js"> </script>
+	
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+	
+	  
+</head>
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
+
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
+		<p style="font-family: 'DM Sans';font-weight: bold;font-size: 46px;color: #6B43F1;white-space: initial;width: 286px;text-align: center;margin:auto;margin-bottom: 0px;margin-top: 35px;"> Pague ahora </p>
+		<br>
+		<br><br>
+		<br>
+		<img src="image/pago.gif" style="width: 150px; height: 150px;display:block;text-align: center;margin:auto">
+
+	<input autocomplete="off" type="button" class="boton " style="font-size: 24px; display:inline;margin-top:164px" value="Aceptar" onclick="location.href('take_key.html');">
+	
+	
+	
+	<script type="text/javascript">
+		
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+	</script>
+	<script>
+
+		postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+
+		var body = '{"reservationID": "","checkIn": "","checkOut": "","roomType": "","roomPrice": "","guestName": "","guestAddress": "","guestDocument": "","invoiceNumber": "","amount": "","cardType": "","cardNumber": "","cardCVV": "","cardExpire": ""}';
+		body = JSON.parse(body);
+
+		body.reservationID = postGuest_jsonPago.reservationID;
+		body.checkIn = postGuest_jsonPago.startDate;
+		body.checkOut = postGuest_jsonPago.endDate;
+		body.roomType = postGuest_jsonPago.roomType;
+		body.roomPrice = postGuest_jsonPago.roomPicked_price;
+		body.guestName = postGuest_jsonPago.guestFirstName + " " + postGuest_jsonPago.guestLastName;
+		//body. = postGuest_jsonPago.guestAddress;
+		body.guestDocument = postGuest_jsonPago.guestDocumentType;
+		body.amount  = postGuest_jsonPago.balance;
+
+		//flag = makePayment(url, body);
+
+
+		//fetchAsync_getPago("http://localhost:8080/");
+	</script>
+	
+</body>
+</html>

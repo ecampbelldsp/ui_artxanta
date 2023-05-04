@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+<meta charset="utf-8">
+<title>Confirmación de pago</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style_2.css">
+	<link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.css">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+      
+	<style>
+	.titular{
+		font-family: 'DM Sans';
+		font-weight: bold;
+		font-size: 40px;
+		color: #6B43F1;
+		white-space: initial;
+		width: 100%;
+		text-align: center;
+		margin:0px;
+		display:block;
+		padding:30px;
+	}
+	
+
+	</style>
+	  
+</head>
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333" translate="no"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
+
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
+		<p class="titular escoja" style="margin-bottom: 60px;margin-top: 85px;"> Escoja un método de pago </p>
+		<br>
+		<button id="tarjeta" class="escoja custom-btn  btn-16" style= "width: 150px; height: 50px; font-size: 30px;padding: 0px;float:left;margin-left: 80px;" onclick="cobrarTarjeta()">Tarjeta</button>
+		
+		<button class="escoja custom-btn  btn-16" style= "width: 150px; height: 50px; font-size: 30px;padding: 0px;float:right;margin-right: 80px;" onclick="cobrarEfectivo()">Efectivo</button>
+		<br><br>
+		<br>
+		<p class="efectivo_gif titular" style="display:none;font-size:50px">Introduzca efectivo </p>
+		<div class="efectivo_gif" style="text-align:center;display:block;padding-left:34%;height:250px;margin-top:100px;display:none">
+			<img class="efectivo_gif" id="billete" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
+			<img class="efectivo_gif" id="billete1" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
+			<img class="efectivo_gif" id="billete2" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
+			<img class="efectivo_gif" id="billete3" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
+		</div>
+		
+		<p class="tarjeta_gif titular" style="display:none">Introduzca su tarjeta de crédito en el lector de la derecha</p><br>
+		<div class="tarjeta_gif" style="text-align:center;display:none;height:250px;">
+			<img class="tarjeta_gif" src="image/pago.gif" style="width: 150px; height: 150px;display:block;text-align: center;margin:auto;display:block;display:none">
+		</div>
+		
+		
+		<button id="atras" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:60px;margin-top:275px;padding: 10px;" onclick="history.back();"><i class="fa fa-arrow-left"></i></button>
+		
+		<button id="siguiente" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:100px;font-size: 20px;position: relative;float: left;margin-left:233px;margin-top:53px;padding: 10px;display:none" onclick="window.location.href = 'take_key.html';">Siguiente</button>
+
+	<!-- <input autocomplete="off" type="button" class="boton " style="font-size: 24px; display:inline;margin-top:164px" value="Aceptar" onclick="location.href='take_key.html';"> -->
+	
+	
+	
+	<script type="text/javascript">
+		
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+	</script>
+	<script>
+		fetchAsync_getPago("http://localhost:8080/");
+	</script>
+	<!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+	
+	<script type="text/javascript">
+	
+		
+		function restaurar(){
+			$(".escoja").fadeIn();
+			$(".tarjeta_gif").hide();
+			$(".efectivo_gif").hide();
+			$("#siguiente").hide();
+			$("#atras").css("margin-top","275px");
+			$("#atras").attr("onclick","history.back()")
+		}
+		
+		function cobrarTarjeta(){
+			$(".escoja").hide();
+			$(".tarjeta_gif").fadeIn();
+			$("#siguiente").fadeIn();
+			$("#siguiente").css("margin-top","124px");
+			$("#atras").css("margin-top","124px");
+			$("#atras").attr("onclick","restaurar()")
+			
+			//Cobrar con tarjeta...
+		}
+		function cobrarEfectivo(){
+			$(".escoja").hide();
+			$(".efectivo_gif").fadeIn();
+			$("#siguiente").fadeIn();
+			$("#siguiente").css("margin-top","53px");
+			$(".efectivo_gif").css("display","block");
+			$("#atras").css("margin-top","48px");
+			setInterval(animaBilletes,1000);
+			$("#atras").attr("onclick","restaurar()")
+			
+			//Cobrar en efectivo...
+		}
+		
+		function animaBilletes(){
+			$("#billete").animate({rotate : "-15deg"}, "slow").delay(2000).animate({rotate : "0deg"}, "slow");
+			$("#billete1").animate({rotate : "0deg"}, "slow").delay(2000).animate({rotate : "0deg"}, "slow");
+			$("#billete2").animate({rotate : "15deg"}, "slow").delay(2000).animate({rotate : "0deg"}, "slow");
+			$("#billete3").animate({rotate : "30deg"}, "slow").delay(2000).animate({rotate : "0deg"}, "slow");
+		}
+		
+	</script>
+	
+</body>
+</html>

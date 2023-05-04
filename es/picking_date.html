@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=DM Sans" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>Selección de día de reserva</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style_2.css" rel="stylesheet" type="text/css">
+	<link href="keyboard/style_keyboard.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="js/form.js"></script> 
+	<script src="./keyboard/script_keyboard.js"></script> 
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>   
+	<style>
+		.campo-form{
+			white-space: pre-line;
+			padding: 10px;
+			font-family: 'DM Sans';
+			font-size: 16px;
+			color: #AAAAAA ;
+			border-radius: 25px;
+			margin-top:15px;
+			margin-bottom:25px;}
+	</style>
+</head>
+<script src="js/api_request.js"> </script>
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
+
+	<div class="row" style="text-align:center">
+		<div id="waitLogo" style="position: absolute; ; opacity: 0;margin-top:260px;margin-left:-40px"> 
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets9.lottiefiles.com/packages/lf20_7fwvvesa.json"  background="transparent"  speed="1"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>	
+		</div>
+	</div>
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
+				<div   id="frame" style="text-align: center;background-color:transparent;" class="container">
+					<section class="form-section" style="background-color:transparent;">
+    			<form  class="well form-horizontal" action="" method="get"  id="contact_form" style="padding-top: 50px; padding-bottom: 50px; border-radius: 25px; overflow: hidden;">
+
+				<fieldset style="padding: 0px; border-width: 0px; margin-top: -12px;">
+
+				<legend style="font-family: 'DM Sans'; font-weight: bold; font-size: 36px; color: #6B43F1;text-align:center;margin:10px;background-color:transparent">  <strong>Información de hospedaje</strong></legend>
+
+
+
+		<div class="form-group"> 
+    			<div class="selectContainer">
+					<div class="">
+					<label style="font-size: 20px; color: #6263D5; font-family: 'DM Sans';color:#AAAAAA;width: 50%;margin-top:20px" class=" control-label"><strong>Adultos</strong>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+		
+    					<select class="campo campo-form" style="width: 100%;text-align:center" id="adults" name="state">
+      							<option value="1" >1</option>
+      							<option value="2" >2</option>
+      							<option value="3" >3</option>
+      							<option value="4" >4</option>
+     							<option value="5" >5</option>
+      							<option value="6" >6</option>
+      							<option value="7" >7</option>
+      							<option value="8" >8</option>
+								<option value="9" >9</option>
+      							<option value="10" >10</option>
+    					</select>
+						</label>
+  					</div>
+				</div>
+		</div>	
+
+		<div class="form-group"> 
+			<div class="selectContainer">
+		<div class="">
+  			<label style="font-size: 20px; color: #6263D5; font-family: 'DM Sans';color:#AAAAAA;width: 50%;margin-top:20px" class="col-md-4 control-label"><strong>Menores</strong>
+				<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+				<select class="campo campo-form" style="width: 100%;text-align:center" id="children" name="children"  >
+					<option value="0" >0</option>
+					<option value="1" >1</option>
+					<option value="2" >2</option>
+					<option value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="6" >6</option>
+					<option value="7" >7</option>
+					<option value="8" >8</option>
+					<option value="9" >9</option>
+					<option value="10" >10</option>
+				</select>
+			</label>
+  		</div>
+			</div>
+		</div>	
+		
+		
+		<div class="form-group">
+			<div class="inputGroupContainer">
+    		<div class="">
+				<label style="width: 50%;font-size: 20px; color: #6263D5; font-family: 'DM Sans';white-space: nowrap;color:#AAAAAA;margin-top:20px"  class="control-label"><strong>Fecha de entrada</strong>
+					<div class="inputGroupContainer">
+						<div class="">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+						<input autocomplete="off" class="campo campo-form" style="width: 100%;font-size:16px" id="startDate" name="startDate" placeholder="--/--/--" class="form-control" type="date">
+						</div>
+					</div>
+				</label>  
+    		</div>
+  			</div>
+		</div>
+
+					
+		<div class="form-group">
+  				<label style="width: 50%;font-size: 20px; color: #6263D5; font-family: 'DM Sans';white-space: nowrap;color:#AAAAAA;margin-top:20px"  class="control-label"><strong>Fecha de salida</strong>
+					<div class="inputGroupContainer">
+						<div class="">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-globe">
+							<input autocomplete="off"  style="width: 100%;font-size:16px" class="campo campo-form" id="endDate" name="endDate" placeholder="--/--/--"  type="date"></i></span>
+						</div>
+					</div>
+				</label>  
+		</div>
+
+		<br>
+		
+	
+				</fieldset>
+					</form>
+	
+		<div class="row">
+			<button type="button" id="atras" class="button" style="border:white;color:white;background:#6263D5;margin-top:-27px; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:48px" onclick="location.href='check_in.html';"><i class="fa fa-arrow-left"></i></button>
+			<button id="aceptar" class="button custom-btn btn-16 " style="font-size: 24px;margin-top:-37px;width: 138px; height: 56px;left:209px" type="submit" ><strong>Aceptar</strong> <span class="glyphicon glyphicon-send"></span></button>		
+		</div>
+			</section>
+    		</div>
+	
+	</div>
+		
+		
+<script>
+	
+	
+	localStorage.with_reservation_flag = false;
+	
+	console.log("localStorage.with_reservation_flag", localStorage.with_reservation_flag);
+	
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+		var submitBtn = document.getElementById("aceptar");
+			
+		submitBtn.addEventListener("click", function () {
+			
+			get_values();
+			
+		});
+	
+			
+		function get_values(){
+			
+		console.log("test init");
+		var postGuest_json = JSON.parse(localStorage.postGuest);
+		
+		// Getting form values
+	
+	    postGuest_json.adults = document.getElementById("adults").value;
+	    postGuest_json.children = document.getElementById("children").value;
+	    postGuest_json.startDate = document.getElementById("startDate").value;
+	    postGuest_json.endDate = document.getElementById("endDate").value;
+		
+			
+		if( document.getElementById("adults").value == ""){
+			alert("Ingrese las fechas deseadas para su estancia");
+			return
+		}
+		if( document.getElementById("children").value == ""){
+			alert("Ingrese las fechas deseadas para su estancia");
+			return
+		}
+		if( document.getElementById("startDate").value == ""){
+			alert("Ingrese las fechas deseadas para su estancia");
+			return
+		}
+
+		if( document.getElementById("endDate").value == ""){
+			alert("Ingrese las fechas deseadas para su estancia");
+			return
+		}
+			
+			
+		var guest2process_data = '{"adults":"","i":1}';
+		guest2process_data = JSON.parse(guest2process_data);
+		guest2process_data.adults = parseInt(postGuest_json.adults);
+		guest2process_data_json = JSON.stringify(guest2process_data);
+		localStorage.setItem('guest2process_data', guest2process_data_json);	
+
+		localStorage.postGuest = JSON.stringify(postGuest_json);
+			
+		var guest_information = '{"startDate":"","endDate":"", "guestFirstName":"","guestLastName":"","guestCountry":"","guestZip":"","guestEmail":"","guestPhone":"","rooms":"","adults":"","children":""}';
+			
+		var guest_information_json =  JSON.parse(guest_information);
+		
+		guest_information_json.startDate = postGuest_json.startDate;
+		guest_information_json.endDate = postGuest_json.endDate;
+		guest_information_json.adults = postGuest_json.adults;
+		guest_information_json.children = postGuest_json.children;
+
+		guest_information = JSON.stringify(guest_information_json);
+	
+		console.log("init request", postGuest_json);
+
+		var waitLogo = document.getElementById("waitLogo");
+		waitLogo.style.opacity = "1";
+	
+		var resumen_reserva = document.getElementById("frame");
+		resumen_reserva.style.opacity = "0";
+			
+		var atras = document.getElementById("atras");
+		atras.style.opacity = "0";
+		
+		
+		var response = fetchAsync_getAvailableRooms("http://127.0.0.1:5000/getAvailableRooms?startDate="+postGuest_json.startDate+"&endDate="+postGuest_json.endDate+"&adults="+postGuest_json.adults+"&childrens="+postGuest_json.children);
+		
+			
+	}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>show_info_collected</title>
+<link href="style_2.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	
+	<p id="log" style="white-space: pre-line; background-color: white; padding: 10px; border: 2px solid black; width: 50%; position:absolute; top:0%; left: 25%; font-family: 'Lato', sans-serif; font-size: 34px;"> <strong> Tipo de documento: </strong>  <br> <br> <br> <br> Nombre:  <br> <br>  Fecah de expedición:  <br> <br> Fecha de expiración:  <br> <br> Fecha de salida: <br><br> Huéspedes: </p>
+	
+	<input type="button" class="button custom-btn btn-16 " style="position:absolute; left:5%; bottom:10%" value="Atrás" onclick="location.href='documento_id.html';">
+	
+		<input type="button" class="button custom-btn btn-16 " style="position:absolute; right:5%; bottom:10%" value="Continuar" onclick="location.href='documento_id.html';">
+
+	
+	<script type="text/javascript">
+ 
+ let x = document.cookie;
+ x = x.split(",")
+  const log = document.getElementById('log');
+		
+		var name = x[0];
+		var date = x[1];
+		
+ //log.textContent = x;
+console.log(name );
+console.log(date);
+		
+log.textContent = "Resumen de reserva"+ "\r\n\r\nNombre: " + name+ "\r\n\r\nFecha de entrada: "+date+"\r\n\r\nTipo de habitación: \r\n\r\nHuéspedes:";
+document.cookie = name + ","+date;
+		
+	</script>
+	
+	
+	</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>buscar_reserva</title>
+<link href="style_2.css" rel="stylesheet" type="text/css">
+<link href="keyboard/style_keyboard.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body style="background-image: url('image/design/duplicado_de_llaves.png'); overflow: hidden;  background-size:cover; background-color: white;">
+<!--
+		<div>
+			<input name="button" type="button" class="custom-btn btn-16 " style="position:absolute; right:5%; bottom:10%" value="Atrás" onclick="location.href='../index.html';">
+	</div>
+-->
+	
+			<div style="position:absolute; left:5%; bottom:5%;" onclick="location.href='../index.html';"> 
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_bxgjo2wa.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop autoplay></lottie-player>
+</div>
+	
+	<form id="form" action="../index.html" style="position:absolute; left: 10%; top: 10%;"> <!--  style="position:relative; height: 80px; display: none; left: 50%; bottom: 630px;"-->
+		<div>
+<input class="use-keyboard-input" type="text" id="apellido_bar" name="name" placeholder="Código para obtener llave" required
+       minlength="4" maxlength="100" size="34" style="font-size:50px; width: 70%; background-color: black; color: white;" >
+	</div>
+		<br>
+	<!--Calendar start -->
+
+
+		<div>
+	<!--Calendar stop -->
+			<br> <br>
+	<input id="submit_button" type="submit" value="entrar" class="custom-btn" style="background-color:#681919; color: #FFFFFF;font-size: 34px;" onclick="save_cookie_form()"/>  <!-- onclick="location.href='resumen_reserva.html';"--> 
+			
+			
+		</div>
+</form>
+	
+	<form id="form_localizador" action="resumen_reserva.html" style="position:absolute; display: none; left: 50%; top: 10%;">
+		<div>
+	<input class="use-keyboard-input" type="text" id="localizador" name="name" placeholder="Localizador..." required
+       minlength="4" maxlength="100" size="34" style="font-size:34px; width: 70%" >		
+		</div>
+		<br>
+		<div>
+			<input id="submit_button_localizador" type="submit" value="entrar" class="custom-btn" style="background-color:#681919; color: #FFFFFF;font-size: 34px;" onclick="save_localizador()"/>
+			</div>
+		</form>
+	
+	
+<form id="form_qr" action="resumen_reserva.html" style="width:40%; position:absolute; display: none; left: 50%; top: 10%;">
+		
+		<p style="background-color: white; font-size: 34px;"> Si dispone de un identificador de reserva on coódigo QR, por favor, acerquelo al lector.</p>
+		
+  <img src="image/qr.png" width="30%" height="30%" alt=""/>
+	
+				<br> <br>
+	<input id="submit_button_qr" type="submit" value="entrar" class="custom-btn" style="background-color:#681919; color: #FFFFFF;font-size: 34px;"/>
+  </form>
+
+	<script type="text/javascript">  
+		
+		function save_cookie_form() {
+			const name = document.getElementById('apellido_bar').value;
+			var date = document.getElementById('meeting').value;
+			
+			document.cookie = name + ","+date;
+			/*--document.cookie ="apellido= "+name+";date= "+date+"; path=resumen_reserva.html;"*/
+}
+
+				function save_localizador() {
+			const localizador = document.getElementById('localizador').value;
+			
+			document.cookie = localizador;
+			/*--document.cookie ="apellido= "+name+";date= "+date+"; path=resumen_reserva.html;"*/
+}
+	
+	</script>
+	
+	
+	<script src="keyboard/script_keyboard.js"></script> 
+<script src="script.js"></script>
+</body>
+</html>

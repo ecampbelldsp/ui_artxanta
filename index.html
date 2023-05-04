@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=5">
+	<title>Booking</title>
+	<link href="https://fonts.googleapis.com/css?family=DM Sans" rel="stylesheet">
+	<link rel="stylesheet" href="./style.css" type="text/css">
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		.unselectable {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;}
+	</style>	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="pages/js/button.js"></script>	
+	<script src="script.js"></script>
+	<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+</head>
+
+<body  class="unselectable"  style="background: #EBEBEB; overflow: hidden;  background-size:cover;text-align: center;justify-content: center;align-content: center;display: flex;font-family:'DM Sans';zoom:150%">
+	<!--
+	<div id="google_translate_element" style="position:absolute;margin-top:-5px"></div>
+	<i class="fa fa-globe" style="position:absolute;z-index:10;color:white;margin-top:11px;margin-left:220px;pointer-events: none;"></i>
+-->
+
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:1"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:1">
+		
+	 <select  class="form-dropdown fundir" data-component="dropdown" id="language" name="language"  style=" font-size:24px; font-family:'DM Sans'; color:black; background: white; width:195px; height:30px; text-align:left; line-height:px; top: 5%; right: 2% ;z-index:2;">
+            <option value="Español"> Español &#x1f1ea;&#x1f1f8;</option>
+		    <option value="Euskera"> Euskera &#x1f1f5;&#x1f1f9;</option> 
+            <option value="English"> English &#x1f1ec;&#x1f1e7;</option>
+            <option value="Français"> Français &#x1f1eb;&#x1f1f7;</option>
+            <option value="Italiano"> Italiano &#x1f1ee;&#x1f1f9;</option>
+            <option value="Deutsch"> Deutsch &#x1f1e9;&#x1f1ea;</option>
+            <option value="Português"> Português &#x1f1f5;&#x1f1f9;</option> 
+     </select>
+
+	
+	<div class="container" style="overflow:visible">
+
+	
+		<h2 class="fundir" style="position: relative;  color: #6B43F1; font-size:40px; position: absolute; top: 20%; opacity: 1;font-family:DM Sans;white-space:nowrap"> CHECK-IN</h2>
+		<h2 class="fundir" style="position: relative;  color: #6B43F1; font-size:40px; position: absolute; top: 40%; opacity: 1;font-family:DM Sans;margin-top:0px"> AUTOMÁTICO</h2>
+	
+		<div onclick="siguiente()" style="position: absolute; margin-top:58vh; ">
+
+			  <div> 
+				<button  type="button" onclick="" class="button custom-btn btn-5 blink_me expandir" style="transform-origin: center;">	</button> 
+				<button  id="btnTranslate" type="button"  class="button pers-btn" style="top:-360px;background-color: transparent;border: transparent;">
+					<span class="btn-5 btn-check-in fundir ocultar" style="font-size: 70px;left: -190px;margin-top:40px">PULSA AQUÍ</span>
+				</button> 
+			  </div>
+		</div>
+		<br>
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/TweenMax.min.js"></script>
+<script>
+		
+	function siguiente(){
+		
+		let language = document.getElementById("language").value;
+		var go_language = ""
+		
+		if(language == "Español"){
+			go_language = "es";
+		}
+		if(language == "Euskera"){
+			go_language = "eu";
+		}
+		if(language == "English"){
+			go_language = "en";
+		}		   
+		if(language == "Français"){
+			go_language = "fr";
+		}		   
+		if(language == "Italiano"){
+			go_language = "it";
+		}		   
+		if(language == "Português"){
+			go_language = "pt";
+		}		   
+		localStorage.setItem("go_language",go_language);
+		
+		var desplazamiento = (innerWidth/2)+200;
+		console.log(desplazamiento)
+		$(".ocultar").hide();
+		$(".fundir").fadeOut();
+		$(".expandir").animate({left: "-"+desplazamiento+"px"});
+		$(".expandir").css({transform: "scale(14)"});
+		$(".expandir").css("margin-top", "-18vh");
+		$(".expandir").css("position", "absolute");
+		
+		<!-- position: absolute; -->
+    <!-- margin-top: 160px; -->
+    <!-- margin-left: -100%; -->
+		
+		setTimeout( function(){
+			$(".expandir").css({transform: "scale(1.333333333)"});
+			},500
+		)
+			  
+		setTimeout( function(){
+			window.location.href = "/"+go_language+"/pages/check_in.html";
+			},740
+		)
+		
+	}
+		
+//				var postGuest = '{"reservationID":"","guestID":"", "numberOfGuests":"", "guestFirstName":"","guestLastName":"","guestEmail":"","guestCellPhone":"","guestAddress1":"","guestCity":"","guestCountry":"","guestState":"","guestZip":"","guestBirthDate":"","guestDocumentType":"","guestDocumentNumber":"","guestDocumentIssueDate":"","guestDocumentIssuingCountry":"","guestDocumentExpirationDate":"","roomType":"","roomID":"","startDate":"","endDate": "","adults": "","children": "","paid": "","balance": "","paidStatus": "","total":"","availableRooms":"","rooms":"","roomPicked":"","success":"", "roomPicked_price":""}';
+
+		
+		let guest_aditional = '{"guestFirstName":"","guestLastName":"","guestEmail":"","guestCellPhone":"","guestAddress1":"","guestCity":"","guestCountry":"","guestState":"","guestZip":"","guestBirthDate":"","guestDocumentType":"","guestDocumentNumber":"","guestDocumentIssueDate":"","guestDocumentIssuingCountry":"","guestDocumentExpirationDate":""}';
+		
+		let postGuest = '{"reservationID":"","guestID":"", "numberOfGuests":"", "guestFirstName":"","guestLastName":"","guestEmail":"","guestCellPhone":"","guestAddress1":"","guestCity":"","guestCountry":"","guestState":"","guestZip":"","guestBirthDate":"","guestDocumentType":"","guestDocumentNumber":"","guestDocumentIssueDate":"","guestDocumentIssuingCountry":"","guestDocumentExpirationDate":"","roomType":"","roomID":"","startDate":"","endDate": "","adults": "","children": "","paid": "","balance": "","paidStatus": "","total":"","availableRooms":"","rooms":"","roomPicked":"","success":"", "roomPicked_price":""}';
+		
+		let with_reservation_flag = "";
+		let error_scan_counter = 1;
+		
+		localStorage.setItem('with_reservation_flag', with_reservation_flag);		
+		console.log(localStorage.with_reservation_flag);
+		
+		localStorage.setItem('error_scan_counter', error_scan_counter);		
+		console.log(localStorage.error_scan_counter);
+		
+		localStorage.setItem('postGuest', postGuest);		
+		console.log(localStorage.postGuest);
+		
+		localStorage.setItem('guest_aditional', guest_aditional);		
+		console.log(localStorage.guest_aditional);
+		
+
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+	
+	
+	<!--
+<script type="text/javascript">
+
+
+	
+	function googleTranslateElementInit() {
+
+	$(".skiptranslate").remove();
+	console.log("traduciendo")
+	  new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
+	}
+	
+</script>-->
+
+</body>
+</html>

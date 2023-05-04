@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+<meta charset="utf-8">
+<title>Pasarela de pago</title>
+	<link href="./css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="js/api_request.js"></script>
+
+</head>
+
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:0"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;z-index:-10" class="dot"></span>
+
+	<div class="fundir" id="frame" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:1;display:block;text-align:center">
+		
+		<p style="font-family: 'DM Sans'; font-weight: bold; font-size: 50px;  color: #6B43F1"> Pago </p>
+		
+		
+		<br>
+		
+		
+			<p id="totalmoney_label" class="campo-form">  Importe total </p> 		
+			<p id="totalmoney" class="campo" style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  Calculando ...  </p> 
+		
+			<p id="pagado_label" class="campo-form"> Pagado </p> 		
+			<p id="pagado" class="campo" style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  </p> 
+		
+			<p id="deuda_label" class="campo-form"> Deuda </p> 		
+			<p id="deuda" class="campo" style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  </p> 
+		
+		<input type="button" class="button custom-btn btn-16 " style="font-size: 34px;margin-top:30px" value="Pagar" onclick="location.href='pago.html';">
+	
+	</div>
+</body>
+	
+	<script>
+	
+	
+	
+		postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+		
+		console.log("Prueba pago ",postGuest_jsonPago);
+		
+		let response_web = getReservationInvoiceInformation("http://localhost:5000/getReservationInvoiceInformation?reservationID=" + postGuest_jsonPago.reservationID);
+		
+//		postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+//
+//		console.log("post response",response_web);
+//		
+//		
+//		var totalmoney = document.getElementById('totalmoney');
+//		var pagado = document.getElementById('pagado');
+//		var deuda = document.getElementById('deuda');
+//
+//		totalmoney.textContent += postGuest_jsonPago.total + " €";
+//		pagado.textContent += postGuest_jsonPago.paid + " €";
+//		deuda.textContent += postGuest_jsonPago.balance + " €";
+//		
+//		console.log("Pagado ",postGuest_jsonPago.paid);
+
+	</script>
+	
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+	<script type="text/javascript">
+	
+		setTimeout( function(){
+		$(".skiptranslate").hide();
+			},1000
+		)
+		function googleTranslateElementInit() {
+		console.log("traduciendo")
+		  new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
+		}
+		
+	</script>
+</html>

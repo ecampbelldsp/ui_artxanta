@@ -45,7 +45,14 @@
 				postGuest_json = JSON.parse(localStorage.postGuest);
 				console.log(postGuest_json);
 				let text = document.getElementById("roomID");
-				text.textContent += postGuest_json.roomID;
+				console.log("flag_reservation",localStorage.with_reservation_flag);
+		
+				if (localStorage.with_reservation_flag == true){
+				text.textContent += postGuest_json.roomID;}else{
+					text.textContent = "Reserva creada con éxito";
+				};
+		
+		
 				body = '{roomID:"",pin:""}';
 				
 

@@ -357,7 +357,7 @@ async function fetchAsync_getScan(url) {
 
 		postGuest_json.guestFirstName = request_info_json.mrzGivenname;// + " " + request_info_json.guestLastName;
 		postGuest_json.guestLastName = request_info_json.mrzSurname;
-		postGuest_json.startDate = request_info_json.startDate;
+		//postGuest_json.startDate = request_info_json.startDate;
 		postGuest_json.guestBirthDate = request_info_json.mrzBirthDate;
 	
 		postGuest_json.guestCountry = request_info_json.mrzNationality;
@@ -440,7 +440,6 @@ async function fetchAsync_sendGmail() {
 async function makePayment(url, data){
 	
 	var postGuest_json = JSON.parse(localStorage.postGuest);
-
 	let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
 
 };

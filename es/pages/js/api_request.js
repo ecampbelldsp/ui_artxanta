@@ -307,7 +307,7 @@ async function fetchAsync_postReservation(url,data) {
 //		   	postGuest_json.balance = data_request["grandTotal"];
 //		   postGuest_json.paid = 0;
 //		   postGuest_json.total = data_request["grandTotal"];
-			//window.location.href = "picking_date.html";
+		   window.location.href = "picking_date.html";
 	   }
 
 		   postGuest_json.reservationID = data_request["reservationID"];

@@ -291,7 +291,7 @@ submitBtn.addEventListener("click", function () {
 	document.body.background = "#DAC1C1";
 	document.getElementById("uploadLogo").style.opacity = "1";
 	
-	let response = fetchAsync_take_send_picture("http://localhost:5000/postGuestDocument?guestID="+guestID+"&pathDocument=");
+//	let response = fetchAsync_take_send_picture("http://localhost:5000/postGuestDocument?guestID="+guestID+"&pathDocument=");
 	
 	
 	var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));

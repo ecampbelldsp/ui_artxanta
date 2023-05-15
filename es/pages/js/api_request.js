@@ -26,6 +26,14 @@ function httpGet(theUrl)
 	console.log("Reservation ", reservationID);
 	 
 	let response = await fetch("http://localhost:5000/getNumberOfGuests?reservationID="+reservationID, {method: 'GET'});
+	
+//	try{
+//		let response = await fetch("http://localhost:5000/getNumberOfGuests?reservationID="+reservationID, {method: 'GET'});}
+//	catch(error){
+//		console.log("There was an error", error);
+//		alert("Call IT support. System is down");
+//	}
+	 
 	 
 	let data = await response.json();
 //	data = data["numberOfGuests"];
@@ -45,8 +53,16 @@ function httpGet(theUrl)
 async function fetchAsync_getReservation(url) {
 	
 	
-  		let response = await fetch(url);
+//  		let response = await fetch(url);
 		
+		try{
+			var response = await fetch(url);}
+		catch(error){
+			console.log("There was an error", error);
+			alert("Call IT support. System is down");
+		}
+	
+	
 		let waitLogo = document.getElementById("waitLogo");
 		waitLogo.style.display = "none";
 		let resumen_reserva = document.getElementById("resumen_reserva");
@@ -113,7 +129,17 @@ async function getReservationInvoiceInformation(url){
 	
 			var postGuest_json = JSON.parse(localStorage.postGuest);
 
-	  		let response = await fetch(url);
+//	  		var response = await fetch(url);
+	
+			try{
+				var response = await fetch(url);}
+			catch(error){
+				console.log("There was an error", error);
+				alert("Call IT support. System is down");
+			}
+	
+	
+	
 			let data = await response.json();
 
 			console.log("Storage miss", postGuest_json);
@@ -161,28 +187,25 @@ async function getReservationInvoiceInformation(url){
 
 }
 
-async function fetchAsync_take_send_picture(url) {
-
-		var postGuest = localStorage.postGuest;				
-		var postGuest_json = JSON.parse(postGuest);
-	
-  let response = await fetch("http://127.0.0.1:5000/cam");
-//  response = response.replace(/&quot;/ig,'"');
-//  let flag = await response["sucess"];
-	
-	console.log("web cam",response);
-	
-	var guestID = postGuest_json.guestID;
-	
-	// Sending picture to cloudbed
-	
-	let response_web = await fetch(url+"D:/Projects/OpenCheck_restapi/data/photo/picture.png");
-	
-	console.log("uploading document",response_web);
-	
-	
-	
-}
+//async function fetchAsync_take_send_picture(url) {
+//
+//		var postGuest = localStorage.postGuest;				
+//		var postGuest_json = JSON.parse(postGuest);
+//	
+//  let response = await fetch("http://127.0.0.1:5000/cam");
+//	
+//	console.log("web cam",response);
+//	
+//	var guestID = postGuest_json.guestID;
+//	
+//	// Sending picture to cloudbed
+//	
+//	let response_web = await fetch(url+"D:/Projects/OpenCheck_restapi/data/photo/picture.png");
+//	
+//	console.log("uploading document",response_web);
+//	
+//	
+//}
 
 
 async function fetchAsync_getAvailableRooms(url) {
@@ -190,8 +213,12 @@ async function fetchAsync_getAvailableRooms(url) {
 	
 		var postGuest_json = JSON.parse(localStorage.postGuest);
 		
-		
-  		let response = await fetch(url);
+		try{
+  			var response = await fetch(url);}
+		catch(error){
+			console.log("There was an error", error);
+			alert("Call IT support. System is down");
+		}
 		
 
 		let data_request = await response.json();
@@ -243,10 +270,17 @@ async function fetchAsync_postReservation(url,data) {
 		var postGuest_json = JSON.parse(localStorage.postGuest);
 	
 		
-  		let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'// 'Content-Type': 'application/x-www-form-lencoded',
-    },body: data});
+//  		let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'// 'Content-Type': 'application/x-www-form-lencoded',
+//    },body: data});
 	
 	
+		try{
+			var response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'// 'Content-Type': 'application/x-www-form-lencoded',
+    		},body: data});}
+		catch(error){
+			console.log("There was an error", error);
+			alert("Call IT support. System is down");
+		}
 	
 		
 //		var body = document.getElementsByTagName('body')[0];

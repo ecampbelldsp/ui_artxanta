@@ -54,8 +54,21 @@
 		
 				if (localStorage.with_reservation_flag == "true"){
 					
-				text.textContent += postGuest_json.roomID;
-				text.style.opacity = 1;
+					text.textContent += postGuest_json.roomID;
+					text.style.opacity = 1;
+
+					var body = '{"roomName":"","checkIn":"","checkOut":""}';
+					var body_json = JSON.parse(body);
+
+					body_json.roomName = postGuest_json.roomID;
+					body_json.checkIn = postGuest_json.startDate;
+					body_json.checkOut = postGuest_json.endDate;
+					body = JSON.stringify(body_json)
+
+					console.log("take_key", body);
+					fetchAsync_take_key("http://localhost:5000/tesa/v1.0/checkIn",body);
+
+					
 					
 				}else{
 					cartel.style.opacity = 1;
@@ -65,16 +78,7 @@
 				};
 		
 		
-				var body = '{roomName:"",checkIn:"",checkOut:""}';
-				var body_json = JSON.parse(body);
-		
-				body_json.roomName = postGuest_json.roomID;
-				body_json.checkIn = postGuest_json.startDate;
-				body_json.checkOut = postGuest_json.endDate;
-				
-				body = JSON.stringify(body_json)
-		
-				fetchAsync_take_key("http://localhost:5000/tesa/v1.0/checkIn",body);
+
 
 //				setTimeout( function(){window.location.href = "/index.html";
 //									  },10000 )

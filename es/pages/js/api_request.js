@@ -479,12 +479,17 @@ async function makePayment(url, data){
 };
 
 async function fetchAsync_take_key(url, data){
-
-	let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
-
+	
+	try{
+		let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
+	}catch(error){
+		console.log("Error",error);
+		alert("There was an error with your key. Call IT support");
+	}
 	return response;
 }
 	 
+
 
 
 

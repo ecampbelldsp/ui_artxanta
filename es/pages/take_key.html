@@ -6,7 +6,8 @@
 <title>Llave de habitación</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
-	
+<script src="js/api_request.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
@@ -64,8 +65,16 @@
 				};
 		
 		
-				body = '{roomID:"",pin:""}';
+				var body = '{roomName:"",checkIn:"",checkOut:""}';
+				var body_json = JSON.parse(body);
+		
+				body_json.roomName = postGuest_json.roomID;
+				body_json.checkIn = postGuest_json.startDate;
+				body_json.checkOut = postGuest_json.endDate;
 				
+				body = JSON.stringify(body_json)
+		
+				fetchAsync_take_key("http://localhost:5000/tesa/v1.0/checkIn",body);
 
 //				setTimeout( function(){window.location.href = "/index.html";
 //									  },10000 )

@@ -471,10 +471,11 @@ async function fetchAsync_sendGmail() {
 
 };
 
-async function makePayment(url, data){
+async function makePayment_cash(url, data){
 	
-	var postGuest_json = JSON.parse(localStorage.postGuest);
 	let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
+	
+	return response;
 
 };
 
@@ -489,7 +490,18 @@ async function fetchAsync_take_key(url, data){
 	}
 	
 }
-	 
+
+async function fetchAsync_print_ticket(url, data){
+	
+	try{
+		var response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
+		console.log(response);
+	}catch(error){
+		console.log("Error",error);
+		alert("There was an error with your key. Call IT support");
+	}
+	
+}
 
 
 

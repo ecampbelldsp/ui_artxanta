@@ -78,6 +78,35 @@
 				};
 		
 		
+					var body = '{"hotelName": "Hotel Artxanda BILBAO",
+								"hotelPhone": "+34628234078",
+								"hotelAddress": " Carretera Santo Domingo a, Enekuri Artxanda Errepidea, 3, 48015 Bilbo, Bizkaia",
+								"checkIn": "",
+								"checkOut": "",
+								"roomType": "",
+								"reservationID": "",
+								"taxRate": "21",
+								"roomPrice": "",
+								"items": {"Late Check-Out": "15",
+													 "Extra clean": "50"}
+								}';
+		
+					var body_json = JSON.parse(body);
+
+					body_json.roomType = postGuest_json.roomType;
+					body_json.reservationID = postGuest_json.reservationID;
+					body_json.checkIn = postGuest_json.startDate;
+					body_json.checkOut = postGuest_json.endDate;
+					body_json.roomPrice = postGuest_json.balance;
+		
+		
+		
+					body = JSON.stringify(body_json)
+
+					console.log("Print ticket", body);
+					fetchAsync_print_ticket("http://localhost:8080/api-hardware/v1/printer/msh245/printTicket ",body);
+		
+		
 
 
 //				setTimeout( function(){window.location.href = "/index.html";

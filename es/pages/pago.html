@@ -10,7 +10,8 @@
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-      
+     <script src="js/api_request.js"></script>
+
 	<style>
 	.titular{
 		font-family: 'DM Sans';
@@ -81,6 +82,7 @@
 	
 	<script type="text/javascript">
 	
+		var postGuest_jsonPago = JSON.parse(localStorage.postGuest);
 		
 		function restaurar(){
 			$(".escoja").fadeIn();
@@ -111,6 +113,15 @@
 			setInterval(animaBilletes,1000);
 			$("#atras").attr("onclick","restaurar()")
 			
+			
+			var data = '{"device": "cashITL","amount": ""}';
+			data_json = JSON.parse(data);
+			data_json.amount = postGuest_jsonPago.balance;
+			data = JSON.stringify(data_json);
+			
+			var response = makePayment_cash("http://localhost:8080/api-hardware/v1/payment/makePayment", data);
+			
+			console.log("Payment response", response);
 			//Cobrar en efectivo...
 		}
 		

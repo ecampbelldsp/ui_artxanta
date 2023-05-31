@@ -92,14 +92,14 @@ async function fetchAsync_getReservation(url) {
 			postGuest_json.roomID = request_info_json.roomID;
 			postGuest_json.total = request_info_json.total;
 
-			let log1 = document.getElementById('nombre')
+//			let log1 = document.getElementById('nombre')
 			let log2 = document.getElementById('hab')
 			let log3 = document.getElementById('fechain')
 			let log4 = document.getElementById('huespedes')
 
 			// Resumen de reserva
 
-			log1.textContent = postGuest_json.guestFirstName +  " " + postGuest_json.guestLastName;
+//			log1.textContent = postGuest_json.guestFirstName +  " " + postGuest_json.guestLastName;
 			log2.textContent =postGuest_json.roomType;
 			log3.textContent = postGuest_json.startDate;
 			log4.textContent = postGuest_json.adults;

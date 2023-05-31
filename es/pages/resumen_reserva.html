@@ -39,11 +39,13 @@
 			<p style="font-family: 'DM Sans'; font-weight: bold; font-size: 50px; color: #6B43F1;text-align:center;margin:10px">  Resumen de</p>
 			<p style="font-family: 'DM Sans'; font-weight: bold; font-size: 50px; color: #6B43F1;text-align:center;margin:10px">  la reserva</p>
 		
+<!--
 			<p id="nombre_label" class="campo-form"> Nombre </p> 		
 			<p id="nombre" class="campo" style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  </p> 
+-->
 		
 			<p id="hab_label" class="campo-form" > Tipo de habitación </p> 		
-			<p id="hab" class="campo"  style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  </p> 
+			<p id="hab" class="campo"  style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block; font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px;">  </p> 
 				
 			<p id="fechain_label" class="campo-form" >  Fecha de entrada </p> 		
 			<p id="fechain" class="campo"  style="white-space: pre-line; padding: 10px; width: 80%; display:inline-block;  font-family: 'DM Sans'; font-size: 20px; background-color: #E3E0E0; color: #AAAAAA;  border-radius: 25px;margin:0px">  </p> 
@@ -69,7 +71,7 @@
 		var postGuest_json = JSON.parse(localStorage.postGuest);		
 		var reservationID = postGuest_json.reservationID;
 		var apellido = postGuest_json.guestLastName;
-		var response = fetchAsync_getReservation("http://127.0.0.1:5000/getReservation?reservationID="+reservationID+"&lastName="+apellido+"&targetReservationType=CheckIn");
+		var response = fetchAsync_getReservation("http://127.0.0.1:5000/getReservation?reservationID="+reservationID+"&targetReservationType=CheckIn");
 		
 	</script>
 </body>

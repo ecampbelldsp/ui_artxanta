@@ -296,14 +296,15 @@ submitBtn.addEventListener("click", function () {
 	
 	var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
 	console.log("Next step");
-	if (guest2process_data.i == guest2process_data.adults){
-	 window.location.href='resumen_pago.html';} else{
-	guest2process_data.i += 1;
-	localStorage.guest2process_data = JSON.stringify(guest2process_data);
-	window.location.href='documento_id.html';
+//	if (guest2process_data.i == guest2process_data.adults){
+	window.location.href='picture.html'; /*window.location.href='resumen_pago.html'*/
+//	else{
+//	guest2process_data.i += 1;
+//	localStorage.guest2process_data = JSON.stringify(guest2process_data);
+//	window.location.href='documento_id.html';
 //		 	window.location.href='jot_form.html';
 
-	}
+//	}
 	
 	
 	

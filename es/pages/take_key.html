@@ -43,6 +43,83 @@
 </body> 
 	
 	<script>
+		
+//		Post reservation
+		console.log("localStorage Sig",localStorage.getItem("postGuest") );
+		console.log("guest_aditional", localStorage.getItem("guest_aditional"));
+
+		var postGuest_json2 = JSON.parse(localStorage.postGuest);
+		console.log("default data",postGuest_json2);
+		
+				
+
+		
+		var guestInfo = '{"startDate": "","endDate":"",	"guestFirstName": "","guestLastName":"","guestCountry": "",	"guestZip": "","guestEmail": "",	"guestPhone":"","rooms": "","adults":"","children": "", "roomPicked":""}';
+		
+		var guestInfo_json = JSON.parse(guestInfo);
+		guestInfo_json.startDate = postGuest_json2.startDate;
+		guestInfo_json.endDate = postGuest_json2.endDate;
+		guestInfo_json.guestFirstName = postGuest_json2.guestFirstName;
+		guestInfo_json.guestLastName = postGuest_json2.guestLastName;
+		guestInfo_json.guestCountry = postGuest_json2.guestCountry;
+		guestInfo_json.guestZip = postGuest_json2.guestZip;
+		guestInfo_json.guestEmail = postGuest_json2.guestEmail;
+		guestInfo_json.guestCellPhone = postGuest_json2.guestCellPhone;
+		guestInfo_json.adults = postGuest_json2.adults;
+		guestInfo_json.children = postGuest_json2.children;
+		guestInfo_json.roomPicked = postGuest_json2.roomPicked;
+				
+			
+		//guestInfo = JSON.stringify(guestInfo_json);
+		var tmp_rooms = postGuest_json2.rooms;
+		console.log("Room picked info", guestInfo_json.roomPicked);
+		console.log("Rooms info", postGuest_json2.rooms);
+		console.log("postGuest_json2 with all rooms and their info", postGuest_json2);
+			
+		for(const i in tmp_rooms){
+				//console.log("index",i);
+				//var name = tmp_rooms[i].roomTypeName;
+				if(guestInfo_json.roomPicked === tmp_rooms[i].roomTypeName){
+					postGuest_json2.rooms =  [tmp_rooms[i]];  //tmp_rooms[i][0];
+					console.log("Comparison ",i, "room type", tmp_rooms[i].roomTypeName);
+					//break;
+				}
+			};	
+		console.log("postGuest_json2 just with picked rooms info", postGuest_json2);
+
+		var post_info = '{"rooms":"","guestInfo":""}';
+		var post_info_json = JSON.parse(post_info);
+		post_info_json.rooms = postGuest_json2.rooms;
+		post_info_json.guestInfo = guestInfo_json;
+		post_info = JSON.stringify(post_info_json);
+		
+		console.log("Post input info", post_info);
+		console.log("With reservation flag ", localStorage.with_reservation_flag);
+		console.log("guest2process_data.i ", guest2process_data.i);
+			
+		if (localStorage.with_reservation_flag == "false"){
+			console.log("Creando reserva");
+			//console.log("Body de postReservation", post_info);	
+			let reservationID = fetchAsync_postReservation("http://127.0.0.1:5000/postReservation", post_info);
+			console.log("post response: reservationID",reservationID);
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		Giving key
+		
+		
+		
+		
+		
+		
 						
 				postGuest_json = JSON.parse(localStorage.postGuest);
 				console.log(postGuest_json);

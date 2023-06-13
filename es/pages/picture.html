@@ -59,13 +59,17 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/TweenMax.min.js"></script>
 <script>
-		
+
 	function take_picture(){
 		
-
+		
 		console.log("Taking picture");
 		
-		fetchAsync_getPicture("http://localhost:5000/picture?reservationID=66666&guest_i=00");
+		var guest2process_data = JSON.parse(localStorage.guest2process_data);
+		var postGuest_json2 = JSON.parse(localStorage.postGuest);
+		
+//		var response = fetchAsync_getPicture("http://localhost:5000/picture?reservationID=11111&guest_i=00");
+		var response = fetchAsync_getPicture("http://localhost:5000/picture?reservationID="+postGuest_json2.reservationID+"&guest_i="+guest2process_data.i);
 		
 		
 	}

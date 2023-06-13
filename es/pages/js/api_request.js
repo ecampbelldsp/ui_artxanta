@@ -514,7 +514,7 @@ async function fetchAsync_getPicture(url) {
 		try{
 			var response = await fetch(url);
 			var  data = await response.json();
-		}
+			}
 		catch(error){
 			console.log("Camara error", error);
 			alert("Call IT support. Camara error.");
@@ -523,6 +523,17 @@ async function fetchAsync_getPicture(url) {
 		console.log("Response camera",data);
 
 		if(data["success"] == true){
+			
+			var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
+			console.log("Next step", guest2process_data);
+			if (guest2process_data.i == guest2process_data.adults){
+			 window.location.href='resumen_pago.html';} /*window.location.href='resumen_pago.html'*/
+			else{
+			guest2process_data.i += 1;
+			localStorage.guest2process_data = JSON.stringify(guest2process_data);
+			window.location.href='documento_id.html';
+//		 	window.location.href='jot_form.html';
+			}
 			return "true";
 		}
 		else{
@@ -530,6 +541,7 @@ async function fetchAsync_getPicture(url) {
 //			window.location.href = "check_in.html";
 			return "false";
 		}	
+
 }
 
 

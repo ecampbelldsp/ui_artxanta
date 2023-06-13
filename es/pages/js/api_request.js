@@ -505,6 +505,34 @@ async function fetchAsync_print_ticket(url, data){
 
 
 
+async function fetchAsync_getPicture(url) {
+	
+		
+		var camera = document.getElementById("camera");
+		camera.style.opacity = "1";
+	
+		try{
+			var response = await fetch(url);
+			var  data = await response.json();
+		}
+		catch(error){
+			console.log("Camara error", error);
+			alert("Call IT support. Camara error.");
+		}
+		
+		console.log("Response camera",data);
+
+		if(data["success"] == true){
+			return "true";
+		}
+		else{
+			alert("aaCall IT support. Camara error.");
+//			window.location.href = "check_in.html";
+			return "false";
+		}	
+}
+
+
 
 
 

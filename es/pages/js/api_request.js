@@ -279,7 +279,7 @@ async function fetchAsync_postReservation(url,data) {
     		},body: data});}
 		catch(error){
 			console.log("There was an error", error);
-			alert("Call IT support. System is down");
+//			alert("Call IT support. System is down");
 		}
 	
 		

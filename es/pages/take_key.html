@@ -53,7 +53,7 @@
 		
 				
 
-		
+		var guest2process_data = JSON.parse(localStorage.guest2process_data);
 		var guestInfo = '{"startDate": "","endDate":"",	"guestFirstName": "","guestLastName":"","guestCountry": "",	"guestZip": "","guestEmail": "",	"guestPhone":"","rooms": "","adults":"","children": "", "roomPicked":""}';
 		
 		var guestInfo_json = JSON.parse(guestInfo);
@@ -155,18 +155,7 @@
 				};
 		
 		
-					var body = '{"hotelName": "Hotel Artxanda BILBAO",
-								"hotelPhone": "+34628234078",
-								"hotelAddress": " Carretera Santo Domingo a, Enekuri Artxanda Errepidea, 3, 48015 Bilbo, Bizkaia",
-								"checkIn": "",
-								"checkOut": "",
-								"roomType": "",
-								"reservationID": "",
-								"taxRate": "21",
-								"roomPrice": "",
-								"items": {"Late Check-Out": "15",
-													 "Extra clean": "50"}
-								}';
+					var body = '{"hotelName": "Hotel Artxanda BILBAO","hotelPhone": "+34628234078","hotelAddress": " Carretera Santo Domingo a, Enekuri Artxanda Errepidea, 3, 48015 Bilbo,Bizkaia","checkIn": "","checkOut": "","roomType": "","reservationID":"","taxRate": "21","roomPrice": "","items": {"Late Check-Out": "15","Extra clean": "50"}}';
 		
 					var body_json = JSON.parse(body);
 
@@ -181,13 +170,13 @@
 					body = JSON.stringify(body_json)
 
 					console.log("Print ticket", body);
-					fetchAsync_print_ticket("http://localhost:8080/api-hardware/v1/printer/msh245/printTicket ",body);
+//					fetchAsync_print_ticket("http://localhost:8080/api-hardware/v1/printer/msh245/printTicket ",body);
 		
 		
 
 
-//				setTimeout( function(){window.location.href = "/index.html";
-//									  },10000 )
+				setTimeout( function(){window.location.href = "/index.html";
+									  },10000 )
 		
 	</script>
 </html>

@@ -483,7 +483,7 @@ async function fetchAsync_take_key(url, data){
 	
 	try{
 		var response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
-		console.log(response);
+		console.log(response.json());
 	}catch(error){
 		console.log("Error",error);
 		alert("There was an error with your key. Call IT support");

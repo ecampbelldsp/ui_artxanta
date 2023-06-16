@@ -31,6 +31,7 @@
 	  
 </head>
 <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	<audio  id="audio" autoplay src="Audios/9a.-.mp3"  type="audio/mpeg"> </audio>
 	
 	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:35px;right:214px;opacity:0;color:#333333" translate="no"> Powered by: </p>
 	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
@@ -38,32 +39,27 @@
 	
 	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
 
-	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
-		<p class="titular escoja" style="margin-bottom: 60px;margin-top: 85px;"> Escoja un método de pago </p>
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:left;padding:60px">
+		<p class="titular escoja" style=""> Déjenos sus datos de facturación </p>
 		<br>
-		<button id="tarjeta" class="escoja custom-btn  btn-16" style= "width: 150px; height: 50px; font-size: 30px;padding: 0px;float:left;margin-left: 80px;" onclick="cobrarTarjeta()">Tarjeta</button>
-		
-		<button class="escoja custom-btn  btn-16" style= "width: 150px; height: 50px; font-size: 30px;padding: 0px;float:right;margin-right: 80px;" onclick="cobrarEfectivo()">Efectivo</button>
+		<label>Razón social:<br>
+			<input onchange="comprueba_form()" class="campo" style="width:100%" placeholder="Razón social" name="razon_social" id="razon_social">
+		</label><br><br>
+		<label>NIF:<br>
+			<input onchange="comprueba_form()" class="campo" style="width:100%" placeholder="NIF" name="nif" id="nif">
+		</label><br><br>
+		<label>Dirección:<br>
+			<input onchange="comprueba_form()" class="campo" style="width:100%" placeholder="Dirección" name="direccion" id="direccion">
+		</label><br><br>
+		<label>Correo electrónico:<br>
+			<input onchange="comprueba_form()" class="campo" style="width:100%" placeholder="correo@electrónico.es" name="email" id="email">
+		</label>
 		<br><br>
 		<br>
-		<p class="efectivo_gif titular" style="display:none;font-size:50px">Introduzca efectivo </p>
-		<div class="efectivo_gif" style="text-align:center;display:block;padding-left:34%;height:250px;margin-top:100px;display:none"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-			<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_hd4u00ki.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;margin-left:-70px;margin-top:-80px"  loop  autoplay></lottie-player>
-			<!-- <img class="efectivo_gif" id="billete" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
-			<img class="efectivo_gif" id="billete1" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
-			<img class="efectivo_gif" id="billete2" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
-			<img class="efectivo_gif" id="billete3" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none"> -->
-		</div>
 		
-		<p class="tarjeta_gif titular" style="display:none">Introduzca su tarjeta de crédito en el lector de la derecha</p><br>
-		<div class="tarjeta_gif" style="text-align:center;display:none;height:250px;">
-			<img class="tarjeta_gif" src="image/pago.gif" style="width: 150px; height: 150px;display:block;text-align: center;margin:auto;display:block;display:none">
-		</div>
+		<button id="atras" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-top:33px;padding: 10px;" onclick="history.back();"><i class="fa fa-arrow-left"></i></button>
 		
-		
-		<button id="atras" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:60px;margin-top:275px;padding: 10px;" onclick="history.back();"><i class="fa fa-arrow-left"></i></button>
-		
-		<button id="siguiente" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:100px;font-size: 20px;position: relative;float: left;margin-left:233px;margin-top:53px;padding: 10px;display:none" onclick="window.location.href = 'take_key.html';">Siguiente</button>
+		<button id="siguiente" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:100px;font-size: 20px;position: relative;float: right;margin-right:0px;margin-top:33px;padding: 10px;display:none" onclick="window.location.href = 'take_key.html';">Siguiente</button>
 
 	<!-- <input autocomplete="off" type="button" class="boton " style="font-size: 24px; display:inline;margin-top:164px" value="Aceptar" onclick="location.href='take_key.html';"> -->
 	
@@ -83,6 +79,17 @@
 	
 	<script type="text/javascript">
 	
+		function comprueba_form(){
+			var r = $("#razon_social").val()
+			var n = $("#nif").val()
+			var d = $("#direccion").val()
+			var e = $("#email").val()
+			if(r != "" && n != "" && d != "" && e != "" )
+				$("#siguiente").show();
+			else
+				$("#siguiente").hide();
+		}
+
 		var postGuest_jsonPago = JSON.parse(localStorage.postGuest);
 		
 		function restaurar(){

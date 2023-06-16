@@ -31,6 +31,9 @@
 </head>
 <script src="js/api_request.js"> </script>
 <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
+	<audio  id="audio" autoplay src="Audios/2a.-.mp3"  type="audio/mpeg"> </audio>
+	<audio  id="audio2b"  src="Audios/2b.-.mp3"  type="audio/mpeg"> </audio>
+	<audio  id="audio2c"  src="Audios/2c.-.mp3"  type="audio/mpeg"> </audio>
 	
 	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
 	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
@@ -44,10 +47,10 @@
 				<lottie-player src="https://assets9.lottiefiles.com/packages/lf20_7fwvvesa.json"  background="transparent"  speed="1"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>	
 		</div>
 	</div>
-	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
+	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center;padding:60px">
 				<div   id="frame" style="text-align: center;background-color:transparent;" class="container">
 					<section class="form-section" style="background-color:transparent;">
-    			<form  class="well form-horizontal" action="" method="get"  id="contact_form" style="padding-top: 50px; padding-bottom: 50px; border-radius: 25px; overflow: hidden;">
+    			<form  class="well form-horizontal" action="" method="get"  id="contact_form" style=" padding-bottom: 50px; border-radius: 25px; overflow: hidden;">
 
 				<fieldset style="padding: 0px; border-width: 0px; margin-top: -12px;">
 
@@ -124,8 +127,8 @@
 					</form>
 	
 		<div class="row">
-			<button type="button" id="atras" class="button" style="border:white;color:white;background:#6263D5;margin-top:-27px; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:48px" onclick="location.href='check_in.html';"><i class="fa fa-arrow-left"></i></button>
-			<button id="aceptar" class="button custom-btn btn-16 " style="font-size: 24px;margin-top:-37px;width: 138px; height: 56px;left:209px" type="submit" ><strong>Aceptar</strong> <span class="glyphicon glyphicon-send"></span></button>		
+			<button type="button" id="atras" class="button" style="margin-left: 0px;border:white;color:white;background:#6263D5;margin-top:51px; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;" onclick="location.href='check_in.html';"><i class="fa fa-arrow-left"></i></button>
+			<button id="aceptar" class="button custom-btn btn-16 " style="font-size: 24px;margin-top:40px;width: 138px; height: 56px;left:78px" type="submit" ><strong>Aceptar</strong> <span class="glyphicon glyphicon-send"></span></button>		
 		</div>
 			</section>
     		</div>
@@ -144,10 +147,13 @@
 		$(".fundir").animate({opacity:"1"});
 	})
 	
+	$("#startDate").on("click", function(){
+		document.getElementById("audio2b").play()
+	})
+	
 		var submitBtn = document.getElementById("aceptar");
 			
 		submitBtn.addEventListener("click", function () {
-			
 			get_values();
 			
 		});
@@ -169,21 +175,20 @@
 		if( document.getElementById("adults").value == ""){
 			alert("Ingrese las fechas deseadas para su estancia");
 			return
-		}
+		}else
 		if( document.getElementById("children").value == ""){
 			alert("Ingrese las fechas deseadas para su estancia");
 			return
-		}
+		}else
 		if( document.getElementById("startDate").value == ""){
 			alert("Ingrese las fechas deseadas para su estancia");
 			return
-		}
-
+		}else
 		if( document.getElementById("endDate").value == ""){
 			alert("Ingrese las fechas deseadas para su estancia");
 			return
-		}
-			
+		}else
+			document.getElementById("audio2c").play()
 			
 		var guest2process_data = '{"adults":"","i":1}';
 		guest2process_data = JSON.parse(guest2process_data);

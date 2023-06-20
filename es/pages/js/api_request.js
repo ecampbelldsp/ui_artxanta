@@ -5,6 +5,8 @@
 //"Access-Control-Allow-Headers": "Content-Type, Authorization"
 //};
 //	
+
+
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
@@ -59,7 +61,12 @@ async function fetchAsync_getReservation(url) {
 			var response = await fetch(url);}
 		catch(error){
 			console.log("There was an error", error);
-			alert("Call IT support. System is down");
+			// alert("Call IT support. System is down");
+			Swal.fire(
+				'Algo falla...',
+				'Llame al Servicio Técnico, el sistema está caído',
+				'error'
+			)
 		}
 	
 	
@@ -117,7 +124,14 @@ async function fetchAsync_getReservation(url) {
 		else{
 				
 			console.log("data", data);
-			alert("No existe una reserva con la información que nos ha proporcionado");
+			// alert("No existe una reserva con la información que nos ha proporcionado");
+			 
+
+			Swal.fire(
+				'Algo falla...',
+				'No existe una reserva con la información que nos ha proporcionado',
+				'error'
+			)
 			window.location.href = "check_in.html";
 			return "false";
 		}
@@ -135,7 +149,12 @@ async function getReservationInvoiceInformation(url){
 				var response = await fetch(url);}
 			catch(error){
 				console.log("There was an error", error);
-				alert("Call IT support. System is down");
+				// alert("Call IT support. System is down");
+				Swal.fire(
+					'Algo falla...',
+					'Llame al Servicio Técnico, el sistema está caído',
+					'error'
+				)
 			}
 	
 	
@@ -146,7 +165,12 @@ async function getReservationInvoiceInformation(url){
 
 			console.log("2da call", data);
 			if(data["success"] == "false"){
-				alert("Hubo un error en la creacion de la reserva. Sera remitido a la pagina principal");
+				// alert("Hubo un error en la creacion de la reserva. Sera remitido a la pagina principal");
+				Swal.fire(
+					'Algo falla...',
+					"Hubo un error en la creacion de la reserva. Sera remitido a la pagina principal",
+					'error'
+				)
 				window.location.href='../index.html';
 					
 				};
@@ -217,7 +241,12 @@ async function fetchAsync_getAvailableRooms(url) {
   			var response = await fetch(url);}
 		catch(error){
 			console.log("There was an error", error);
-			alert("Call IT support. System is down");
+			// alert("Call IT support. System is down");
+			Swal.fire(
+				'Algo falla...',
+				"Llame al Servicio Técnico, el sistema está caído",
+				'error'
+			)
 		}
 		
 
@@ -239,6 +268,11 @@ async function fetchAsync_getAvailableRooms(url) {
 			if(data === false){
 			
 			alert("Habitaciones no disponibles. Por favor, escoja otra fecha");
+			Swal.fire(
+				'No hay habitaciones disponibles',
+				"Por favor, escoja otra fecha",
+				'error'
+			)
 				
 				
 			
@@ -280,6 +314,11 @@ async function fetchAsync_postReservation(url,data) {
 		catch(error){
 			console.log("There was an error", error);
 //			alert("Call IT support. System is down");
+			Swal.fire(
+				'Algo falla...',
+				"Llame al Servicio Técnico, el sistema está caído",
+				'error'
+			)
 		}
 	
 		
@@ -303,8 +342,16 @@ async function fetchAsync_postReservation(url,data) {
 //		   postGuest_json.total = data_request["grandTotal"];
 	   }else{
 		console.log("data", data_request);
-		   alert(data_request["message"]);
-//		   	postGuest_json.balance = data_request["grandTotal"];
+//		   alert(data_request["message"]);
+		//    alert(data_request["message"]);
+
+				   Swal.fire(
+					'Algo falla...',
+					"No se ha podido crear la reserva.",
+					'error'
+				)
+
+		   //		   	postGuest_json.balance = data_request["grandTotal"];
 //		   postGuest_json.paid = 0;
 //		   postGuest_json.total = data_request["grandTotal"];
 		   window.location.href = "picking_date.html";
@@ -486,7 +533,12 @@ async function fetchAsync_take_key(url, data){
 		console.log(response);
 	}catch(error){
 		console.log("Error",error);
-		alert("There was an error with your key. Call IT support");
+		// alert("There was an error with your key. Call IT support");
+		Swal.fire(
+			'Algo falla...',
+			"Hay algún error con tu llave, llame al Servicio Técnico",
+			'error'
+		)
 	}
 	
 }
@@ -498,7 +550,12 @@ async function fetchAsync_print_ticket(url, data){
 		console.log(response);
 	}catch(error){
 		console.log("Error",error);
-		alert("There was an error with your key. Call IT support");
+		// alert("There was an error with your key. Call IT support");
+		Swal.fire(
+			'Algo falla...',
+			"Hay un error con la impresión del ticket",
+			'error'
+		)
 	}
 	
 }
@@ -517,7 +574,13 @@ async function fetchAsync_getPicture(url) {
 			}
 		catch(error){
 			console.log("Camara error", error);
-			alert("Call IT support. Camara error.");
+			// alert("Call IT support. Camara error.");
+			
+			Swal.fire(
+				'Algo falla...',
+				"Hay un error con la cámara, llame al Servicio Técnico",
+				'error'
+			)
 		}
 		
 		console.log("Response camera",data);
@@ -537,7 +600,12 @@ async function fetchAsync_getPicture(url) {
 			return "true";
 		}
 		else{
-			alert("aaCall IT support. Camara error.");
+			// alert("aaCall IT support. Camara error.");
+			Swal.fire(
+				'Algo falla...',
+				"La cámara comunica un error, llame al Servicio Técnico",
+				'error'
+			)
 //			window.location.href = "check_in.html";
 			return "false";
 		}	

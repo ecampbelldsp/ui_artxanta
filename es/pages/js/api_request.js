@@ -394,15 +394,22 @@ async function fetchAsync_getPago(url) {
 	
 	
 	
-async function fetchAsync_getScan(url) {
-	
+async function fetchAsync_getScan(url,tipo) {
 
+	if(tipo == "dni"){
+		$("#escaneoFrontal").hide();
+		$("#escaneoReverso").show();
+		$("#instruccionesDni").text('Coloque el DNI con la foto hacia abajo en el escáner y presione "Continuar"')
+	}
 	
 		var waitLogo = document.getElementById("waitLogo");
 		waitLogo.style.opacity = "1";
 	
 		var scan_var = document.getElementById("scan");
 		scan_var.style.opacity = "0";
+		if(tipo == "dni"){
+			scan_var.style.opacity = "1";
+		}
 	
 		var atras = document.getElementById("atras");
 		atras.style.opacity = "0";
@@ -462,9 +469,15 @@ async function fetchAsync_getScan(url) {
 			var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
 			var header = document.getElementById("guest");  //header_14
 			header.textContent = " Huespéd # "+ guest2process_data.i; 	
-			window.location.href = "signature.html";}
+			console.log("PLOP!!!")
+			document.getElementById("plop").play()
+			if(tipo == "dni"){
+				$("#escaneoFrontal").hide();
+				$("#escaneoReverso").show();
+			}else
+				window.location.href = "signature.html";
+		}
 		else{
-		
 			waitLogo.style.opacity = "0";
 			scan_var.style.opacity = "1";
 			frame.style.opacity = "1";
@@ -484,8 +497,9 @@ async function fetchAsync_getScan(url) {
 				var alerta = document.getElementById("alerta");
 				alerta.style.opacity = "1";
 				alerta_message.textContent = "Inserte manualmente su información personal. Número de intentos superados."
-				var button_automatic_scan = document.getElementById("button_automatic_scan");
-				button_automatic_scan.style.opacity = "0";
+				// var button_automatic_scan = document.getElementById("button_automatic_scan");
+				// button_automatic_scan.style.opacity = "0";
+				$(".button_automatic_scan").hide()
 				}
 			else{
 

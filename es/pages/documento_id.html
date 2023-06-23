@@ -20,25 +20,42 @@
 	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
 
 	<div class="fundir" id="frame" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center; z-index: 10; ">
-		<div id="waitLogo" style="position: absolute; padding:60px;z-index: -2; opacity: 0;">
-			<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px"> Escaneando...</p>
-			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-			<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_bedcttfp.json"  background="transparent"  speed="1"  style="width: 350px; height: 600px;position:relative;right:-5%;margin-top:-100px"  loop  autoplay></lottie-player>
-			<img src="image/dniFalso.png"  class=" fundir" style=" position: absolute;top:293px;right:78px; height:180px;z-index: -2">
-		</div>
-		<div id="scan" style="opacity: 1">
-
-			<img src="image/scan.gif" style=" width: 150px; height: 150px;margin-top:31px">
 		
-			<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px"> Escanee su</p>
-			<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-40px;">  documento de</p>
-			<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-80px;"> identidad </p>
-			<p id="guest" style="font-family:'DM Sans'; font-size: 20px; font-weight: bold; color: #920909; opacity: 1;margin-top:30px; position: relative; top:-80px;"> Huespéd # </p>
-<!--		Escanee su<br> documento de <br> identidad-->
-			<input autocomplete="off" type="button" class="boton" style=" font-size: 25px; width:270px;margin-top:50px;position: relative; top:-80px; " value="Inscripción manual" onclick="location.href='jot_form.html';">
-	
-			<input id="button_automatic_scan" autocomplete="off" type="button" class="boton " style=" font-size: 25px; width:270px;margin-top:50px; position: relative; top:-80px;" value="Escaneo automático" onclick="scan_function();">
-	
+		<div id="scan" style="opacity: 1">
+			<div id="seleccion">
+				<img src="image/scan.gif" style=" width: 150px; height: 150px;margin-top:31px">
+				
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px">¿Qué tipo de </p>
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-40px;">  documento de</p>
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-80px;"> identidad posee? </p>
+				<p id="guest" style="font-family:'DM Sans'; font-size: 20px; font-weight: bold; color: #920909; opacity: 1;margin-top:30px; position: relative; top:-80px;"> Huespéd # </p>
+				<!--		Escanee su<br> documento de <br> identidad-->
+				<!-- <input autocomplete="off" type="button" class="boton" style=" font-size: 25px; width:270px;margin-top:50px;position: relative; top:-80px; " value="Inscripción manual" onclick="location.href='jot_form.html';"> -->
+				
+				<input autocomplete="off" type="button" class="boton " style=" font-size: 25px; width:270px;margin-top:50px; position: relative; top:-80px;" value="DNI" onclick="escanear_dni();">
+				<input autocomplete="off" type="button" class="boton " style=" font-size: 25px; width:270px;margin-top:50px; position: relative; top:-80px;" value="Pasaporte" onclick="escanear_pasaporte();">
+			</div>
+			
+			<div id="waitLogo" style="position: absolute; padding:60px;z-index: -2; display:none;">
+				<h2 id="instruccionesDni" style="font-family:'DM Sans'; font-size: 30px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px;width:80%"> Coloque el DNI con la foto hacia arriba en el escáner y presione "Continuar" </h2>
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_bedcttfp.json"  background="transparent"  speed="1"  style="width: 350px; height: 600px;position:relative;right:-5%;margin-top:-100px"  loop  autoplay></lottie-player>
+				<div id="escaneoFrontal" >
+					<img src="image/dniFalso.png" style=" position: absolute;top:333px;right:197px; height:200px;z-index: 2">
+					<input type="button" class="boton button_automatic_scan" style=" font-size: 25px; width:270px;margin-top:-7px; position: relative; top:-55px;" value="Continuar" onclick="scan_function_dni();">
+				</div>
+				<div id="escaneoReverso" style="display: none;" >
+					<img src="../../image/dniReverso.jpg"  style=" position: absolute;top:333px;right:197px; height:200px;z-index: 2">
+					<input type="button" class="boton button_automatic_scan" style=" font-size: 25px; width:270px;margin-top:-7px; position: relative; top:-55px;" value="Continuar" onclick="scan_function();">
+				</div>
+			</div>
+			<div id="waitLogoPasaporte" style="position: absolute; padding:60px;z-index: -2; display:none;width:510px">
+				<p style="font-family:'DM Sans'; font-size: 30px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:-10px"> Coloque el pasaporte en el escáner y pulse "Continuar"</p>
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_bedcttfp.json"  background="transparent"  speed="1"  style="width: 350px; height: 600px;position:relative;right:-5%;;;margin-top:60px"  loop  autoplay></lottie-player>
+				<img src="../../image/pasaporte.jpg"  style=" position: absolute;top:113px;right:32px; height:550px;z-index: -2">
+				<input  type="button" class="boton button_automatic_scan" style=" font-size: 25px; width:270px;margin-top:-7px; position: relative; top:-110px;left: 60px;" value="Continuar" onclick="scan_function();">
+			</div>
 	
 			<div id="alerta" style="opacity: 0; z-index: 1000; ">
 					<div class="message-box message-box-warn">
@@ -48,8 +65,9 @@
 					</div>
 			</div>		
 			<div  id="atras" style="" onclick="location.href='check_in.html';">
-				<button type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:60px;margin-top:4px;padding: 10px; top:-80px;"><i class="fa fa-arrow-left"></i></button>
+				<button type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:60px;margin-top:742px;padding: 10px; top:-80px;"><i class="fa fa-arrow-left"></i></button>
 			</div>
+			<audio src="../../media/plop.wav" id="plop"></audio>
 		</div> 
 	</div> 
 			
@@ -68,12 +86,24 @@
 		$(".fundir").animate({opacity:"1"});
 	})
 	
+	function escanear_dni(){
+		$('#waitLogo').show()
+		$("#seleccion").hide();
+	}
+	function escanear_pasaporte(){
+		$('#waitLogoPasaporte').show()
+		$("#seleccion").hide();
+	}
 	
-	
- 		function scan_function(){
+	function scan_function_dni(){
 		console.log("scan page");
-		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page");	
-		}
+		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","dni");	
+	}
+
+ 	function scan_function(){
+		console.log("scan page");
+		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","pasaporte");	
+	}
 		
 //		setTimeout( function(){
 //		window.location.href = "/index.html";},60000)    // 10000 is 10 seconds

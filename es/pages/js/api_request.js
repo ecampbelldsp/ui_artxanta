@@ -64,7 +64,7 @@ async function fetchAsync_getReservation(url) {
 			// alert("Call IT support. System is down");
 			Swal.fire(
 				'Algo falla...',
-				'Llame al Servicio Técnico, el sistema está caído',
+				'Contacte con el Servicio Técnico, el sistema está caído',
 				'error'
 			)
 		}
@@ -152,7 +152,7 @@ async function getReservationInvoiceInformation(url){
 				// alert("Call IT support. System is down");
 				Swal.fire(
 					'Algo falla...',
-					'Llame al Servicio Técnico, el sistema está caído',
+					'Contacte con el Servicio Técnico, el sistema está caído',
 					'error'
 				)
 			}
@@ -244,7 +244,7 @@ async function fetchAsync_getAvailableRooms(url) {
 			// alert("Call IT support. System is down");
 			Swal.fire(
 				'Algo falla...',
-				"Llame al Servicio Técnico, el sistema está caído",
+				"Contacte con el Servicio Técnico, el sistema está caído",
 				'error'
 			)
 		}
@@ -316,7 +316,7 @@ async function fetchAsync_postReservation(url,data) {
 //			alert("Call IT support. System is down");
 			Swal.fire(
 				'Algo falla...',
-				"Llame al Servicio Técnico, el sistema está caído",
+				"Contacte con el Servicio Técnico, el sistema está caído",
 				'error'
 			)
 		}
@@ -550,7 +550,7 @@ async function fetchAsync_take_key(url, data){
 		// alert("There was an error with your key. Call IT support");
 		Swal.fire(
 			'Algo falla...',
-			"Hay algún error con tu llave. Llame al Servicio Técnico",
+			"Hay algún error con su llave. Contacte con el Servicio Técnico",
 			'error'
 		)
 	}
@@ -567,7 +567,7 @@ async function fetchAsync_print_ticket(url, data){
 		// alert("There was an error with your key. Call IT support");
 		Swal.fire(
 			'Algo falla...',
-			"Hay un error con la impresión del ticket. Llame al Servicio Técnico",
+			"Hay un error con la impresión del ticket. Contacte con el Servicio Técnico",
 			'error'
 		)
 	}
@@ -592,7 +592,7 @@ async function fetchAsync_getPicture(url) {
 			
 			Swal.fire(
 				'Algo falla...',
-				"Hay un error con la cámara. Llame al Servicio Técnico",
+				"Hay un error con la cámara. Contacte con el Servicio Técnico",
 				'error'
 			)
 		}
@@ -617,7 +617,7 @@ async function fetchAsync_getPicture(url) {
 			// alert("aaCall IT support. Camara error.");
 			Swal.fire(
 				'Algo falla...',
-				"La cámara comunica un error. Llame al Servicio Técnico",
+				"La cámara comunica un error. Contacte con el Servicio Técnico",
 				'error'
 			)
 //			window.location.href = "check_in.html";

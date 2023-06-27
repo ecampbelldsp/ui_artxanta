@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webcam Video Display</title>
+    <style>
+      #videoElement {
+		position: absolute; /* Set position to absolute */
+        bottom: 30%; /* Specify the desired top position */
+        left: 40%; /* Specify the desired left position */
+        width: 1000px;
+		border-radius: 10%; /* Apply circular border-radius */
+        overflow: hidden; /* Hide the overflow content */
+/*        height: 1000px;*/
+      }
+    </style>
+  </head>
+  <body>
+    <video autoplay="true" id="videoElement"></video>
+
+    <script>
+      // Get the video element
+      const video = document.getElementById("videoElement");
+
+      // Check if the browser supports getUserMedia API
+      if (navigator.mediaDevices.getUserMedia) {
+        // Request access to the webcam
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            // Set the video source to the stream from the webcam
+            video.srcObject = stream;
+          })
+          .catch(function (error) {
+            console.log("Error accessing the webcam: ", error);
+          });
+      } else {
+        console.log("getUserMedia not supported");
+      }
+    </script>
+  </body>
+</html>

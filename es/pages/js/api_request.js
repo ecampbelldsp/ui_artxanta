@@ -416,8 +416,12 @@ async function fetchAsync_getScan(url,tipo) {
 	
 		var frame = document.getElementById("frame");
 		atras.style.opacity = "0";
-	
-  		let response = await fetch(url);
+		
+		try{
+  			let response = await fetch(url);
+		} catch(error){
+			alert("Prueba");
+		}
 
 		console.log("Scanning");
 	

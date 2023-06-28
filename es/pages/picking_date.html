@@ -52,18 +52,18 @@
 	<div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center;padding:60px">
 				<div   id="frame" style="text-align: center;background-color:transparent;" class="container">
 					<section class="form-section" style="background-color:transparent;">
-    			<form  class="well form-horizontal" action="" method="get"  id="contact_form" style=" padding-bottom: 50px; border-radius: 25px; overflow: hidden;">
+    			<form  class="well form-horizontal" action="" method="get"  id="contact_form" style=" border-radius: 25px; overflow: hidden;">
 
 				<fieldset style="padding: 0px; border-width: 0px; margin-top: -12px;">
 
 				<legend style="font-family: 'DM Sans'; font-weight: bold; font-size: 36px; color: #6B43F1;text-align:center;margin:10px;background-color:transparent">  <strong>Información de hospedaje</strong></legend>
 
-
+		<br><br>
 
 		<div class="form-group"> 
     			<div class="selectContainer">
 					<div class="">
-					<label style="font-size: 20px; color: #6263D5; font-family: 'DM Sans';color:#AAAAAA;width: 50%;margin-top:20px" class=" control-label"><strong>Max. Adultos</strong>
+					<label style="font-size: 20px; color: #6263D5; font-family: 'DM Sans';color:#AAAAAA;width: 100%;" class=" control-label"><strong>Max. Adultos</strong>
 						<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
 		
     					<select class="campo campo-form" style="width: 100%;text-align:center" id="adults" name="state">
@@ -80,7 +80,7 @@
 		<div class="form-group"> 
 			<div class="selectContainer">
 		<div class="">
-  			<label style="font-size: 20px; color: #6263D5; font-family: 'DM Sans';color:#AAAAAA;width: 50%;margin-top:20px" class="col-md-4 control-label"><strong>Max. Menores</strong>
+  			<label style="font-size: 20px; color: #6263D5; font-family: 'DM Sans';color:#AAAAAA;width: 100%;" class="col-md-4 control-label"><strong>Max. Menores</strong>
 				<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
 				<select class="campo campo-form" style="width: 100%;text-align:center" id="children" name="children"  >
 					<option value="0" >0</option>
@@ -98,11 +98,11 @@
 		<div class="form-group">
 			<div class="inputGroupContainer">
     		<div class="">
-				<label style="width: 50%;font-size: 20px; color: #6263D5; font-family: 'DM Sans';white-space: nowrap;color:#AAAAAA;margin-top:20px"  class="control-label"><strong>Fecha de entrada</strong>
+				<label style="width: 100%;font-size: 20px; color: #6263D5; font-family: 'DM Sans';white-space: nowrap;color:#AAAAAA;"  class="control-label"><strong>Fecha de entrada</strong>
 					<div class="inputGroupContainer">
 						<div class="">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-						<input autocomplete="off" class="campo campo-form" style="width: 100%;font-size:16px" id="startDate" name="startDate" placeholder="--/--/--" class="form-control" type="date">
+						<input autocomplete="off" class="campo campo-form" style="width: 100%;font-size:16px;text-align:center" id="startDate" name="startDate" placeholder="--/--/--" class="form-control" type="date">
 						</div>
 					</div>
 				</label>  
@@ -112,11 +112,11 @@
 
 					
 		<div class="form-group">
-  				<label style="width: 50%;font-size: 20px; color: #6263D5; font-family: 'DM Sans';white-space: nowrap;color:#AAAAAA;margin-top:20px"  class="control-label"><strong>Fecha de salida</strong>
+  				<label style="width: 100%;font-size: 20px; color: #6263D5; font-family: 'DM Sans';white-space: nowrap;color:#AAAAAA;"  class="control-label"><strong>Fecha de salida</strong>
 					<div class="inputGroupContainer">
 						<div class="">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-globe">
-							<input autocomplete="off"  style="width: 100%;font-size:16px" class="campo campo-form" id="endDate" name="endDate" placeholder="--/--/--"  type="date"></i></span>
+							<input autocomplete="off"  style="width: 100%;font-size:16px;text-align:center" class="campo campo-form" id="endDate" name="endDate" placeholder="--/--/--"  type="date"></i></span>
 						</div>
 					</div>
 				</label>  
@@ -128,9 +128,9 @@
 				</fieldset>
 					</form>
 	
-		<div class="row">
-			<button type="button" id="atras" class="button" style="margin-left: 0px;border:white;color:white;background:#6263D5;margin-top:51px; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;" onclick="location.href='check_in.html';"><i class="fa fa-arrow-left"></i></button>
-			<button id="aceptar" class="button custom-btn btn-16 " style="font-size: 24px;margin-top:40px;width: 138px; height: 56px;left:78px" type="submit" ><strong>Aceptar</strong> <span class="glyphicon glyphicon-send"></span></button>		
+		<div class="col-sm-12">
+			<button type="button" id="atras" class="button" style="margin-left: 0px;border:white;color:white;background:#6263D5;margin-top:15px; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;" onclick="location.href='check_in.html';"><i class="fa fa-arrow-left"></i></button>
+			<button id="aceptar" class="button custom-btn btn-16 " style="font-size: 24px;margin-top:4px;width: 138px; height: 56px;float:right" type="submit" ><strong>Aceptar</strong> <span class="glyphicon glyphicon-send"></span></button>		
 		</div>
 			</section>
     		</div>

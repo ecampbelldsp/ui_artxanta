@@ -415,7 +415,7 @@ async function fetchAsync_getScan(url,tipo) {
 	if(tipo == "dni"){
 		$("#escaneoFrontal").hide();
 		$("#escaneoReverso").show();
-		$("#instruccionesDni").text('Coloque el DNI con la foto hacia abajo en el escáner y presione "Continuar"')
+		$("#instruccionesDni").text('Coloque el DNI en el escáner con la foto hacia abajo y pulse "Continuar"')
 	}
 	
 		var waitLogo = document.getElementById("waitLogo");

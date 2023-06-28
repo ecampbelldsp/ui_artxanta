@@ -12,7 +12,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.all.js" integrity="sha512-7TfWz/1TEVLE2pG8KLC/suq4qgXocI+/sNKfX0yifGXBbSKPoA9wcQ2GDublV7SSCu90vnW1q7+TUXOYaCIshA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';;zoom:150%">
-	<audio  id="audio" autoplay src="Audios/3.-.mp3"  type="audio/mpeg"> </audio>
+	<audio  id="audio" autoplay src="Audios/3a.-.mp3"  type="audio/mpeg"> </audio>
 	
 	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:0"> Powered by: </p>
 	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
@@ -37,7 +37,7 @@
 			</div>
 			
 			<div id="waitLogo" style="position: absolute; padding:60px;z-index: -2; display:none;">
-				<h2 id="instruccionesDni" style="font-family:'DM Sans'; font-size: 30px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px;width:80%"> Coloque el DNI con la foto hacia arriba en el escáner y presione "Continuar" </h2>
+				<h2 id="instruccionesDni" style="font-family:'DM Sans'; font-size: 30px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px;width:80%"> Coloque el DNI en el escáner con la foto hacia arriba pulse "Continuar" </h2>
 				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 				<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_bedcttfp.json"  background="transparent"  speed="1"  style="width: 350px; height: 600px;position:relative;right:-5%;margin-top:-100px"  loop  autoplay></lottie-player>
 				<div id="escaneoFrontal" >
@@ -68,6 +68,9 @@
 				<button type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:60px;margin-top:742px;padding: 10px; top:-80px;"><i class="fa fa-arrow-left"></i></button>
 			</div>
 			<audio src="../../media/plop.wav" id="plop"></audio>
+			<audio src="Audios/3b.-.mp3" id="dni1"></audio>
+			<audio src="Audios/3c.-.mp3" id="dni2"></audio>
+			<audio src="Audios/3d.-.mp3" id="pasaporte"></audio>
 		</div> 
 	</div> 
 			
@@ -89,14 +92,17 @@
 	function escanear_dni(){
 		$('#waitLogo').show()
 		$("#seleccion").hide();
+		document.getElementById("dni1").play();
 	}
 	function escanear_pasaporte(){
 		$('#waitLogoPasaporte').show()
 		$("#seleccion").hide();
+		document.getElementById("pasaporte").play();
 	}
 	
 	function scan_function_dni(){
 		console.log("scan page");
+		document.getElementById("dni2").play();
 		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","dni");	
 	}
 

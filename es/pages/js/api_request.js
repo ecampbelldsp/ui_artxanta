@@ -26,8 +26,16 @@ function httpGet(theUrl)
 	var postGuest_json = JSON.parse(postGuest);
 	var reservationID = postGuest_json.reservationID;
 	console.log("Reservation ", reservationID);
-	 
-	let response = await fetch("http://localhost:5000/getNumberOfGuests?reservationID="+reservationID, {method: 'GET'});
+	try{
+		let response = await fetch("http://localhost:5000/getNumberOfGuests?reservationID="+reservationID, {method: 'GET'});
+	}
+	catch(error){
+		Swal.fire(
+			'Algo falla...',
+			"El sistema está caído. Contacte con el Servicio Técnico",
+			'error'
+  		)
+	}
 	
 //	try{
 //		let response = await fetch("http://localhost:5000/getNumberOfGuests?reservationID="+reservationID, {method: 'GET'});}
@@ -375,7 +383,7 @@ async function fetchAsync_getPago(url) {
 	
 		var postGuest_json = JSON.parse(localStorage.postGuest);
 	
-		
+		try{
   		let response = await fetch(url,  {  
        method: 'GET',  
 //       withCredentials: true,  
@@ -384,6 +392,14 @@ async function fetchAsync_getPago(url) {
 //		headers:{"Access-Control-Allow-Origin":"*"}
      }
 								  );  
+								  
+		} catch(error){
+			Swal.fire(
+				'Algo falla...',
+				"El sistema está caído. Contacte con el Servicio Técnico",
+				'error'
+			)
+		}
 
 		response = response.json()
 	
@@ -420,7 +436,11 @@ async function fetchAsync_getScan(url,tipo) {
 		try{
   			let response = await fetch(url);
 		} catch(error){
-			alert("Prueba");
+			Swal.fire(
+				'Algo falla...',
+				"El sistema está caído. Contacte con el Servicio Técnico",
+				'error'
+			)
 		}
 
 		console.log("Scanning");
@@ -530,16 +550,34 @@ async function fetchAsync_sendGmail() {
 	var reservationID = postGuest_json.reservationID;
 	console.log("Reservation ", reservationID);
 	 
+	try{
 	let response = await fetch("http://localhost:5000/sendEmail?reservationID="+reservationID, {method: 'GET'});
 
-	return response
+  	} catch(error){
+		Swal.fire(
+			'Algo falla...',
+			"El sistema está caído. Contacte con el Servicio Técnico",
+			'error'
+		)
+ 	 }
+	  return response
+
 
 };
 
 async function makePayment_cash(url, data){
 	
-	let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
+	try{
+		let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
 	
+	} catch(error){
+		Swal.fire(
+			'Algo falla...',
+			"El sistema está caído. Contacte con el Servicio Técnico",
+			'error'
+		)
+	}
+
 	return response;
 
 };

@@ -102,11 +102,10 @@
 
  	function scan_function(){
 		console.log("scan page");
-		var response = fetchAsync_getScan("http://localhost:6400/api-hardware/v1/scan/comboscan/scan_page");	
-		}
-		
-//		setTimeout( function(){
-//		window.location.href = "/index.html";},60000)    // 10000 is 10 seconds
+
+		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","pasaporte");	
+	}
+
 		
 		
 	</script>

@@ -22,6 +22,8 @@
 	<script type="text/javascript" src="js/button.js"></script>	
 	<script src="script.js"></script>
 	<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+  
 </head>
 
 <body  class="unselectable"  style="background: #EBEBEB; overflow: hidden;  background-size:cover;text-align: center;justify-content: center;align-content: center;display: flex;font-family:'DM Sans';zoom:150%">
@@ -44,6 +46,7 @@
 	
 		<div onclick="take_picture()" style="position: absolute; margin-top:58vh; bottom: 30%;">
 
+			<img id="video" src="" alt="Video Stream" width="640" height="480">
 			  <div id="camera" style="opacity:0;"> 
 					<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 					<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_O67fb5.json"  background="transparent"  speed="0.5"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
@@ -56,7 +59,8 @@
 		</div>
 	
 	<button id="take_picture" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:90px;width:150px;font-size: 36px;position: absolute;bottom:40%; display:true;z-index: 10;" onclick="take_picture()">Aceptar</button>
-
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.0/socket.io.js" integrity="sha512-+sXUwEYakGznuXubXLO/7LWSAPcm+U3NxMJaSu3S5OcvruAAAzaC50Uh4TW9KWj0hA6vfPAjB7E1uuIXgn9vmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/TweenMax.min.js"></script>
 <script>
 
@@ -78,7 +82,18 @@
 		
 
 </script>
-	
+<script>
+    var socket = io.connect();
+
+    socket.on('connect', function() {
+      console.log('Conexión establecida');
+    });
+
+    socket.on('video_stream', function(image) {
+      // Actualizar la imagen en el elemento <img> con el flujo de video recibido
+      $('#video').attr('src', 'data:image/jpeg;base64,' + image);
+    });
+  </script>
 
 
 </body>

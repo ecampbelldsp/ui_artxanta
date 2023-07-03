@@ -31,8 +31,8 @@ function httpGet(theUrl)
 	}
 	catch(error){
 		Swal.fire(
-			'Algo falla...',
-			"El sistema está caído. Contacte con el Servicio Técnico",
+			'Something is wrong...',
+			"The system is down. Contact Technical Support",
 			'error'
   		)
 	}
@@ -71,8 +71,8 @@ async function fetchAsync_getReservation(url) {
 			console.log("There was an error", error);
 			// alert("Call IT support. System is down");
 			Swal.fire(
-				'Algo falla...',
-				'Contacte con el Servicio Técnico, el sistema está caído',
+				'Something is wrong...',
+				'The system is down. Contact Technical Support',
 				'error'
 			)
 		}
@@ -136,8 +136,8 @@ async function fetchAsync_getReservation(url) {
 			 
 
 			Swal.fire(
-				'Algo falla...',
-				'No existe una reserva con la información que nos ha proporcionado',
+				'Something is wrong...',
+				'There is no reserve with the information you have provided us.',
 				'error'
 			)
 			window.location.href = "check_in.html";
@@ -159,8 +159,8 @@ async function getReservationInvoiceInformation(url){
 				console.log("There was an error", error);
 				// alert("Call IT support. System is down");
 				Swal.fire(
-					'Algo falla...',
-					'Contacte con el Servicio Técnico, el sistema está caído',
+					'Something is wrong...',
+					'The system is down. Contact Technical Support',
 					'error'
 				)
 			}
@@ -175,8 +175,8 @@ async function getReservationInvoiceInformation(url){
 			if(data["success"] == "false"){
 				// alert("Hubo un error en la creacion de la reserva. Sera remitido a la pagina principal");
 				Swal.fire(
-					'Algo falla...',
-					"Hubo un error en la creacion de la reserva. Sera remitido a la pagina principal",
+					'Something is wrong...',
+					"There was an error in the creation of the reservation. You will be redirected to the main page",
 					'error'
 				)
 				window.location.href='../index.html';
@@ -251,8 +251,8 @@ async function fetchAsync_getAvailableRooms(url) {
 			console.log("There was an error", error);
 			// alert("Call IT support. System is down");
 			Swal.fire(
-				'Algo falla...',
-				"Contacte con el Servicio Técnico, el sistema está caído",
+				'Something is wrong...',
+				"The system is down. Contact Technical Support",
 				'error'
 			)
 		}
@@ -323,8 +323,8 @@ async function fetchAsync_postReservation(url,data) {
 			console.log("There was an error", error);
 //			alert("Call IT support. System is down");
 			Swal.fire(
-				'Algo falla...',
-				"Contacte con el Servicio Técnico, el sistema está caído",
+				'Something is wrong...',
+				"The system is down. Contact Technical Support",
 				'error'
 			)
 		}
@@ -354,8 +354,8 @@ async function fetchAsync_postReservation(url,data) {
 		//    alert(data_request["message"]);
 
 				   Swal.fire(
-					'Algo falla...',
-					"No se ha podido crear la reserva.",
+					'Something is wrong...',
+					"Reserve could not be created.",
 					'error'
 				)
 
@@ -395,8 +395,8 @@ async function fetchAsync_getPago(url) {
 								  
 		} catch(error){
 			Swal.fire(
-				'Algo falla...',
-				"El sistema está caído. Contacte con el Servicio Técnico",
+				'Something is wrong...',
+				"The system is down. Contact Technical Support",
 				'error'
 			)
 		}
@@ -437,8 +437,8 @@ async function fetchAsync_getScan(url,tipo) {
   			let response = await fetch(url);
 		} catch(error){
 			Swal.fire(
-				'Algo falla...',
-				"El sistema está caído. Contacte con el Servicio Técnico",
+				'Something is wrong...',
+				"The system is down. Contact Technical Support",
 				'error'
 			)
 		}
@@ -555,8 +555,8 @@ async function fetchAsync_sendGmail() {
 
   	} catch(error){
 		Swal.fire(
-			'Algo falla...',
-			"El sistema está caído. Contacte con el Servicio Técnico",
+			'Something is wrong...',
+			"The system is down. Contact Technical Support",
 			'error'
 		)
  	 }
@@ -572,8 +572,8 @@ async function makePayment_cash(url, data){
 	
 	} catch(error){
 		Swal.fire(
-			'Algo falla...',
-			"El sistema está caído. Contacte con el Servicio Técnico",
+			'Something is wrong...',
+			"The system is down. Contact Technical Support",
 			'error'
 		)
 	}
@@ -591,8 +591,8 @@ async function fetchAsync_take_key(url, data){
 		console.log("Error",error);
 		// alert("There was an error with your key. Call IT support");
 		Swal.fire(
-			'Algo falla...',
-			"Hay algún error con su llave. Contacte con el Servicio Técnico",
+			'Something is wrong...',
+			"There is an error with your key. Contact Technical Service",
 			'error'
 		)
 	}
@@ -608,8 +608,8 @@ async function fetchAsync_print_ticket(url, data){
 		console.log("Error",error);
 		// alert("There was an error with your key. Call IT support");
 		Swal.fire(
-			'Algo falla...',
-			"Hay un error con la impresión del ticket. Contacte con el Servicio Técnico",
+			'Something is wrong...',
+			"There is an error with the ticket printing. Contact Technical Service",
 			'error'
 		)
 	}
@@ -633,8 +633,8 @@ async function fetchAsync_getPicture(url) {
 			// alert("Call IT support. Camara error.");
 			
 			Swal.fire(
-				'Algo falla...',
-				"Hay un error con la cámara. Contacte con el Servicio Técnico",
+				'Something is wrong...',
+				"There is an error with the camera. Contact Technical Service",
 				'error'
 			)
 		}
@@ -658,8 +658,8 @@ async function fetchAsync_getPicture(url) {
 		else{
 			// alert("aaCall IT support. Camara error.");
 			Swal.fire(
-				'Algo falla...',
-				"La cámara comunica un error. Contacte con el Servicio Técnico",
+				'Something is wrong...',
+				"The camera reports an error. Contact Technical Service",
 				'error'
 			)
 //			window.location.href = "check_in.html";

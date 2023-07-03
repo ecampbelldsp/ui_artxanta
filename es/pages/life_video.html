@@ -10,6 +10,7 @@
     <script src="js/api_request.js"></script>
     <script src="script.js"></script>
     <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.all.js" integrity="sha512-7TfWz/1TEVLE2pG8KLC/suq4qgXocI+/sNKfX0yifGXBbSKPoA9wcQ2GDublV7SSCu90vnW1q7+TUXOYaCIshA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
       #videoElement {
@@ -31,11 +32,14 @@
     <div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
       <h2 style=" color: #6B43F1;margin-top: 50px;font-size: 30px;">Colóquese en la posición que ve en pantalla y pulse "Aceptar" para comenzar la cuenta atrás</h2>
       <div style="height: 376px;width: 500px;left: 110px;top: 349px;border-radius: 10%;position: absolute;overflow: hidden;">
-        <img style="position: absolute;left: 0px;width: 500px;height: 426px;" src="image/silueta.png" id="silueta">
+        <img style="position: absolute;left: 0px;width: 500px;" src="image/silueta.png" id="silueta">
       </div>
       <video autoplay="true" id="videoElement"></video>
       <span style="display:none;position:absolute;top:740px;left:345px;font-weight:900;font-size:50px;color:#6B43F1;" id="cuenta_atras">5</span><br>
-      <button onclick="cuenta_atras()" class="custom-btn btn-16" style="width: 150px; height: 50px; font-size: 30px;padding: 0px;margin-top:97px">Aceptar</button>
+      <button id="aceptar" onclick="cuenta_atras()" class="custom-btn btn-16" style="width: 150px; height: 50px; font-size: 30px;padding: 0px;margin-top:97px">Aceptar</button>
+      <div id="perfect" style="display:none;margin-top:463px;font-size:60px">
+        <span>&#x1f44c;</span>
+      </div>
     </div>
     <div id="capa_blanca" style="display:none;position:absolute;width:100%;height:100%;z-index:10;background-color:white"></div>
     <span id="camera" style="display:none"></span>
@@ -47,6 +51,7 @@
 
       function cuenta_atras(){
         
+        $("#aceptar").hide()
         document.getElementById("carga").play()
         $("#cuenta_atras").show();
         var intervalo = setInterval(function(){
@@ -62,26 +67,65 @@
         $("#capa_blanca").show();
         $("#capa_blanca").fadeOut();
         $("#cuenta_atras").hide();
-        $("#silueta").hide()
+        $("#aceptar").hide()
         document.getElementById("audio").play()
         
+			  var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
+
         const video = document.getElementById("videoElement");
         
-        video.pause()
-        
-        navigator.mediaDevices.getUserMedia({video: { frameRate:{ ideal: 0, max:1}}})
-          .then(function (stream) {
-            video.srcObject = stream;
+        html2canvas(document.querySelector("#videoElement")).then(function(canvas) {
+          // Convertir el lienzo a una imagen base64
+          var imagenBase64 = canvas.toDataURL("image/png");
+
+          // Crear un elemento de imagen y establecer el atributo src con la imagen base64
+          var imagen = new Image();
+          imagen.src = imagenBase64;
+
+          // Agregar la imagen al cuerpo del documento
+          $("#silueta").attr("src", imagenBase64);
+          $("#videoElement").hide();
+          
+          //Preparando datos
+          var guest2process_data = JSON.parse(localStorage.guest2process_data);
+          var postGuest_json2 = JSON.parse(localStorage.postGuest);
+
+          // Crear objeto FormData
+          var formData = new FormData();
+          formData.append("imagen", imagenBase64);
+          formData.append("reservationID", postGuest_json2.reservationID);
+          formData.append("guest_i", guest2process_data.i);
+
+          // Realizar una solicitud POST al servidor Flask
+          fetch("http://localhost:5000/guardar-imagen", {
+            method: "POST",
+            body: formData
           })
-
-        
-        var tracks = video.srcObject.getTracks();
-
-        // Detener cada pista de la cámara
-        tracks.forEach(function(track) {
-          track.stop();
+          .then(function(response) {
+            // Manejar la respuesta del servidor si es necesario
+            console.log("Resultado "+ response)
+          })
+          .catch(function(error) {
+            // Manejar errores si es necesario
+          });
         });
-        //take_picture()
+        
+          
+        $("videoElement").hide()
+        
+        $("#perfect").show()
+        ;
+        setTimeout(function() {
+          if (guest2process_data.i == guest2process_data.adults){
+            window.location.href='resumen_pago.html';
+          }else{
+            guest2process_data.i += 1;
+            localStorage.guest2process_data = JSON.stringify(guest2process_data);
+            window.location.href='documento_id.html';
+			  }
+          }, 2000);  // Pausa de 2 segundos (2000 milisegundos)
+        
+       // take_picture()
         
       }
 
@@ -114,8 +158,46 @@
 		// var response = fetchAsync_getPicture("http://localhost:5000/picture?reservationID=11111&guest_i=00");
 		var response = fetchAsync_getPicture("http://localhost:5000/picture?reservationID="+postGuest_json2.reservationID+"&guest_i="+guest2process_data.i);
 		
-		
 	}
+
+
     </script>
   </body>
 </html>
+
+
+<!--
+  Esta web  solicita el vídeo de la cámara y la foto es una "captura de pantalla" del stream que se envia por POST a app.py (localhost:5000)
+  Por si en algún momento se pierde:
+En app.py hay que incluír esta librería:
+
+import base64
+
+y esta nueva ruta:
+
+@app.route('/guardar-imagen', methods=['POST'])
+def guardar_imagen():
+    imagen_base64 = request.form['imagen']
+    # Decodificar la imagen base64 en una matriz de bytes
+    imagen_bytes = base64.b64decode(imagen_base64.split(',')[1])
+
+    # Definir la ruta y el nombre de archivo para guardar la imagen
+    date_str = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
+    reservationID = request.form['reservationID']
+    guest_i  = request.form['guest_i']
+    name = f"{reservationID}_{guest_i}_{date_str}"
+    print(name)
+    ruta_guardado = os.path.join(DATA_CLIENT_PATH, 'pictures', name + '.png')
+
+    
+    # Guardar la imagen en el servidor
+    with open(ruta_guardado, 'wb') as archivo:
+        archivo.write(imagen_bytes)
+
+    sleep(1)
+    return "Imagen:" + name + " recibida y guardada exitosamente"
+
+
+
+
+-->

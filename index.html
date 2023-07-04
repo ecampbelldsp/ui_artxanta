@@ -31,16 +31,14 @@
 
 	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:1"> Powered by: </p>
 	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:1">
-	 <select onchange="if($(this).val() == 'Euskera') $('#eus').show(); else $('#eus').hide(); " class="form-dropdown fundir" data-component="dropdown" id="language" name="language"  style=" font-size:24px; font-family:'DM Sans'; color:black; background: white; width:195px; height:30px; text-align:left; line-height:px; top: 5%; right: 2% ;z-index:2;">
+	 <select onchange="if($(this).val() == 'Català') $('#eus').show(); else $('#eus').hide(); " class="form-dropdown fundir" data-component="dropdown" id="language" name="language"  style=" font-size:24px; font-family:'DM Sans'; color:black; background: white; width:195px; height:30px; text-align:left; line-height:px; top: 5%; right: 2% ;z-index:2;">
             <option value="Español"> Español &#x1f1ea;&#x1f1f8;</option>
-		    <option value="Euskera"> Euskera </option> 
+		    <option value="Català"> Català </option> 
             <option value="English"> English &#x1f1ec;&#x1f1e7;</option>
             <option value="Français"> Français &#x1f1eb;&#x1f1f7;</option>
-            <option value="Italiano"> Italiano &#x1f1ee;&#x1f1f9;</option>
-            <option value="Deutsch"> Deutsch &#x1f1e9;&#x1f1ea;</option>
-            <option value="Português"> Português &#x1f1f5;&#x1f1f9;</option> 
+            <option value="Ruso"> Русский &#x1f1f7;&#x1f1fa;</option>
      </select>
-	 <img for="language" id="eus" src="image/ikurriña.png" style="display:none;position:absolute;border-radius: 2px;width: 31px;margin-top: 71px;right: 56px;z-index: 10;">
+	 <img for="language" id="eus" src="image/Senyera.png" style="display:none;position:absolute;border-radius: 2px;width: 26px;margin-top: 66px;right: 74px;z-index: 10;">
 
 	
 	<div class="container" style="overflow:visible">
@@ -48,7 +46,7 @@
 	
 		<h2 class="fundir" style="position: relative;  color: #6B43F1; font-size:40px; position: absolute; top: 20%; opacity: 1;font-family:DM Sans;white-space:nowrap"> CHECK-IN</h2>
 		<h2 class="fundir" style="position: relative;  color: #6B43F1; font-size:40px; position: absolute; top: 40%; opacity: 1;font-family:DM Sans;margin-top:0px"> AUTOMÁTICO</h2>
-		<img src="image/logo_lacabana.png" style="height:200px">
+		<img src="image/logo_lacabana.png" style="height:120px;margin-top:250px">
 		<div onclick="siguiente()" style="position: absolute; margin-top:58vh; ">
 
 			  <div> 
@@ -72,8 +70,8 @@
 		if(language == "Español"){
 			go_language = "es";
 		}
-		if(language == "Euskera"){
-			go_language = "eu";
+		if(language == "Català"){
+			go_language = "ca";
 		}
 		if(language == "English"){
 			go_language = "en";

@@ -18,7 +18,7 @@
 
 <style>
 		p{
-			font-size: 13px;
+			font-size: 10px;
 		}
 
 		#makepdf {
@@ -47,9 +47,12 @@
 		h2 {
 			text-align: center;
 		}
+		.titulo{
+			font-weight:700
+		}
 </style>
 	
-<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';">
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
 	<div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:10px">
 		<div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
 		<div style="width:14%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
@@ -69,54 +72,53 @@
 	
 	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
 
-	<div class="row">
-		<div class="fundir" style=" border-radius: 25px;margin-top: 5%;opacity:0">
+		<div class="fundir" style="opacity:0;line-height:7px">
 			<div id="signature_page" > 
 				
-				<div id="makepdf" style="height:1150px;line-height: 33px;font-family: 'DM Sans';width:inherit;margin:20px;width:86%">	
+				<div id="makepdf" style="font-family: 'DM Sans';margin:20px;width:500px ;margin-left:70px;margin-top:60px">	
 					
-					<h2 style="color:#9642E0; text-align:left; "> Parte de viajeros / Hoja de bienvenida</h2>
+					<h3 style="color:#9642E0; text-align:left; "> Parte de viajeros / Hoja de bienvenida</h3>
 					
 					<p style="font-size: 18px; color: #DE45C4;">  <strong>Datos del establecimiento (OpenCheck) </strong></p>
 					<hr>
-					<p style="font-size: 16px;">
-					<strong>NIF:</strong>&nbsp;xxxxx </p> 
+					<p style="font-size: 12px;">
+					<strong>NIF:</strong>&nbsp;D535456465 </p> 
 					<hr>
-					<p style="font-size: 16px;">
-					<strong>Número de parte:</strong>&nbsp;</p> 
+					<p style="font-size: 12px;">
+					<strong>Número de parte:</strong>&nbsp; 05072023</p> 
 					<hr>
-					<p style="font-size: 16px;">
-					<strong>Nombre del establecimiento:</strong>&nbsp;xxxxx </p>
+					<p style="font-size: 12px;">
+					<strong>Nombre del establecimiento:</strong>&nbsp;Hotel Opencheck </p>
 					<hr>
-					<p style="font-size: 16px;">
+					<p style="font-size: 12px;">
 					<strong>Municipio:</strong>&nbsp; Vigo</p> 
 					<hr>
-					<p style="font-size: 16px;">
+					<p style="font-size: 12px;">
 					<strong>Provincia:</strong>&nbsp; Pontevedra</p> 
 		<!--		<br> -->
 					<hr>
 					<p style="font-size: 18px; color: #DE45C4;"> <strong>Datos del viajero:</strong> </p>
 					<hr>
 					<p>
-					<p style="font-size: 14px;font-weight:700" id="guestDocumentNumber"><strong>Número de documento de identidad</strong>:&nbsp;</p> 
+					<p ><span class="titulo">Número de documento de identidad</span>:&nbsp;<span id="guestDocumentNumber"></span></p> 
 					<hr>
-					<p style="font-size: 14px;" id="guestDocumentType"><strong>Tipo de documento:&nbsp;</strong></p>
+					<p ><span class="titulo">Tipo de documento:&nbsp;</span><span id="guestDocumentType"></span></p>
 					<hr>
-					<p style="font-size: 14px;" id="guestDocumentExpirationDate"><strong>Fecha de vencimiento del documento</strong>:&nbsp;</p>
+					<p ><span class="titulo">Fecha de vencimiento del documento</span>:&nbsp;<span id="guestDocumentExpirationDate"></span></p>
 					<hr>
-					<p style="font-size: 14px;" id="guestFirstName"><strong>Nombre</strong>:&nbsp;</p> 
+					<p ><span class="titulo">Nombre</span>:&nbsp;<span id="guestFirstName"></span></p> 
 					<hr>
-					<p style="font-size: 14px;" id="guestLastName"><strong>Apellido</strong>:&nbsp;</p> 
+					<p ><span class="titulo">Apellido</span>:&nbsp;<span id="guestLastName"></span></p> 
 					<hr>
-					<p style="font-size: 14px;" id="guestBirthDate"><strong>Fecha de nacimiento</strong>:&nbsp;</p>
+					<p ><span class="titulo">Fecha de nacimiento</span>:&nbsp;<span id="guestBirthDate"></span></p>
 					<hr>
-					<p style="font-size: 14px;" id="guestCountry"><strong>País de nacionalidad</strong>:&nbsp;</p>
+					<p ><span class="titulo">País de nacionalidad</span>:&nbsp;<span id="guestCountry"></span></p>
 					<hr>
-					<p style="font-size: 14px;" id="startDate"><strong>Fecha de entrada</strong>:&nbsp;</p>
+					<p ><span class="titulo">Fecha de entrada</span>:&nbsp;<span id="startDate"></span></p>
 					</p>
 					<hr>
-					<p style="font-size: 12px;">
-					La recogida y tratamiento de estos datos se hará de acuerdo con la <a  style="color:#6B43F1; cursor:pointer" onclick="modal_ley()">Ley</a>
+					<p style="font-size: 10px;">
+					La recogida y tratamiento de estos datos se hará de acuerdo con nuestra <a  style="color:#6B43F1; cursor:pointer" onclick="modal_ley()">política de datos</a>
 
 					</p>
 					<modal id="modal_ley" onclick="modal_ley()" style="display:none;position:fixed;height:100%;width:100%;background-color:#33333333; padding:30%;top:0px;left:0px;">
@@ -135,12 +137,11 @@
 				</div>
 			</div>
 		</div>
-	</div>		
-	<div class="row" style="margin-top:71vh;">			
+	<div class="row" style="margin-top:43vh;">			
 
-		<div class="col-md-12 " style=";margin-top: 5%;">
+		<div class="col-md-12 " style="margin-top: 5%;">
 		
-			<p style=" font-family: 'DM Sans'; color: #6B43F1; font-size: 48px;display:inline;float:left "><strong style="margin-right: 90px;">Firme <br> aquí</strong></p>
+			<p style=" font-family: 'DM Sans'; color: #6B43F1; font-size: 42px;display:inline;float:left "><strong>Firme <br> aquí:</strong></p>
 			<!-- Content -->
 		<div  style="display:inline;float: right;">
 					
@@ -148,7 +149,7 @@
 						
 					</canvas>
 			
-					<canvas hidden id="empty-canvas" width="600%" height="360" style="border:1px solid #222222; background-color: white;  color: white;">
+					<canvas hidden id="empty-canvas" width="600" height="360" style="border:1px solid #222222; background-color: white;  color: white;">
 						
 					</canvas>
 

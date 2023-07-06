@@ -39,6 +39,7 @@
   canvas.addEventListener("mousedown", function(e) {
     drawing = true;
     lastPos = getMousePos(canvas, e);
+    console.log(lastPos)
   }, false);
 
   canvas.addEventListener("mouseup", function(e) {
@@ -80,17 +81,23 @@
 
   function getMousePos(canvasDom, mouseEvent) {
     var rect = canvasDom.getBoundingClientRect();
+    var posicion = $('#sig-canvas').offset();
+    var left = posicion.left*1.5;
+    var top = posicion.top*1.5;
     return {
-      x: mouseEvent.clientX - rect.left,
-      y: mouseEvent.clientY - rect.top
+      x: (mouseEvent.clientX - left)/1.5,
+      y: (mouseEvent.clientY - top)/1.5
     }
   }
 
   function getTouchPos(canvasDom, touchEvent) {
     var rect = canvasDom.getBoundingClientRect();
+    var posicion = $('#sig-canvas').offset();
+    var left = posicion.left*1.5;
+    var top = posicion.top*1.5;
     return {
-      x: touchEvent.touches[0].clientX - rect.left,
-      y: touchEvent.touches[0].clientY - rect.top
+      x: (touchEvent.touches[0].clientX - left)/1.5,
+      y: (touchEvent.touches[0].clientY - top)/1.5
     }
   }
 
@@ -147,6 +154,7 @@ function checkCanvasisEmpty() {
 };
 	
 	
+console.log("coso")
 // returns true if every pixel's uint32 representation is 0 (or "blank")
 	
 	
@@ -289,7 +297,7 @@ submitBtn.addEventListener("click", function () {
 	
 	document.getElementById("signature_page").style.opacity = "0";
 	document.body.background = "#DAC1C1";
-	document.getElementById("uploadLogo").style.opacity = "1";
+	// document.getElementById("uploadLogo").style.opacity = "1";
 	
 //	let response = fetchAsync_take_send_picture("http://localhost:5000/postGuestDocument?guestID="+guestID+"&pathDocument=");
 	
@@ -297,7 +305,7 @@ submitBtn.addEventListener("click", function () {
 	var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
 	console.log("Next step");
 //	if (guest2process_data.i == guest2process_data.adults){
-	window.location.href='picture.html'; /*window.location.href='resumen_pago.html'*/
+	window.location.href='life_video.html'; /*window.location.href='resumen_pago.html'*/
 //	else{
 //	guest2process_data.i += 1;
 //	localStorage.guest2process_data = JSON.stringify(guest2process_data);

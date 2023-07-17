@@ -22,17 +22,6 @@
     </style>
   </head>
   <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%">
-    <div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:10px">
-      <div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
-      <div style="width:14%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
-      <div style="display:inline-block;font-size:14px; color:#cb30ad;font-weight:800">2<br>Usuarios</div>
-      <div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-      <div style="display:inline-block">3<br>Pago</div>
-      <div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-      <div style="display:inline-block">4<br>Facturación</div>
-      <div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-      <div style="display:inline-block">5<br>Llave</div>
-    </div>
     <audio  id="audio"  src="../../media/obturador.mp3"  type="audio/mpeg" style="position:absolute"> </audio>
     <audio  id="carga"  src="../../media/carga_flash.mp3"  type="audio/mpeg" style="position:absolute"> </audio>
   
@@ -48,7 +37,7 @@
       <video autoplay="true" id="videoElement"></video>
       <span style="display:none;position:absolute;top:740px;left:345px;font-weight:900;font-size:50px;color:#6B43F1;" id="cuenta_atras">5</span><br>
       <button id="aceptar" onclick="cuenta_atras()" class="custom-btn btn-16" style="width: 150px; height: 50px; font-size: 30px;padding: 0px;margin-top:97px">Aceptar</button>
-      <div id="perfect" style="display:none;margin-top:433px;font-size:60px">
+      <div id="perfect" style="display:none;margin-top:463px;font-size:60px">
         <span>&#x1f44c;</span>
       </div>
     </div>
@@ -124,7 +113,8 @@
           
         $("videoElement").hide()
         
-        $("#perfect").show();
+        $("#perfect").show()
+        ;
         setTimeout(function() {
           if (guest2process_data.i == guest2process_data.adults){
             window.location.href='resumen_pago.html';

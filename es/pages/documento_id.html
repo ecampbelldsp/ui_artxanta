@@ -1,203 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Webcam Video Display</title>
-    <link href="https://fonts.googleapis.com/css?family=DM Sans" rel="stylesheet">
-      <link rel="stylesheet" href="style_2.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="js/api_request.js"></script>
-    <script src="script.js"></script>
-    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.all.js" integrity="sha512-7TfWz/1TEVLE2pG8KLC/suq4qgXocI+/sNKfX0yifGXBbSKPoA9wcQ2GDublV7SSCu90vnW1q7+TUXOYaCIshA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <style>
-      #videoElement {
-		    margin-top: 20px;
-        width: 500px;
-        border-radius: 10%; 
-        overflow: hidden; 
-      }
-    </style>
-  </head>
-  <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%">
-    <audio  id="audio"  src="../../media/obturador.mp3"  type="audio/mpeg" style="position:absolute"> </audio>
-    <audio  id="carga"  src="../../media/carga_flash.mp3"  type="audio/mpeg" style="position:absolute"> </audio>
-  
-    <p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:0"> Powered by: </p>
-    <img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
-    <span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
-  
-    <div class="fundir" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center">
-      <h2 style=" color: #6B43F1;margin-top: 50px;font-size: 30px;">Colóquese en la posición que ve en pantalla y pulse "Aceptar" para comenzar la cuenta atrás</h2>
-      <div style="height: 376px;width: 500px;left: 110px;top: 349px;border-radius: 10%;position: absolute;overflow: hidden;">
-        <img style="position: absolute;left: 0px;width: 500px;" src="image/silueta.png" id="silueta">
-      </div>
-      <video autoplay="true" id="videoElement"></video>
-      <span style="display:none;position:absolute;top:740px;left:345px;font-weight:900;font-size:50px;color:#6B43F1;" id="cuenta_atras">5</span><br>
-      <button id="aceptar" onclick="cuenta_atras()" class="custom-btn btn-16" style="width: 150px; height: 50px; font-size: 30px;padding: 0px;margin-top:97px">Aceptar</button>
-      <div id="perfect" style="display:none;margin-top:463px;font-size:60px">
-        <span>&#x1f44c;</span>
-      </div>
-    </div>
-    <div id="capa_blanca" style="display:none;position:absolute;width:100%;height:100%;z-index:10;background-color:white"></div>
-    <span id="camera" style="display:none"></span>
-    <script>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+	<meta charset="utf-8">
+	<title>Identificación</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style_2.css" rel="stylesheet" type="text/css">
+	<script src="js/api_request.js"> </script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.all.js" integrity="sha512-7TfWz/1TEVLE2pG8KLC/suq4qgXocI+/sNKfX0yifGXBbSKPoA9wcQ2GDublV7SSCu90vnW1q7+TUXOYaCIshA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';;zoom:150%">
+	<div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:10px">
+		<div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
+		<div style="width:14%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
+		<div style="display:inline-block;font-size:14px; color:#cb30ad;font-weight:800">2<br>Usuarios</div>
+		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+		<div style="display:inline-block">3<br>Pago</div>
+		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+		<div style="display:inline-block">4<br>Facturación</div>
+		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+		<div style="display:inline-block">5<br>Llave</div>
+	</div>
+	<audio  id="audio" autoplay src="Audios/3a.-.mp3"  type="audio/mpeg"> </audio>
+	
+	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:0"> Powered by: </p>
+	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:0">
+	
+	<span style="position: absolute;margin-top: 25vh;margin-left: -100%;" class="dot"></span>
 
-      
-			$(".fundir").animate({opacity:"1"});
-
-
-      function cuenta_atras(){
-        
-        $("#aceptar").hide()
-        document.getElementById("carga").play()
-        $("#cuenta_atras").show();
-        var intervalo = setInterval(function(){
-          if($("#cuenta_atras").text() == "1" ){
-            clearInterval(intervalo)
-            sacarFoto()
-          }
-          $("#cuenta_atras").text($("#cuenta_atras").text()-1)
-        }, 1000)
-      }
-      
-      function sacarFoto(){
-        $("#capa_blanca").show();
-        $("#capa_blanca").fadeOut();
-        $("#cuenta_atras").hide();
-        $("#aceptar").hide()
-        document.getElementById("audio").play()
-        
-			  var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
-
-        const video = document.getElementById("videoElement");
-        
-        html2canvas(document.querySelector("#videoElement")).then(function(canvas) {
-          // Convertir el lienzo a una imagen base64
-          var imagenBase64 = canvas.toDataURL("image/png");
-
-          // Crear un elemento de imagen y establecer el atributo src con la imagen base64
-          var imagen = new Image();
-          imagen.src = imagenBase64;
-
-          // Agregar la imagen al cuerpo del documento
-          $("#silueta").attr("src", imagenBase64);
-          $("#videoElement").hide();
-          
-          //Preparando datos
-          var guest2process_data = JSON.parse(localStorage.guest2process_data);
-          var postGuest_json2 = JSON.parse(localStorage.postGuest);
-
-          // Crear objeto FormData
-          var formData = new FormData();
-          formData.append("imagen", imagenBase64);
-          formData.append("reservationID", postGuest_json2.reservationID);
-          formData.append("guest_i", guest2process_data.i);
-
-          // Realizar una solicitud POST al servidor Flask
-          fetch("http://localhost:5000/guardar-imagen", {
-            method: "POST",
-            body: formData
-          })
-          .then(function(response) {
-            // Manejar la respuesta del servidor si es necesario
-            console.log("Resultado "+ response)
-          })
-          .catch(function(error) {
-            // Manejar errores si es necesario
-          });
-        });
-        
-          
-        $("videoElement").hide()
-        
-        $("#perfect").show()
-        ;
-        setTimeout(function() {
-          if (guest2process_data.i == guest2process_data.adults){
-            window.location.href='resumen_pago.html';
-          }else{
-            guest2process_data.i += 1;
-            localStorage.guest2process_data = JSON.stringify(guest2process_data);
-            window.location.href='documento_id.html';
-			  }
-          }, 2000);  // Pausa de 2 segundos (2000 milisegundos)
-        
-       // take_picture()
-        
-      }
-
-
-      // Get the video element
-      const video = document.getElementById("videoElement");
-
-      // Check if the browser supports getUserMedia API
-      if (navigator.mediaDevices.getUserMedia) {
-        // Request access to the webcam
-        navigator.mediaDevices
-          .getUserMedia({ video: true })
-          .then(function (stream) {
-            // Set the video source to the stream from the webcam
-            video.srcObject = stream;
-          })
-          .catch(function (error) {
-            console.log("Error accessing the webcam: ", error);
-          });
-      } else {
-        console.log("getUserMedia not supported");
-      }
-
-  function take_picture(){
-		console.log("Taking picture");
+	<div class="fundir" id="frame" style=" border-radius: 25px;background-color:white;height:800px; width: 500px;margin-top: 8vh;opacity:0;display:block;text-align:center; z-index: 10; ">
 		
-		var guest2process_data = JSON.parse(localStorage.guest2process_data);
-		var postGuest_json2 = JSON.parse(localStorage.postGuest);
+		<div id="scan" style="opacity: 1">
+			<div id="seleccion">
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_ddr3jxu2.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px; text-align:center;margin-left:110px;margin-bottom:-55px" loop  autoplay></lottie-player>
+				
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px">¿Qué tipo de </p>
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-40px;">  documento de</p>
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-80px;"> identidad posee? </p>
+				<p id="guest" style="font-family:'DM Sans'; font-size: 20px; font-weight: bold; color: #920909; opacity: 1;margin-top:30px; position: relative; top:-80px;"> Huespéd # </p>
+				<!--		Escanee su<br> documento de <br> identidad-->
+				<!-- <input autocomplete="off" type="button" class="boton" style=" font-size: 25px; width:270px;margin-top:50px;position: relative; top:-80px; " value="Inscripción manual" onclick="location.href='jot_form.html';"> -->
+				
+				<input autocomplete="off" type="button" class="boton " style=" font-size: 25px; width:270px;margin-top:30px; position: relative; top:-80px;" value="DNI" onclick="escanear_dni();">
+				<input autocomplete="off" type="button" class="boton " style=" font-size: 25px; width:270px;margin-top:30px; position: relative; top:-80px;" value="Pasaporte" onclick="escanear_pasaporte();">
+			</div>
+			
+			<div id="waitLogo" style="position: absolute; padding:60px;z-index: -2; display:none;">
+				<h2 id="instruccionesDni" style="font-family:'DM Sans'; font-size: 30px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px;width:80%"> Coloque el DNI en el escáner con la foto hacia arriba pulse "Continuar" </h2>
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_bedcttfp.json"  background="transparent"  speed="1"  style="width: 350px; height: 600px;position:relative;right:-5%;margin-top:-100px"  loop  autoplay></lottie-player>
+				<div id="escaneoFrontal" >
+					<img src="image/dniFalso.png" style=" position: absolute;top:333px;right:232px; height:200px;z-index: 2">
+					<input type="button" class="boton button_automatic_scan" style=" font-size: 25px; width:270px;margin-top:-7px; position: relative; top:-55px;" value="Continuar" onclick="scan_function_dni();">
+				</div>
+				<div id="escaneoReverso" style="display: none;" >
+					<img src="../../image/dniReverso.jpg"  style=" position: absolute;top:333px;right:232px; height:200px;z-index: 2">
+					<input type="button" class="boton button_automatic_scan" style=" font-size: 25px; width:270px;margin-top:-7px; position: relative; top:-55px;" value="Continuar" onclick="scan_function();">
+				</div>
+			</div>
+			<div id="waitLogoPasaporte" style="position: absolute; padding:60px;z-index: -2; display:none;width:510px">
+				<p style="font-family:'DM Sans'; font-size: 30px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:-10px"> Coloque el pasaporte en el escáner y pulse "Continuar"</p>
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_bedcttfp.json"  background="transparent"  speed="1"  style="width: 350px; height: 600px;position:relative;right:-5%;;;margin-top:60px"  loop  autoplay></lottie-player>
+				<img src="../../image/pasaporte.jpg"  style=" position: absolute;top:113px;right:32px; height:550px;z-index: -2">
+				<input  type="button" class="boton button_automatic_scan" style=" font-size: 25px; width:270px;margin-top:-7px; position: relative; top:-110px;left: 60px;" value="Continuar" onclick="scan_function();">
+			</div>
+	
+			<div id="alerta" style="opacity: 0; z-index: 1000; margin-top: 590px; position: absolute; margin-left:60px;width:50%">
+					<div class="message-box message-box-warn">
+					<i class="fa fa-warning fa-2x"></i>
+						<span id="alerta_message" class="message-text"> Gire el documento para un correcto escaneado.</span>
+					<i class="fa  fa-2x exit-button "></i>
+					</div>
+			</div>		
+			<div  id="atras" style="" onclick="location.href='check_in.html';">
+				<button type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:60px;margin-top:695px;padding: 10px;"><i class="fa fa-arrow-left"></i></button>
+			</div>
+			<audio src="../../media/plop.wav" id="plop"></audio>
+			<audio src="Audios/3b.-.mp3" id="dni1"></audio>
+			<audio src="Audios/3c.-.mp3" id="dni2"></audio>
+			<audio src="Audios/3d.-.mp3" id="pasaporte"></audio>
+		</div> 
+	</div> 
+			
+
+<script>	
 		
-		// var response = fetchAsync_getPicture("http://localhost:5000/picture?reservationID=11111&guest_i=00");
-		var response = fetchAsync_getPicture("http://localhost:5000/picture?reservationID="+postGuest_json2.reservationID+"&guest_i="+guest2process_data.i);
-		
+	if (localStorage.with_reservation_flag == true){
+	fetchAsync_getnumberOfGuests();
+	};
+	
+	//localStorage.error_scan_counter = "0";
+		var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
+		var guest = document.getElementById('guest');
+		<!-- guest.textContent += guest2process_data.i; -->
+		console.log(localStorage)
+
+	$(window).load(function(){
+		$(".fundir").animate({opacity:"1"});
+	})
+	
+	function escanear_dni(){
+		$('#waitLogo').show()
+		$("#seleccion").hide();
+		document.getElementById("dni1").play();
+	}
+	function escanear_pasaporte(){
+		$('#waitLogoPasaporte').show()
+		$("#seleccion").hide();
+		document.getElementById("pasaporte").play();
+	}
+	
+	function scan_function_dni_fallo(){
+		console.log("scan page");
+		document.getElementById("dni1").play();
+		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","fallo");	
+	}
+	function scan_function_dni(){
+		console.log("scan page");
+		document.getElementById("dni2").play();
+		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","dni");	
 	}
 
+ 	function scan_function(){
+		console.log("scan page");
+		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","pasaporte");	
+	}
 
-    </script>
-  </body>
+		
+		
+	</script>
+	
+</body>
 </html>
-
-
-<!--
-  Esta web  solicita el vídeo de la cámara y la foto es una "captura de pantalla" del stream que se envia por POST a app.py (localhost:5000)
-  Por si en algún momento se pierde:
-En app.py hay que incluír esta librería:
-
-import base64
-
-y esta nueva ruta:
-
-@app.route('/guardar-imagen', methods=['POST'])
-def guardar_imagen():
-    imagen_base64 = request.form['imagen']
-    # Decodificar la imagen base64 en una matriz de bytes
-    imagen_bytes = base64.b64decode(imagen_base64.split(',')[1])
-
-    # Definir la ruta y el nombre de archivo para guardar la imagen
-    date_str = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-    reservationID = request.form['reservationID']
-    guest_i  = request.form['guest_i']
-    name = f"{reservationID}_{guest_i}_{date_str}"
-    print(name)
-    ruta_guardado = os.path.join(DATA_CLIENT_PATH, 'pictures', name + '.png')
-
-    
-    # Guardar la imagen en el servidor
-    with open(ruta_guardado, 'wb') as archivo:
-        archivo.write(imagen_bytes)
-
-    sleep(1)
-    return "Imagen:" + name + " recibida y guardada exitosamente"
-
-
-
-
--->

@@ -96,7 +96,7 @@
 	
 	</script>
 	<script>
-		fetchAsync_getPago("http://localhost:8080/");
+		//fetchAsync_getPago("http://localhost:8080/");
 	</script>
 	<!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
 	
@@ -106,7 +106,7 @@
 
 	document.getElementById("audio2c").play()
 
-		var postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+		
 		
 		function restaurar(){
 			$(".escoja").fadeIn();
@@ -141,15 +141,23 @@
 			
 			document.getElementById("audio_efectivo").play()
 			
+			var postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+			
+			console.log("postGuest_jsonPago",postGuest_jsonPago);
 			
 			var data = '{"device": "cashITL","amount": ""}';
 			data_json = JSON.parse(data);
 			data_json.amount = postGuest_jsonPago.balance;
 			data = JSON.stringify(data_json);
 			
-			var response = makePayment_cash("http://localhost:8080/api-hardware/v1/payment/makePayment", data);
+			console.log("Comparison", "true"=="true");
+			makePayment_cash("http://localhost:5000/efectivo?cash="+postGuest_jsonPago.balance);
 			
-			console.log("Payment response", response);
+			
+
+		
+			
+			//console.log("Payment response", response);
 			//Cobrar en efectivo...
 		}
 		

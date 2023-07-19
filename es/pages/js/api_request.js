@@ -565,10 +565,31 @@ async function fetchAsync_sendGmail() {
 
 };
 
-async function makePayment_cash(url, data){
+async function makePayment_cash(url){
 	
+	console.log("Llamando api de pago en efectivo");
 	try{
-		let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
+		let response = await fetch(url);
+		
+		let data =  await response.json();
+		
+					//response = response.json();
+			console.log("Success",data["success"]);
+			console.log("Response",data);
+
+			if(response.success == "false")
+				{
+				Swal.fire(
+				response.message,
+				'error')
+				}
+			else if (response.success == "true")
+				{
+				Swal.fire(
+				"Pago realizado con éxito")
+				}
+		
+		//return data;
 	
 	} catch(error){
 		Swal.fire(
@@ -578,7 +599,7 @@ async function makePayment_cash(url, data){
 		)
 	}
 
-	return response;
+	
 
 };
 

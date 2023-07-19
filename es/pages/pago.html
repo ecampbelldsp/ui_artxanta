@@ -150,13 +150,14 @@
 			data_json.amount = postGuest_jsonPago.balance;
 			data = JSON.stringify(data_json);
 			
-			
-			var response = makePayment_cash("http://localhost:5000/efectivo?cash="+postGuest_jsonPago.balance);
-			
-			
+			console.log("Comparison", "true"=="true");
+			makePayment_cash("http://localhost:5000/efectivo?cash="+postGuest_jsonPago.balance);
 			
 			
-			console.log("Payment response", response);
+
+		
+			
+			//console.log("Payment response", response);
 			//Cobrar en efectivo...
 		}
 		

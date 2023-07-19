@@ -577,13 +577,13 @@ async function makePayment_cash(url){
 			console.log("Success",data["success"]);
 			console.log("Response",data);
 
-			if(response.success == "false")
+			if(data.success == false)
 				{
 				Swal.fire(
-				response.message,
+				data.message,
 				'error')
 				}
-			else if (response.success == "true")
+			else if (data.success == true)
 				{
 				Swal.fire(
 				"Pago realizado con éxito")

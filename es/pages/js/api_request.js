@@ -567,8 +567,10 @@ async function fetchAsync_sendGmail() {
 
 async function makePayment_cash(url, data){
 	
+	console.log("Llamando api de pago en efectivo");
 	try{
-		let response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
+		let response = await fetch(url);
+		return response;
 	
 	} catch(error){
 		Swal.fire(
@@ -578,7 +580,7 @@ async function makePayment_cash(url, data){
 		)
 	}
 
-	return response;
+	
 
 };
 

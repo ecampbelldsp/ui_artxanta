@@ -32,17 +32,18 @@
 	  
 </head>
 <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
-	<div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:10px">
-		<div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
-		<div style="display:inline-block; color:#cb30ad">2<br>Usuarios</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted #cb30ad;;vertical-align:super;"></div>
-		<div style="display:inline-block; font-size:14px;color:#cb30ad;font-weight:800">3<br>Pago</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-		<div style="display:inline-block">4<br>Facturación</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-		<div style="display:inline-block">5<br>Llave</div>
-	</div>
+    <div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:14px">
+      <h3 style="display:inline-block;font-size:18px; margin-right:50px">Pasos <br>Check-In:</h3>
+      <div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
+      <div style="width:5%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
+      <div style="display:inline-block; color:#cb30ad;">2<br>Identificación</div>
+      <div style="width:5%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
+      <div style="display:inline-block;font-size:18px;font-weight:800; color:#cb30ad;">3<br>Pago</div>
+      <div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+      <div style="display:inline-block">4<br>Factura</div>
+      <div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+      <div style="display:inline-block">5<br>Llave</div>
+    </div>
 	<audio  id="audio" autoplay src="Audios/7.-.mp3"  type="audio/mpeg"> </audio>
 	<audio  id="audio_tarjeta"  src="Audios/7a.-.mp3"  type="audio/mpeg"> </audio>
 	<audio  id="audio_efectivo"  src="Audios/7b.-.mp3"  type="audio/mpeg"> </audio>
@@ -66,7 +67,8 @@
 		<br><br>
 		<br>
 		<p class="efectivo_gif titular" style="display:none;font-size:50px">Introduzca efectivo </p>
-		<div class="efectivo_gif" style="text-align:center;display:block;padding-left:34%;height:250px;margin-top:100px;display:none"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<div class="efectivo_gif" style="text-align:center;display:block;padding-left:34%;height:250px;margin-top:50px;display:none">
+			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 			<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_hd4u00ki.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;margin-left:-70px;margin-top:-80px"  loop  autoplay></lottie-player>
 			<!-- <img class="efectivo_gif" id="billete" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
 			<img class="efectivo_gif" id="billete1" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none">
@@ -74,15 +76,25 @@
 			<img class="efectivo_gif" id="billete3" src="image/billete.png" style="width: 150px;height: auto;transform-origin: left;position: absolute;display:block;display:none"> -->
 		</div>
 		
-		<p class="tarjeta_gif titular" style="display:none">Introduzca su tarjeta de crédito en el lector de la derecha</p><br>
-		<div class="tarjeta_gif" style="text-align:center;display:none;height:250px;">
-			<img class="tarjeta_gif" src="image/pago.gif" style="width: 150px; height: 150px;display:block;text-align: center;margin:auto;display:block;display:none">
-		</div>
+		<p class="tarjeta_gif titular" style="display:none;margin-top:-100px">
+			
+			<img class="tarjeta_gif" src="image/pago.gif" style="width: 150px; height: 150px;display:block;text-align: center;margin:auto;display:block;display:none"><br>
+			<span style="width: 60%; display: inline-block;">Aproxime su tarjeta al lector RFID</span>
+			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+			<lottie-player src="https://lottie.host/38c04dfb-a790-4957-9404-a76aaeaa4e14/MGpWRe6nXC.json" background="#ffff" speed="1" style="width: 150px;float:right;" direction="1" mode="normal" loop autoplay></lottie-player>
+				<br><br>
+			<span style="width: 60%; display: inline-block;">O introduzca la tarjeta y el PIN en el lector</span>
+			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+			<lottie-player src="https://lottie.host/6e54ee13-d206-4fa2-8ac1-f8adca11b0f2/aCWtNqJUDp.json" background="#FFFFFF" speed="1" style="width: 150px;float:right" loop autoplay direction="1" mode="normal"></lottie-player>
+			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+			<lottie-player src="https://lottie.host/6677212a-bab8-40f8-8658-3f69c4f6fd19/IUrlMQfHE7.json" background="#ffff" speed="1" style="width: 150px;float:right;margin-top:-100px" loop autoplay direction="1" mode="normal"></lottie-player>
+
+		</p><br>
 		
 		
 		<button id="atras" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:45px;font-size: 20px;position: relative;float: left;margin-left:60px;margin-top:50px;padding: 10px;" onclick="history.back();"><i class="fa fa-arrow-left"></i></button>
 		
-		<button id="siguiente" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:100px;font-size: 20px;position: relative;float: left;margin-left:233px;margin-top:53px;padding: 10px;display:none" onclick="window.location.href = 'take_key.html';">Siguiente</button>
+		<button id="siguiente" type="button" class="boton" style="border:white;color:white;background: #6263D5; border-radius:15px;height:45px;width:100px;font-size: 20px;position: relative;float: left;margin-left:233px;margin-top:50px;padding: 10px;display:none" onclick="window.location.href = 'take_key.html';">Siguiente</button>
 
 	<!-- <input autocomplete="off" type="button" class="boton " style="font-size: 24px; display:inline;margin-top:164px" value="Aceptar" onclick="location.href='take_key.html';"> -->
 	
@@ -113,7 +125,7 @@
 			$(".tarjeta_gif").hide();
 			$(".efectivo_gif").hide();
 			$("#siguiente").hide();
-			$("#atras").css("margin-top","275px");
+			$("#atras").css("margin-top","50px");
 			$("#atras").attr("onclick","history.back()")
 		}
 		
@@ -121,8 +133,8 @@
 			$(".escoja").hide();
 			$(".tarjeta_gif").fadeIn();
 			$("#siguiente").fadeIn();
-			$("#siguiente").css("margin-top","124px");
-			$("#atras").css("margin-top","124px");
+			$("#siguiente").css("margin-top","48px");
+			$("#atras").css("margin-top","48px");
 			$("#atras").attr("onclick","restaurar()")
 			
 			document.getElementById("audio_tarjeta").play()

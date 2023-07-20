@@ -12,15 +12,16 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.all.js" integrity="sha512-7TfWz/1TEVLE2pG8KLC/suq4qgXocI+/sNKfX0yifGXBbSKPoA9wcQ2GDublV7SSCu90vnW1q7+TUXOYaCIshA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';;zoom:150%">
-	<div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:10px">
+	<div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:14px">
+		<h3 style="display:inline-block;font-size:18px; margin-right:50px">Pasos <br>Check-In:</h3>
 		<div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
-		<div style="display:inline-block;font-size:14px; color:#cb30ad;font-weight:800">2<br>Usuarios</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+		<div style="width:5%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
+		<div style="display:inline-block;font-size:18px;font-weight:800; color:#cb30ad;">2<br>Identificación</div>
+		<div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
 		<div style="display:inline-block">3<br>Pago</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-		<div style="display:inline-block">4<br>Facturación</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+		<div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+		<div style="display:inline-block">4<br>Factura</div>
+		<div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
 		<div style="display:inline-block">5<br>Llave</div>
 	</div>
 	<audio  id="audio" autoplay src="Audios/3a.-.mp3"  type="audio/mpeg"> </audio>
@@ -37,9 +38,9 @@
 				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 				<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_ddr3jxu2.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px; text-align:center;margin-left:110px;margin-bottom:-55px" loop  autoplay></lottie-player>
 				
-				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px">¿Qué tipo de </p>
-				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-40px;">  documento de</p>
-				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-80px;"> identidad posee? </p>
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px">Seleccione </p>
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-40px;"> qué tipo de documento</p>
+				<p style="font-family:'DM Sans'; font-size: 40px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px; position: relative; top:-80px;">  de identidad posee: </p>
 				<p id="guest" style="font-family:'DM Sans'; font-size: 20px; font-weight: bold; color: #920909; opacity: 1;margin-top:30px; position: relative; top:-80px;"> Huespéd # </p>
 				<!--		Escanee su<br> documento de <br> identidad-->
 				<!-- <input autocomplete="off" type="button" class="boton" style=" font-size: 25px; width:270px;margin-top:50px;position: relative; top:-80px; " value="Inscripción manual" onclick="location.href='jot_form.html';"> -->
@@ -49,7 +50,7 @@
 			</div>
 			
 			<div id="waitLogo" style="position: absolute; padding:60px;z-index: -2; display:none;">
-				<h2 id="instruccionesDni" style="font-family:'DM Sans'; font-size: 30px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px;width:80%"> Coloque el DNI en el escáner con la foto hacia arriba pulse "Continuar" </h2>
+				<h2 id="instruccionesDni" style="font-family:'DM Sans'; font-size: 30px; font-weight: bold; color: #6B43F1; opacity: 1;margin-top:30px;width:70%"> Coloque el DNI en el escáner con la foto hacia arriba pulse "Continuar" </h2>
 				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 				<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_bedcttfp.json"  background="transparent"  speed="1"  style="width: 350px; height: 600px;position:relative;right:-5%;margin-top:-100px"  loop  autoplay></lottie-player>
 				<div id="escaneoFrontal" >

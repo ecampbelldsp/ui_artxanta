@@ -24,7 +24,7 @@
 		#makepdf {
 			box-sizing: content-box;
 			width: 810px;
-			height: 645px;
+			height: 790px;
 			padding: 30px;
 			border: 1px solid black;
 			font-style: sans-serif;
@@ -53,17 +53,18 @@
 </style>
 	
 <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
-	<div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:10px">
-		<div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
-		<div style="display:inline-block;font-size:14px; color:#cb30ad;font-weight:800">2<br>Usuarios</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-		<div style="display:inline-block">3<br>Pago</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-		<div style="display:inline-block">4<br>Facturación</div>
-		<div style="width:14%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
-		<div style="display:inline-block">5<br>Llave</div>
-	</div>
+    <div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:14px">
+      <h3 style="display:inline-block;font-size:18px; margin-right:50px">Pasos <br>Check-In:</h3>
+      <div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
+      <div style="width:5%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
+      <div style="display:inline-block;font-size:18px;font-weight:800; color:#cb30ad;">2<br>Identificación</div>
+      <div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+      <div style="display:inline-block">3<br>Pago</div>
+      <div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+      <div style="display:inline-block">4<br>Factura</div>
+      <div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+      <div style="display:inline-block">5<br>Llave</div>
+    </div>
 	<audio  id="audio" autoplay src="Audios/6.-.mp3"  type="audio/mpeg"> </audio>
 	
 	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:39px;right:214px;opacity:0;color:#333333"> Powered by: </p>
@@ -75,50 +76,63 @@
 		<div class="fundir" style="opacity:0;line-height:7px">
 			<div id="signature_page" > 
 				
-				<div id="makepdf" style="font-family: 'DM Sans';margin:20px;width:500px ;margin-left:70px;margin-top:60px">	
+				<div id="makepdf" style="font-family: 'DM Sans';margin:20px;width:500px ;margin-left:70px;margin-top:60px;font-size: 12px;">	
 					
 					<h3 style="color:#9642E0; text-align:left; "> Parte de viajeros / Hoja de bienvenida</h3>
 					
-					<p style="font-size: 18px; color: #DE45C4;">  <strong>Datos del establecimiento (OpenCheck) </strong></p>
+					<p style="font-size: 18px; color: #DE45C4;">  <strong>Datos del establecimiento </strong></p>
 					<hr>
-					<p style="font-size: 12px;">
-					<strong>NIF:</strong>&nbsp;D535456465 </p> 
+					<p style="margin-left:20px">
+					<strong>NIF:</strong>&nbsp;B95933255 </p> 
 					<hr>
-					<p style="font-size: 12px;">
-					<strong>Número de parte:</strong>&nbsp; 05072023</p> 
+					<p style="margin-left:20px">
+					<strong>Número de parte:</strong>&nbsp; <span id="parte">K...</span></p> 
 					<hr>
-					<p style="font-size: 12px;">
-					<strong>Nombre del establecimiento:</strong>&nbsp;Hotel Opencheck </p>
+					<p style="margin-left:20px">
+					<strong>Nombre del establecimiento:</strong>&nbsp;Hotel Artxanda </p>
 					<hr>
-					<p style="font-size: 12px;">
-					<strong>Municipio:</strong>&nbsp; Vigo</p> 
+					<p style="margin-left:20px">
+					<strong>Municipio:</strong>&nbsp; Bilbao</p> 
 					<hr>
-					<p style="font-size: 12px;">
-					<strong>Provincia:</strong>&nbsp; Pontevedra</p> 
+					<p style="margin-left:20px">
+					<strong>Provincia:</strong>&nbsp; Vizcaya</p> 
 		<!--		<br> -->
 					<hr>
 					<p style="font-size: 18px; color: #DE45C4;"> <strong>Datos del viajero:</strong> </p>
 					<hr>
 					<p>
-					<p ><span class="titulo">Número de documento de identidad</span>:&nbsp;<span id="guestDocumentNumber"></span></p> 
+					<p style="margin-left:20px"><span class="titulo">Número de documento de identidad</span>:&nbsp;<span id="guestDocumentNumber"></span></p> 
 					<hr>
-					<p ><span class="titulo">Tipo de documento:&nbsp;</span><span id="guestDocumentType"></span></p>
+					<p style="margin-left:20px"><span class="titulo">Tipo de documento:&nbsp;</span><span id="guestDocumentType"></span></p>
 					<hr>
-					<p ><span class="titulo">Fecha de vencimiento del documento</span>:&nbsp;<span id="guestDocumentExpirationDate"></span></p>
+					<p style="margin-left:20px"><span class="titulo">Fecha de vencimiento del documento</span>:&nbsp;<span id="guestDocumentExpirationDate"></span></p>
 					<hr>
-					<p ><span class="titulo">Nombre</span>:&nbsp;<span id="guestFirstName"></span></p> 
+					<p style="margin-left:20px"><span class="titulo">Nombre</span>:&nbsp;<span id="guestFirstName"></span></p> 
 					<hr>
-					<p ><span class="titulo">Apellido</span>:&nbsp;<span id="guestLastName"></span></p> 
+					<p style="margin-left:20px"><span class="titulo">Apellido</span>:&nbsp;<span id="guestLastName"></span></p> 
 					<hr>
-					<p ><span class="titulo">Fecha de nacimiento</span>:&nbsp;<span id="guestBirthDate"></span></p>
+					<p style="margin-left:20px"><span class="titulo">Fecha de nacimiento</span>:&nbsp;<span id="guestBirthDate"></span></p>
 					<hr>
-					<p ><span class="titulo">País de nacionalidad</span>:&nbsp;<span id="guestCountry"></span></p>
+					<p style="margin-left:20px"><span class="titulo">País de nacionalidad</span>:&nbsp;<span id="guestCountry"></span></p>
 					<hr>
-					<p ><span class="titulo">Fecha de entrada</span>:&nbsp;<span id="startDate"></span></p>
+					<p style="margin-left:20px"><span class="titulo">Fecha de entrada</span>:&nbsp;<span id="startDate"></span></p>
 					</p>
 					<hr>
-					<p style="font-size: 10px;">
-					La recogida y tratamiento de estos datos se hará de acuerdo con nuestra <a  style="color:#6B43F1; cursor:pointer" onclick="modal_ley()">política de datos</a>
+					<p style="font-size: 9px;line-height:13px">
+						LOPD - Según el Reglamento General de Protección de Datos 2016/679 (RGPD) y la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y Garantía de los Derechos Digitales, 
+						le informamos que mediante la firma del presente documento, otorga su CONSENTIMIENTO EXPRESO para que sus datos personales formen parte de un fichero propiedad a la empresa OPENCHECK SL 
+						con CIF B72463003 y domicilio en Calle Colón 37 piso 5ºB así como a la empresa hotelera <span>Hotel Artxanda</span> con CIF <span>B95933255</span> y domicilio en la calle <span>Dirección	C/Santo Domingo a Enekuri Artxanda, 3, 48015 Bilbao</span>, 
+						La finalidad de los datos proporcionados son los siguientes:
+						
+						- Los datos serán cedidos a las fuerzas de seguridad del Estado conforme obliga el Real Decreto 933/2021
+						- Facturación: los datos identificativos de clientes propios del contrato de prestación de servicios derivados de la transaccióneconomica realizada.  
+						- Elaboración de informes estadísticos.
+						- Envio de couminicacion comercial sobre nuestros productos y servicios comercializados. 
+						
+						Le informamos sobre la posibilidad de ejercer los siguientes derechos sobre sus datos personales: derecho de acceso, rectificación, supresión u olvido, limitación, oposición, portabilidad y a retirar el consentimiento prestado. Para ello podrá enviar un email a: info@opencheck.es y/o <span>hotel@hotelartxanda.es</span>
+						
+						
+					<!-- <a  style="color:#6B43F1; cursor:pointer" onclick="modal_ley()">política de datos</a> -->
 
 					</p>
 					<modal id="modal_ley" onclick="modal_ley()" style="display:none;position:fixed;height:100%;width:100%;background-color:#33333333; padding:30%;top:0px;left:0px;">
@@ -137,7 +151,7 @@
 				</div>
 			</div>
 		</div>
-	<div class="row" style="margin-top:43vh;">			
+	<div class="row" style="margin-top:990px;">			
 
 		<div class="col-md-12 " style="margin-top: 5%;">
 		

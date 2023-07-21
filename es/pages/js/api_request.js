@@ -470,10 +470,21 @@ async function fetchAsync_getScan(url,tipo) {
 		var success = data["success"];
 	
   		console.log("Sucess",success);
+		
+		var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
 	
   		var postGuest = localStorage.postGuest;				
-		var postGuest_json = JSON.parse(postGuest);
+		
+		if(guest2process_data.i == 1){
+			var postGuest_json = JSON.parse(postGuest);
+		}else{
+			var postGuest_json = JSON.parse(guest_aditional);
+			var tmp_json = JSON.parse(postGuest);
+			postGuest_json.startDate = tmp_json.startDate;
+		}
 	
+		
+		console.log("Document_id", postGuest);
 	
 		var request_info_json = data;
 
@@ -481,19 +492,33 @@ async function fetchAsync_getScan(url,tipo) {
 		postGuest_json.guestLastName = request_info_json.mrzSurname;
 		//postGuest_json.startDate = request_info_json.startDate;
 		postGuest_json.guestBirthDate = request_info_json.mrzBirthDate;
-	
 		postGuest_json.guestCountry = request_info_json.mrzNationality;
 		postGuest_json.guestDocumentType = request_info_json.mrzDocType;
-	
-	
 		postGuest_json.guestDocumentExpirationDate = request_info_json.mrzExpiryDate;
 		postGuest_json.guestDocumentIssuingCountry = request_info_json.mrzIssueCountry;
 		postGuest_json.guestDocumentNumber = request_info_json.mrzPersonalNumber;
 		
-		localStorage.setItem("postGuest", JSON.stringify(postGuest_json));
+	
+	
+	
+	
+		if(guest2process_data.i == 1){
+			localStorage.setItem("postGuest", JSON.stringify(postGuest_json));
+			
+		}else{
+			localStorage.setItem("guest_aditional", JSON.stringify(postGuest_json));
+		}
+	
+		
+		//localStorage.setItem("postGuest", JSON.stringify(postGuest_json));
 		console.log("mi_post",postGuest_json);
 		
 
+	
+	
+	
+	
+	
 
 		waitLogo.style.opacity = "0";
 		scan_var.style.opacity = "1";

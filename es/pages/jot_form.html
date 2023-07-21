@@ -632,7 +632,7 @@ li{
 					console.log("update",localStorage.getItem("postGuest") );
 					} 
 				else {
-
+                    var postGuest_json = JSON.parse(localStorage.getItem("postGuest"));
 					var guest_aditional_json = JSON.parse(localStorage.getItem("guest_aditional"));
 
 					console.log("guest_aditional", guest_aditional_json);
@@ -646,6 +646,7 @@ li{
 					guest_aditional_json.guestCountry = document.getElementById("input_107").value;
 					console.log("doc number", document.getElementById("input_114").value );
 					guest_aditional_json.guestDocumentNumber = document.getElementById("input_114").value;
+					guest_aditional_json.startDate = postGuest_json.startDate;
 					localStorage.setItem("guest_aditional",JSON.stringify(guest_aditional_json));
 					console.log("update",localStorage.getItem("guest_aditional") );
 

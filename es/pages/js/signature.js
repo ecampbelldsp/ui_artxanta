@@ -295,16 +295,22 @@ submitBtn.addEventListener("click", function () {
 	let guestID = postGuest_json3.guestID;
 	
 	document.getElementById("signature_page").style.opacity = "0";
+  $("#signature_page").hide()
 	document.body.background = "#DAC1C1";
-	document.getElementById("uploadLogo").style.opacity = "1";
+	// document.getElementById("uploadLogo").style.opacity = "1";
+  $("#uploadLogo").show()
 	
 //	let response = fetchAsync_take_send_picture("http://localhost:5000/postGuestDocument?guestID="+guestID+"&pathDocument=");
 	
 	
 	var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
 	console.log("Next step");
-//	if (guest2process_data.i == guest2process_data.adults){	
-  window.location.href='life_video.html'; /*window.location.href='resumen_pago.html'*/
+  //	if (guest2process_data.i == guest2process_data.adults){	
+    
+    setTimeout(function(){
+      window.location.href='life_video.html'; 
+      /*window.location.href='resumen_pago.html'*/
+    },2000)
 
 //	else{
 //	guest2process_data.i += 1;

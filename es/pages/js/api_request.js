@@ -7,6 +7,7 @@
 //	
 
 
+
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
@@ -436,10 +437,10 @@ async function fetchAsync_getScan(url,tipo) {
 		try{
   			let response = await fetch(url);
 		} catch(error){
-//			Swal.fire(
-//				'Something is wrong...',
-//				"The system is down. Contact Technical Support",
-//				'error'
+			Swal.fire(
+				'Something is wrong with the scanner...',
+				"You are required to submmited manually your personal information",
+				'error')
 //			
 				var alerta_message = document.getElementById("alerta_message");
 				var alerta = document.getElementById("alerta");

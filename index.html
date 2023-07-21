@@ -29,8 +29,8 @@
 	<i class="fa fa-globe" style="position:absolute;z-index:10;color:white;margin-top:11px;margin-left:220px;pointer-events: none;"></i>
 -->
 
-	<p class="fundir" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:1"> Powered by: </p>
-	<img src="image/logo.png" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:1">
+	<p class="fundir" id="pow" style="font-weight: bold; font-size: 24px; position: absolute;bottom:34px;right:214px;opacity:1"> Powered by: </p>
+	<img src="image/logo.png" id="logo" alt="logo" class=" fundir" style=" position: absolute;bottom:0px;right:0px; height:180px;opacity:1">
 	 <select onchange="if($(this).val() == 'Euskera') $('#eus').show(); else $('#eus').hide(); " class="form-dropdown fundir" data-component="dropdown" id="language" name="language"  style=" font-size:24px; font-family:'DM Sans'; color:black; background: white; width:195px; height:30px; text-align:left; line-height:px; top: 5%; right: 2% ;z-index:2;">
             <option value="Español"> Español &#x1f1ea;&#x1f1f8;</option>
 		    <option value="Euskera"> Euskera </option> 
@@ -60,10 +60,13 @@
 		</div>
 		<br>
 	</div>
+	<span style="position:fixed;bottom:10px;right:10px;display:none;" id="conectada">Conectada</span>
+	<span style="position:fixed;bottom:10px;right:10px;display:none;" id="desconectada">Desconectada</span>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/TweenMax.min.js"></script>
 <script>
 		
+
 	function siguiente(){
 		
 		let language = document.getElementById("language").value;
@@ -142,6 +145,87 @@
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	
 	
+<script>
+
+	$("#pow").click(function(e){
+
+		connectToDevice()
+	})
+		// $("#logo").on("click",function(){
+		// 	if(alarma){
+		// 		setTimeout(function(){
+		// 			console.log("Desactivando alarma")
+		// 			connectToDevice()
+		// 			sendCommand('AT+CH1=0')
+		// 			alarma = false;
+		// 		}, 5000)
+		// 	}else{
+		// 		setTimeout(function(){
+		// 			sendCommand('AT+CH1=1')
+		// 			console.log("Activando alarma")
+		// 			alarma = true;
+		// 		}, 5000)
+		// 	}
+		// 	})
+var conectado = false;
+var alarma = true;
+		$("#logo").on("click",function(){
+			if(conectado){
+				if(alarma){
+					console.log("Desactivando alarma")
+					$("#desconectada").fadeIn();
+					$("#conectada").fadeOut();
+					setTimeout(function(){
+						$("#desconectada").fadeOut();
+					},2000)
+					alarma = false;
+					sendCommand('AT+CH1=1')
+					
+				}else{
+					console.log("Activando alarma")
+					$("#conectada").fadeIn();
+					$("#desconectada").fadeOut();
+					setTimeout(function(){
+						$("#conectada").fadeOut();
+					},2000)
+					alarma = true;
+					sendCommand('AT+CH1=0')
+				}
+			}
+		})
+    let port;
+//166832
+    async function connectToDevice() {
+      try {
+        port = await navigator.serial.requestPort();
+        await port.open({ baudRate: 9600 });
+        console.log('Conectado al puerto serie:', port);
+		conectado = true;
+      } catch (error) {
+        console.error('Error al conectar al puerto serie:', error);
+      }
+    }
+
+    async function sendCommand(command) {
+      if (!port) {
+        console.error('No se ha conectado al puerto serie.');
+        return;
+      }
+
+      const encoder = new TextEncoder();
+      const writer = port.writable.getWriter();
+      const data = encoder.encode(command + '\r\n');
+
+      try {
+        await writer.write(data);
+        console.log('Comando enviado:', command);
+      } catch (error) {
+        console.error('Error al enviar el comando:', error);
+      } finally {
+        writer.releaseLock();
+      }
+    }
+  </script>
 	
 	<!--
 <script type="text/javascript">

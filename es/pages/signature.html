@@ -235,7 +235,7 @@
 		startDate.textContent += postGuest_json2.startDate;		
 		
 
-		var guestInfo = '{"startDate": "","endDate":"",	"guestFirstName": "","guestLastName":"","guestCountry": "",	"guestZip": "","guestEmail": "",	"guestPhone":"","rooms": "","adults":"","children": ""}';
+		var guestInfo = '{"startDate": "","endDate":"",	"guestFirstName": "","guestLastName":"","guestCountry": "",	"guestZip": "","guestEmail": "",	"guestPhone":"","rooms": "","adults":"","children": "","roomPicked":""}';
 		
 		var guestInfo_json = JSON.parse(guestInfo);
 		guestInfo_json.startDate = postGuest_json2.startDate;
@@ -248,7 +248,7 @@
 		guestInfo_json.guestCellPhone = postGuest_json2.guestCellPhone;
 		guestInfo_json.adults = postGuest_json2.adults;
 		guestInfo_json.children = postGuest_json2.children;
-				
+		guestInfo_json.roomPicked = postGuest_json2.roomPicked;
 			
 		guestInfo = JSON.stringify(guestInfo_json);
 		var tmp_rooms = postGuest_json2.rooms;

@@ -362,7 +362,7 @@ async function fetchAsync_postReservation(url,data) {
 		   //		   	postGuest_json.balance = data_request["grandTotal"];
 //		   postGuest_json.paid = 0;
 //		   postGuest_json.total = data_request["grandTotal"];
-		   window.location.href = "picking_date.html";
+		   //window.location.href = "picking_date.html";
 	   }
 
 		   postGuest_json.reservationID = data_request["reservationID"];
@@ -436,11 +436,20 @@ async function fetchAsync_getScan(url,tipo) {
 		try{
   			let response = await fetch(url);
 		} catch(error){
-			Swal.fire(
-				'Something is wrong...',
-				"The system is down. Contact Technical Support",
-				'error'
-			)
+//			Swal.fire(
+//				'Something is wrong...',
+//				"The system is down. Contact Technical Support",
+//				'error'
+//			
+				var alerta_message = document.getElementById("alerta_message");
+				var alerta = document.getElementById("alerta");
+				alerta.style.opacity = "1";
+				alerta_message.textContent = "Inserte manualmente su información personal. El scanner no está conectado."
+				// var button_automatic_scan = document.getElementById("button_automatic_scan");
+				// button_automatic_scan.style.opacity = "0";
+				$(".button_automatic_scan").hide();
+				window.location.href = "jot_form.html";
+		
 		}
 
 		console.log("Scanning");
@@ -523,7 +532,8 @@ async function fetchAsync_getScan(url,tipo) {
 				alerta_message.textContent = "Inserte manualmente su información personal. Número de intentos superados."
 				// var button_automatic_scan = document.getElementById("button_automatic_scan");
 				// button_automatic_scan.style.opacity = "0";
-				$(".button_automatic_scan").hide()
+				$(".button_automatic_scan").hide();
+				window.location.href = "jot_form.html";
 				}
 			else{
 

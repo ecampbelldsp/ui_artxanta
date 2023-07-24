@@ -276,10 +276,13 @@
 		post_info_json.guestInfo = guestInfo_json;
 		post_info = JSON.stringify(post_info_json);
 		
+		if(localStorage.with_reservation_flag == false)
+			{
 		console.log("Post input info", post_info);
 		
 		let reservationID = fetchAsync_postReservation("http://127.0.0.1:5000/postReservation", post_info);
 		console.log("post response: reservationID",reservationID);
+			}
 
 	
 			

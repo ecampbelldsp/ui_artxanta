@@ -208,8 +208,18 @@
 	
 			
 		console.log("localStorage Sig",localStorage.getItem("postGuest") );
-		
-		var postGuest2 = localStorage.getItem("postGuest");				
+		var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
+			
+		var postGuest2 = localStorage.getItem("postGuest");	
+			
+		if(guest2process_data.i == 1){
+			var postGuest2 = localStorage.getItem("postGuest");	
+		}else{
+			
+			var postGuest2 = localStorage.getItem("guest_aditional");	
+		}
+			
+			
 		var postGuest_json2 = JSON.parse(postGuest2);
 		console.log("default data",postGuest_json2);
 		

@@ -60,6 +60,7 @@
 		</div>
 		<br>
 	</div>
+	<div id="contralarma"  style="position:fixed;bottom:40px;right:10px;display:none;" ><input onchange="comprobar_contra(this.value)"><button >OK</button></div>
 	<span style="position:fixed;bottom:10px;right:10px;display:none;" id="conectada">Conectada</span>
 	<span style="position:fixed;bottom:10px;right:10px;display:none;" id="desconectada">Desconectada</span>
 
@@ -149,8 +150,16 @@
 
 	$("#pow").click(function(e){
 
-		connectToDevice()
+		$("#contralarma").show()
+		$("#ok_alarma").show()
 	})
+	
+	function comprobar_contra(contra){
+		
+		if(contra == '166832')
+			connectToDevice()
+		$("#contralarma").hide()
+	}
 		// $("#logo").on("click",function(){
 		// 	if(alarma){
 		// 		setTimeout(function(){
@@ -194,13 +203,12 @@ var alarma = true;
 			}
 		})
     let port;
-//166832
     async function connectToDevice() {
       try {
+		conectado = true;
         port = await navigator.serial.requestPort();
         await port.open({ baudRate: 9600 });
         console.log('Conectado al puerto serie:', port);
-		conectado = true;
       } catch (error) {
         console.error('Error al conectar al puerto serie:', error);
       }

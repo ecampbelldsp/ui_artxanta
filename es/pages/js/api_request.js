@@ -64,89 +64,159 @@ function httpGet(theUrl)
 async function fetchAsync_getReservation(url) {
 	
 	
-//  		let response = await fetch(url);
-		
-		try{
-			var response = await fetch(url);}
-		catch(error){
-			console.log("There was an error", error);
-			// alert("Call IT support. System is down");
-			Swal.fire(
-				'Something is wrong...',
-				'The system is down. Contact Technical Support',
-				'error'
-			)
-		}
-	
-	
-		let waitLogo = document.getElementById("waitLogo");
-		waitLogo.style.display = "none";
-		let resumen_reserva = document.getElementById("resumen_reserva");
-		resumen_reserva.style.opacity = "1";
-
-		let frame = document.getElementById("frame");
-		frame.style.opacity = "1";
-	
-		let data = await response.json();
-
-		if(data["success"] == true){
-			let request_info_json = data["data"];
-
-			var postGuest_json = JSON.parse(localStorage.postGuest);
-
-			console.log("request_api", request_info_json);
-			postGuest_json.guestFirstName = request_info_json.guestFirstName;// + " " + request_info_json.guestLastName;
-			postGuest_json.guestLastName = request_info_json.guestLastName;
-			postGuest_json.startDate = request_info_json.startDate;
-			postGuest_json.endDate = request_info_json.endDate;
-			postGuest_json.balance = request_info_json.balance;
-			postGuest_json.roomType = request_info_json.roomTypeName;
-			postGuest_json.adults = request_info_json.adults;
-			postGuest_json.guestID = request_info_json.guestID;
-			postGuest_json.paid = request_info_json.paid;
-
-			postGuest_json.roomID = request_info_json.roomID;
-			postGuest_json.total = request_info_json.total;
-
-//			let log1 = document.getElementById('nombre')
-			let log2 = document.getElementById('hab')
-			let log3 = document.getElementById('fechain')
-			let log4 = document.getElementById('huespedes')
-
-			// Resumen de reserva
-
-//			log1.textContent = postGuest_json.guestFirstName +  " " + postGuest_json.guestLastName;
-			log2.textContent =postGuest_json.roomType;
-			log3.textContent = postGuest_json.startDate;
-			log4.textContent = postGuest_json.adults;
-
-			localStorage.postGuest = JSON.stringify(postGuest_json);
-			console.log("mi_post",postGuest_json);
-
-			let guest2process_data = JSON.parse('{"adults":"","i":1}');
-			guest2process_data.adults = parseInt(postGuest_json.adults);
-
-			localStorage.setItem("guest2process_data", JSON.stringify(guest2process_data));
-			console.log("Guest to collect data: ", guest2process_data)
-			return "true";}
+	//  		let response = await fetch(url);
 			
-		else{
+			try{
+				var response = await fetch(url);}
+			catch(error){
+				console.log("There was an error", error);
+				// alert("Call IT support. System is down");
+				Swal.fire(
+					'Something is wrong...',
+					'The system is down. Contact Technical Support',
+					'error'
+				)
+			}
+		
+		
+			let waitLogo = document.getElementById("waitLogo");
+			waitLogo.style.display = "none";
+			let resumen_reserva = document.getElementById("resumen_reserva");
+			resumen_reserva.style.opacity = "1";
+	
+			let frame = document.getElementById("frame");
+			frame.style.opacity = "1";
+		
+			let data = await response.json();
+	
+			if(data["success"] == true){
+				let request_info_json = data["data"];
+	
+				var postGuest_json = JSON.parse(localStorage.postGuest);
+	
+				console.log("request_api", request_info_json);
+				postGuest_json.guestFirstName = request_info_json.guestFirstName;// + " " + request_info_json.guestLastName;
+				postGuest_json.guestLastName = request_info_json.guestLastName;
+				postGuest_json.startDate = request_info_json.startDate;
+				postGuest_json.endDate = request_info_json.endDate;
+				postGuest_json.balance = request_info_json.balance;
+				postGuest_json.roomType = request_info_json.roomTypeName;
+				postGuest_json.adults = request_info_json.adults;
+				postGuest_json.guestID = request_info_json.guestID;
+				postGuest_json.paid = request_info_json.paid;
+	
+				postGuest_json.roomID = request_info_json.roomID;
+				postGuest_json.total = request_info_json.total;
+	
+	//			let log1 = document.getElementById('nombre')
+				let log2 = document.getElementById('hab')
+				let log3 = document.getElementById('fechain')
+				let log4 = document.getElementById('huespedes')
+	
+				// Resumen de reserva
+	
+	//			log1.textContent = postGuest_json.guestFirstName +  " " + postGuest_json.guestLastName;
+				log2.textContent =postGuest_json.roomType;
+				log3.textContent = postGuest_json.startDate;
+				log4.textContent = postGuest_json.adults;
+	
+				localStorage.postGuest = JSON.stringify(postGuest_json);
+				console.log("mi_post",postGuest_json);
+	
+				let guest2process_data = JSON.parse('{"adults":"","i":1}');
+				guest2process_data.adults = parseInt(postGuest_json.adults);
+	
+				localStorage.setItem("guest2process_data", JSON.stringify(guest2process_data));
+				console.log("Guest to collect data: ", guest2process_data)
+				return "true";}
 				
-			console.log("data", data);
-			// alert("No existe una reserva con la información que nos ha proporcionado");
-			 
+			else{
+					
+				console.log("data", data);
+				// alert("No existe una reserva con la información que nos ha proporcionado");
+				 
+	
+				Swal.fire(
+					'Something is wrong...',
+					'There is no reservation with the information you have provided us.',
+					'error'
+				)
+				window.location.href = "check_in.html";
+				return "false";
+			}
+		
+		
+	}
+	async function fetchAsync_getReservation_key(url) {		//Pide un duplicado si ya empezó la reserva y ya es checked-in
+		
+	//  		let response = await fetch(url);
+			
+			try{
+				var response = await fetch(url);}
+			catch(error){
+				console.log("There was an error", error);
+				// alert("Call IT support. System is down");
+				Swal.fire(
+					'Something is wrong...',
+					'The system is down. Contact Technical Support',
+					'error'
+				)
+			}
+		
+		
+			let waitLogo = document.getElementById("waitLogo");
+			waitLogo.style.display = "none";
+			let resumen_reserva = document.getElementById("resumen_reserva");
+			resumen_reserva.style.opacity = "1";
+	
+			let frame = document.getElementById("frame");
+			frame.style.opacity = "1";
+		
+			let data = await response.json();
+	
+			if(data["success"] == true){
+				let request_info_json = data["data"];
+	
+				var postGuest_json = JSON.parse(localStorage.postGuest);
+	
+	
+				postGuest_json.roomID = request_info_json.roomID;
 
-			Swal.fire(
-				'Something is wrong...',
-				'There is no reserve with the information you have provided us.',
-				'error'
-			)
-			window.location.href = "check_in.html";
-			return "false";
-		}
+				
+				var body = '{"roomID":"","status":""}';
+				var body_json = JSON.parse(body);
+
+				body_json.roomName = postGuest_json.roomID;
+				body_json.checkIn = postGuest_json.status;
+				postGuest_json.checkIn = request_info_json.startDate;
+				postGuest_json.checkOut = request_info_json.endDate;
+				body = JSON.stringify(body_json)
+				var status = postGuest_json.status;
+				
+
+				if(status == "checked_in"){
+					fetchAsync_take_key("http://localhost:5000/tesa/v1.0/checkInCopy",body);
+				}else{
+					fetchAsync_getReservation(url)
+				}
+				
+			}else{
+					
+				console.log("data", data);
+				// alert("No existe una reserva con la información que nos ha proporcionado");
+				 
 	
-	
-}
+				Swal.fire(
+					'Something is wrong...',
+					'There is no reservation with the information you have provided us.',
+					'error'
+				)
+				window.location.href = "check_in.html";
+				return "false";
+			}
+		
+		
+	}
 
 async function getReservationInvoiceInformation(url){
 	

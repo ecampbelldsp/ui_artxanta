@@ -73,7 +73,12 @@
 		var postGuest_json = JSON.parse(localStorage.postGuest);		
 		var reservationID = postGuest_json.reservationID;
 		var apellido = postGuest_json.guestLastName;
-		var response = fetchAsync_getReservation("http://127.0.0.1:5000/getReservation?reservationID="+reservationID+"&targetReservationType=CheckIn");
+		
+		var get = window.location.href.split("=")[1];
+		if(get == "duplicado"){
+			var response = fetchAsync_getReservation_key("http://127.0.0.1:5000/getReservation?reservationID="+reservationID+"&targetReservationType=CheckIn");
+		}else
+			var response = fetchAsync_getReservation("http://127.0.0.1:5000/getReservation?reservationID="+reservationID+"&targetReservationType=CheckIn");
 		
 	</script>
 </body>

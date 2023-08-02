@@ -633,10 +633,43 @@ async function makePayment_cash(url){
 			"The system is down. Contact Technical Support",
 			'error'
 		)
-	}
+	}	
+};
 
+
+async function makePayment_TPV(url){
 	
+	console.log("Llamando api de pago en tarjeta");
+	try{
+		let response = await fetch(url);
+		
+		let data =  await response.json();
+		
+					//response = response.json();
+			console.log("Success",data["success"]);
+			console.log("Response",data);
 
+			if(response.success == "false")
+				{
+				Swal.fire(
+				response.message,
+				'error')
+				}
+			else if (response.success == "true")
+				{
+				Swal.fire(
+				"Pago realizado con éxito")
+				}
+		
+		//return data;
+	
+	} catch(error){
+		Swal.fire(
+			'Something is wrong...',
+			"The system is down. Contact Technical Support",
+			'error'
+		)
+	}	
 };
 
 async function fetchAsync_take_key(url, data){

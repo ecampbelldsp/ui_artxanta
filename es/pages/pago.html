@@ -139,7 +139,20 @@
 			
 			document.getElementById("audio_tarjeta").play()
 
-			//Cobrar con tarjeta...
+			
+			
+			var postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+			
+			console.log("postGuest_jsonPago",postGuest_jsonPago);
+			
+			var data = '{"device": "cashITL","amount": ""}';
+			data_json = JSON.parse(data);
+			data_json.amount = postGuest_jsonPago.balance;
+			data = JSON.stringify(data_json);
+			
+			console.log("Comparison", "true"=="true");
+			makePayment_TPV("http://localhost:5000/verifone?cash="+postGuest_jsonPago.balance);
+			
 		}
 		function cobrarEfectivo(){
 			$(".escoja").hide();

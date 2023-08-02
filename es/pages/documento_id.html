@@ -118,17 +118,17 @@
 	function scan_function_dni_fallo(){
 		console.log("scan page");
 		document.getElementById("dni1").play();
-		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","fallo");	
+		var response = fetchAsync_getScan("http://localhost:6400/api-hardware/v1/scan/comboscan/scan_page","fallo");	
 	}
 	function scan_function_dni(){
 		console.log("scan page");
 		document.getElementById("dni2").play();
-		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","dni");	
+		var response = fetchAsync_getScan("http://localhost:6400/api-hardware/v1/scan/comboscan/scan_page","dni");	
 	}
 
  	function scan_function(){
 		console.log("scan page");
-		var response = fetchAsync_getScan("http://localhost:8080/api-hardware/v1/scan/comboscan/scan_page","pasaporte");	
+		var response = fetchAsync_getScan("http://localhost:6400/api-hardware/v1/scan/comboscan/scan_page","pasaporte");	
 	}
 
 		

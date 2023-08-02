@@ -683,8 +683,7 @@ async function makePayment_TPV(url){
 	
 	} catch(error){
 		Swal.fire(
-			'Something is wrong...',
-			"The system is down. Contact Technical Support",
+			"Unsuccessful payment",
 			'error'
 		)
 	}	

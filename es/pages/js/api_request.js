@@ -276,7 +276,7 @@ async function fetchAsync_getAvailableRooms(url) {
 		
 			if(data === false){
 			
-			alert("Habitaciones no disponibles. Por favor, escoja otra fecha");
+			//alert("Habitaciones no disponibles. Por favor, escoja otra fecha");
 			Swal.fire(
 				'No hay habitaciones disponibles',
 				"Por favor, escoja otra fecha",
@@ -436,6 +436,24 @@ async function fetchAsync_getScan(url,tipo) {
 		
 		try{
   			let response = await fetch(url);
+
+			let data = await response.json();
+			if (data.success == false)
+			{
+			Swal.fire(
+				'Something is wrong with the scanner...',
+				"You are required to submmited manually your personal information",
+				'error')
+//			
+				var alerta_message = document.getElementById("alerta_message");
+				var alerta = document.getElementById("alerta");
+				alerta.style.opacity = "1";
+				alerta_message.textContent = "Inserte manualmente su información personal. El scanner no está conectado."
+				// var button_automatic_scan = document.getElementById("button_automatic_scan");
+				// button_automatic_scan.style.opacity = "0";
+				$(".button_automatic_scan").hide();
+				window.location.href = "jot_form.html";
+			}
 		} catch(error){
 			Swal.fire(
 				'Something is wrong with the scanner...',

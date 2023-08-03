@@ -634,13 +634,14 @@ async function makePayment_cash(url){
 			if(response.success == "false")
 				{
 				Swal.fire(
-				response.message,
+				"Unsuccessful payment",
 				'error')
 				}
 			else if (response.success == "true")
 				{
 				Swal.fire(
-				"Pago realizado con éxito")
+				"Successful payment")
+				window.location.href = 'take_key.html';
 				}
 		
 		//return data;
@@ -670,13 +671,15 @@ async function makePayment_TPV(url){
 			if(data.success == "false")
 				{
 				Swal.fire(
-				response.message,
+				"Unsuccessful payment",
 				'error')
+				//window.location.href = 'take_key.html';
 				}
 			else if (data.success == "true")
 				{
 				Swal.fire(
-				"Pago realizado con éxito")
+				"Successful payment")
+				window.location.href = 'take_key.html';
 				}
 		
 		//return data;

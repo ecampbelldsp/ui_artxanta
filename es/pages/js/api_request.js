@@ -435,9 +435,9 @@ async function fetchAsync_getScan(url,tipo) {
 		atras.style.opacity = "0";
 		
 		try{
-  			let response = await fetch(url);
+  			var response = await fetch(url);
 
-			let data = await response.json();
+			var data = await response.json();
 			if (data.success == false)
 			{
 			Swal.fire(
@@ -475,7 +475,7 @@ async function fetchAsync_getScan(url,tipo) {
 	
 	
 	
-		let data = await response.json();
+		//let data = response.json();
 		
 		try {
 		var success = data["status"];
@@ -548,11 +548,12 @@ async function fetchAsync_getScan(url,tipo) {
 			header.textContent = " Huespéd # "+ guest2process_data.i; 	
 			console.log("PLOP!!!")
 			document.getElementById("plop").play()
-			if(tipo == "dni"){
+			window.location.href = "signature.html";
+			/*if(tipo == "dni"){
 				$("#escaneoFrontal").hide();
 				$("#escaneoReverso").show();
 			}else
-				window.location.href = "signature.html";
+				window.location.href = "signature.html";*/
 		}
 		else{
 			waitLogo.style.opacity = "0";

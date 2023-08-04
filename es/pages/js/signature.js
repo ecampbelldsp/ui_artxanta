@@ -263,7 +263,19 @@ submitBtn.addEventListener("click", function () {
 			console.log("Politica", checkbox);
 			
 			if(checkbox == false){
-				alert("You have to accept the Privacy Politics if you would like to keep going with the reservation")
+				/*alert("You have to accept the Privacy Politics if you would like to keep going with the reservation")
+
+				Swal.fire(
+				"You have to accept the Privacy Politics if you would like to keep going with the reservation",
+				icon: 'warning')*/
+				Swal.fire({
+				  position: 'top-end',
+				  icon: 'warning',
+				  title: 'You have to accept the Privacy Politics if you would like to keep going with the reservation',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
+
 			}else{
 				
 			var postGuest3 = localStorage.postGuest;				

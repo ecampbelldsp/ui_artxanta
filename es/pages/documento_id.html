@@ -69,7 +69,6 @@
 				<img src="../../image/pasaporte.jpg"  style=" position: absolute;top:113px;right:32px; height:550px;z-index: -2">
 				<input  type="button" class="boton button_automatic_scan" style=" font-size: 25px; width:270px;margin-top:-7px; position: relative; top:-110px;left: 60px;" value="Continuar" onclick="scan_function();">
 			</div>
-	
 			<div id="alerta" style="opacity: 0; z-index: 1000; margin-top: 590px; position: absolute; margin-left:60px;width:50%">
 					<div class="message-box message-box-warn">
 					<i class="fa fa-warning fa-2x"></i>
@@ -85,6 +84,10 @@
 			<audio src="Audios/3c.-.mp3" id="dni2"></audio>
 			<audio src="Audios/3d.-.mp3" id="pasaporte"></audio>
 		</div> 
+		<div style="display:none;margin-top:230px;position:absolute;margin-left:100px" id="terminando">
+			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+			<lottie-player src="https://lottie.host/6659da9f-d74c-4e22-9ed0-19eaca6ac05e/R5XDQaeMOb.json" background="#ffffff" speed="1" style="width: 300px; height: 300px" loop  autoplay direction="1" mode="normal"></lottie-player>
+		</div>
 	</div> 
 			
 
@@ -122,13 +125,16 @@
 	}
 	function scan_function_dni(){
 		console.log("scan page");
-		document.getElementById("dni2").play();
-		var response = fetchAsync_getScan("http://localhost:6400/api-hardware/v1/scan/comboscan/scan_page","dni");	
+		// document.getElementById("dni2").play();
+		$("#terminando").show();
+		var response = fetchAsync_getScan("http://localhost:6400/api-hardware/v1/scan/comboscan/scan_page","pasaporte");		//Para escanear las dos caras del DNI cambiar el segundo argumento "pasaporte" por "dni"
+		
 	}
 
  	function scan_function(){
 		console.log("scan page");
 		var response = fetchAsync_getScan("http://localhost:6400/api-hardware/v1/scan/comboscan/scan_page","pasaporte");	
+		$("#terminando").show();
 	}
 
 		

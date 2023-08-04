@@ -415,9 +415,11 @@ async function fetchAsync_getScan(url,tipo) {
 
 	if(tipo == "dni"){
 		$("#escaneoFrontal").hide();
-		$("#escaneoReverso").show();
+		// $("#escaneoReverso").show();
 		$("#instruccionesDni").text('Coloque el DNI en el escáner con la foto hacia abajo y pulse "Continuar"')
+		
 	}
+	$("#terminando").show()
 	
 		var waitLogo = document.getElementById("waitLogo");
 		waitLogo.style.opacity = "1";

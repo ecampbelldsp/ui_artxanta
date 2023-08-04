@@ -7,6 +7,7 @@
 //	
 
 
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -442,42 +443,26 @@ async function fetchAsync_getScan(url,tipo) {
 			var data = await response.json();
 			if (data.success == false)
 			{
-			Swal.fire(
-				'Something is wrong with the scanner...',
-				"You are required to submmited manually your personal information",
-				'error')
-//			
-				var alerta_message = document.getElementById("alerta_message");
-				var alerta = document.getElementById("alerta");
-				alerta.style.opacity = "1";
-				alerta_message.textContent = "Inserte manualmente su información personal. El scanner no está conectado."
-				// var button_automatic_scan = document.getElementById("button_automatic_scan");
-				// button_automatic_scan.style.opacity = "0";
-				$(".button_automatic_scan").hide();
-				window.location.href = "jot_form.html";
+				Swal.fire({
+				  position: 'top-end',
+				  icon: 'error',
+				  title: 'Place the document properly and scan it again.',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
+
 			}
 		} catch(error){
 			Swal.fire(
 				'Something is wrong with the scanner...',
 				"You are required to submmited manually your personal information",
 				'error')
-//			
-				var alerta_message = document.getElementById("alerta_message");
-				var alerta = document.getElementById("alerta");
-				alerta.style.opacity = "1";
-				alerta_message.textContent = "Inserte manualmente su información personal. El scanner no está conectado."
-				// var button_automatic_scan = document.getElementById("button_automatic_scan");
-				// button_automatic_scan.style.opacity = "0";
-				$(".button_automatic_scan").hide();
-				window.location.href = "jot_form.html";
+	
 		
 		}
 
 		console.log("Scanning");
 	
-	
-	
-		//let data = response.json();
 		
 		try {
 		var success = data["status"];
@@ -535,10 +520,6 @@ async function fetchAsync_getScan(url,tipo) {
 		
 
 	
-	
-	
-	
-	
 
 		waitLogo.style.opacity = "0";
 		scan_var.style.opacity = "1";
@@ -551,20 +532,13 @@ async function fetchAsync_getScan(url,tipo) {
 			console.log("PLOP!!!")
 			document.getElementById("plop").play()
 			window.location.href = "signature.html";
-			/*if(tipo == "dni"){
-				$("#escaneoFrontal").hide();
-				$("#escaneoReverso").show();
-			}else
-				window.location.href = "signature.html";*/
+
 		}
 		else{
 			waitLogo.style.opacity = "0";
 			scan_var.style.opacity = "1";
 			frame.style.opacity = "1";
 
-			
-			var alerta = document.getElementById("alerta");
-			alerta.style.opacity = "1";
 
 			var error_scan_counter = JSON.parse(localStorage.getItem("error_scan_counter"));
 			error_scan_counter += 1;
@@ -573,22 +547,25 @@ async function fetchAsync_getScan(url,tipo) {
 
 			if(error_scan_counter >3){
 
-				var alerta_message = document.getElementById("alerta_message");
-				var alerta = document.getElementById("alerta");
-				alerta.style.opacity = "1";
-				alerta_message.textContent = "Inserte manualmente su información personal. Número de intentos superados."
-				// var button_automatic_scan = document.getElementById("button_automatic_scan");
-				// button_automatic_scan.style.opacity = "0";
-				$(".button_automatic_scan").hide();
+				Swal.fire({
+				  position: 'top-end',
+				  icon: 'error',
+				  title: ' Maximun number of attemnpts. You are required to submmited manually your personal information',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
+
+				await sleep(3000);
+
 				window.location.href = "jot_form.html";
 				}
 			else{
 
-				var alerta = document.getElementById("alerta");
-				alerta.style.opacity = "1";
+				await sleep(3000);
+
+				window.location.href = "documento_id.html";
 			}
 
-			delay(5000).then(() => console.log('ran after 5 seconds passed'));
 	
 		}
 	

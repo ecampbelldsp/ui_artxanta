@@ -175,8 +175,12 @@
 			data_json.amount = postGuest_jsonPago.balance;
 			data = JSON.stringify(data_json);
 			
+			var balance = postGuest_jsonPago.balance;
+			
+			balance = balance.replace(",",".");
+
 			console.log("Comparison", "true"=="true");
-			makePayment_cash("http://localhost:5000/efectivo?cash="+postGuest_jsonPago.balance);
+			makePayment_cash("http://localhost:5000/efectivo?cash="+balance);
 			
 			
 

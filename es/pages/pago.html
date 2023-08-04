@@ -177,9 +177,9 @@
 			
 			var balance = postGuest_jsonPago.balance;
 			
-			balance = balance.replace(",",".");
+			balance = balance.replace(".",",");
 
-			console.log("Comparison", "true"=="true");
+			console.log("Balabce",balance);
 			makePayment_cash("http://localhost:5000/efectivo?cash="+balance);
 			
 			

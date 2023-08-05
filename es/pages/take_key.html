@@ -58,6 +58,46 @@
 	
 	<script>
 		
+	//Printing ticket
+
+		var postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+		    console.log("Guest info", postGuest_jsonPago)
+		    
+			
+			/*var invoice = '{"hotelName": "Hotel Artxanda Bilbao","hotelPhone": "+34 628234078","hotelAddress": "Carretera Santo Domingo a, Enekuri Artxanda Errepidea, 3, 48015 Bilbo, Bizkaia","checkIn":"","checkOut": "","roomType": "","reservationID": "","taxRate": "21","roomPrice": "","items": ""}'
+
+			var invoice_json = JSON.parse(invoice)
+			invoice_json.checkIn = postGuest_jsonPago.startDate
+			invoice_json.checkOut = postGuest_jsonPago.endDate
+			invoice_json.roomType = postGuest_jsonPago.roomPicked
+			invoice_json.reservationID = postGuest_jsonPago.reservationID
+			invoice_json.roomPrice = postGuest_jsonPago.balance
+			invoice_json.items ={}
+
+			var invoice_String = JSON.stringify(invoice_json)*/
+
+
+			//var tmp = '{"hotelName": "NH Vigo","hotelPhone": "+34 696548985","hotelAddress": "Rúa Sol 30","checkIn": "2023-05-16","checkOut": "2023-05-18","roomType": "Kings Room","reservationID": "444599862","taxRate": "21","roomPrice": "150","items": {"Late Check-Out": "15","Extra clean": "50"}}'
+			
+
+
+    const invoice = {"hotelName": "Hotel Artxanda Bilbao",
+  "hotelPhone": "+34 628234078",
+  "hotelAddress": "Carretera Santo Domingo a, Enekuri Artxanda Errepidea, 3, 48015 Bilbo, Bizkaia",
+  "checkIn":postGuest_jsonPago.startDate,
+  "checkOut": postGuest_jsonPago.endDate,
+  "roomType": postGuest_jsonPago.roomPicked,
+  "reservationID": postGuest_jsonPago.reservationID,
+  "taxRate": "21",
+  "roomPrice": postGuest_jsonPago.balance,
+  "items": {}};
+
+ invoice_String = JSON.stringify(invoice)
+  console.log("Invoice string", invoice_String)
+
+  let response_printer =  fetchAsync_print_ticket("http://localhost:6400/api-hardware/v1/printer/msh245/printTicket", invoice_String);
+  console.log("Response printer", response_printer);
+
 //		Post reservation
 	/*	console.log("localStorage Sig",localStorage.getItem("postGuest") );
 		console.log("guest_aditional", localStorage.getItem("guest_aditional"));

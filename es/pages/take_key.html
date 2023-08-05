@@ -176,7 +176,7 @@
 
 				console.log("flag_reservation",localStorage.with_reservation_flag);
 		
-				if (localStorage.with_reservation_flag == "true"){
+				if (localStorage.with_reservation_flag == "true"){ //El cliente ya tenia reserva y es hoy (true)  Se le da la llave
 					
 					text.textContent += postGuest_json.roomID;
 					text.style.opacity = 1;

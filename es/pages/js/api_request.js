@@ -126,8 +126,8 @@ async function fetchAsync_getReservation(url) {
 
 			let guest2process_data = JSON.parse('{"adults":"","i":1}');
 			guest2process_data.adults = parseInt(postGuest_json.adults);
-
 			localStorage.setItem("guest2process_data", JSON.stringify(guest2process_data));
+
 			console.log("Guest to collect data: ", guest2process_data)
 			return "true";}
 			
@@ -479,7 +479,8 @@ async function fetchAsync_getScan(url,tipo) {
 		var guest2process_data = JSON.parse(localStorage.getItem("guest2process_data"));
 	
   		var postGuest = localStorage.postGuest;				
-		
+		var guest_aditional = localStorage.guest_aditional;
+
 		if(guest2process_data.i == 1){
 			var postGuest_json = JSON.parse(postGuest);
 		}else{

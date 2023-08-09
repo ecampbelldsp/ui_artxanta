@@ -252,11 +252,13 @@ async function fetchAsync_getAvailableRooms(url) {
 		catch(error){
 			console.log("There was an error", error);
 			// alert("Call IT support. System is down");
-			Swal.fire(
-				'Something is wrong...',
-				"The system is down. Contact Technical Support",
-				'error'
-			)
+				Swal.fire({
+				  position: 'top-end',
+				  icon: 'warning',
+				  title: 'Server down. Contact IT Support',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
 		}
 		
 
@@ -504,14 +506,16 @@ async function fetchAsync_getScan(url,tipo) {
 		postGuest_json.guestDocumentIssuingCountry = request_info_json.mrzIssueCountry;
 		postGuest_json.guestDocumentNumber = request_info_json.mrzPersonalNumber;
 		
+
 	
-	
-	
-	
+		var go;
+
 		if(guest2process_data.i == 1){
 			localStorage.setItem("postGuest", JSON.stringify(postGuest_json));
+			go = "email.html"
 			
 		}else{
+			go = "signature.html";
 			localStorage.setItem("guest_aditional", JSON.stringify(postGuest_json));
 		}
 	
@@ -532,8 +536,8 @@ async function fetchAsync_getScan(url,tipo) {
 			header.textContent = " Huespéd # "+ guest2process_data.i; 	
 			console.log("PLOP!!!")
 			document.getElementById("plop").play()
-			window.location.href = "signature.html";
 
+			window.location.href = go;
 		}
 		else{
 			waitLogo.style.opacity = "0";
@@ -586,7 +590,7 @@ async function fetchAsync_sendGmail() {
 	console.log("Reservation ", reservationID);
 	 
 	try{
-	let response = await fetch("http://localhost:5000/sendEmail?reservationID="+reservationID, {method: 'GET'});
+	var response = await fetch("http://localhost:5000/sendEmail?reservationID="+reservationID, {method: 'GET'});
 
   	} catch(error){
 		Swal.fire(

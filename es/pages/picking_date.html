@@ -18,6 +18,7 @@
 	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>   
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.all.js" integrity="sha512-7TfWz/1TEVLE2pG8KLC/suq4qgXocI+/sNKfX0yifGXBbSKPoA9wcQ2GDublV7SSCu90vnW1q7+TUXOYaCIshA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="js/api_request.js"></script>
 
 	<style>
 		.campo-form{
@@ -31,7 +32,6 @@
 			margin-bottom:25px;}
 	</style>
 </head>
-<script src="js/api_request.js"> </script>
 <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
 	<div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:14px">
 		<h3 style="display:inline-block;font-size:18px; margin-right:50px">Pasos <br>Check-In:</h3>
@@ -186,19 +186,47 @@
 		
 			
 		if( document.getElementById("adults").value == ""){
-			alert("Ingrese las fechas deseadas para su estancia");
+			Swal.fire({
+				  position: 'top-end',
+				  icon: 'warning',
+				  title: 'Guest info empty',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
+			//alert("Ingrese las fechas deseadas para su estancia");
 			return
 		}else
 		if( document.getElementById("children").value == ""){
-			alert("Ingrese las fechas deseadas para su estancia");
+			Swal.fire({
+				  position: 'top-end',
+				  icon: 'warning',
+				  title: 'Guest info empty',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
+			//alert("Ingrese las fechas deseadas para su estancia");
 			return
 		}else
 		if( document.getElementById("startDate").value == ""){
-			alert("Ingrese las fechas deseadas para su estancia");
+				Swal.fire({
+				  position: 'top-end',
+				  icon: 'warning',
+				  title: 'Date field empty',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
+			//alert("Ingrese las fechas deseadas para su estancia");
 			return
 		}else
 		if( document.getElementById("endDate").value == ""){
-			alert("Ingrese las fechas deseadas para su estancia");
+				Swal.fire({
+				  position: 'top-end',
+				  icon: 'warning',
+				  title: 'Date field empty',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
+			//alert("Ingrese las fechas deseadas para su estancia");
 			return
 		}else
 			document.getElementById("audio2c").play()
@@ -232,9 +260,10 @@
 			
 		var atras = document.getElementById("atras");
 		atras.style.opacity = "0";
+		console.log("postGuest_json",postGuest_json);
+
+		fetchAsync_getAvailableRooms("http://127.0.0.1:5000/getAvailableRooms?startDate="+postGuest_json.startDate+"&endDate="+postGuest_json.endDate+"&adults="+postGuest_json.adults+"&childrens="+postGuest_json.children);
 		
-		
-		var response = fetchAsync_getAvailableRooms("http://127.0.0.1:5000/getAvailableRooms?startDate="+postGuest_json.startDate+"&endDate="+postGuest_json.endDate+"&adults="+postGuest_json.adults+"&childrens="+postGuest_json.children);
 		
 	}
 	

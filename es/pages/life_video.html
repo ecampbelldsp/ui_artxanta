@@ -165,7 +165,8 @@
 		
 		var guest2process_data = JSON.parse(localStorage.guest2process_data);
 		var postGuest_json2 = JSON.parse(localStorage.postGuest);
-		
+		console.log("guest2process_data.i", guest2process_data.i);
+
 		// var response = fetchAsync_getPicture("http://localhost:5000/picture?reservationID=11111&guest_i=00");
 		var response = fetchAsync_getPicture("http://localhost:5000/picture?reservationID="+postGuest_json2.reservationID+"&guest_i="+guest2process_data.i);
 		

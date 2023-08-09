@@ -76,7 +76,9 @@ async function fetchAsync_getReservation(url) {
 				'Something is wrong...',
 				'The system is down. Contact Technical Support',
 				'error'
-			)
+				)
+
+				await sleep(3000);
 		}
 	
 	
@@ -139,9 +141,12 @@ async function fetchAsync_getReservation(url) {
 
 			Swal.fire(
 				'Something is wrong...',
-				'There is no reserve with the information you have provided us.',
+				'There is no reservation with the information you have provided us.',
 				'error'
 			)
+
+			await sleep(3000);
+
 			window.location.href = "check_in.html";
 			return "false";
 		}
@@ -677,11 +682,13 @@ async function makePayment_TPV(url){
 	}	
 };
 
-async function fetchAsync_take_key(url, data){
+async function fetchAsync_take_key(url, input){
 	
 	try{
-		var response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: data});
-		console.log(response.json());
+		console.log("Take key call response starting", input);
+		var response = await fetch(url,  {method: 'POST',   headers: {'Content-Type': 'application/json'},body: input});
+		let data =  await response.json();
+		console.log("Take key call response", data);
 	}catch(error){
 		console.log("Error",error);
 		// alert("There was an error with your key. Call IT support");

@@ -367,11 +367,12 @@ async function fetchAsync_postReservation(url,data) {
 					"Reserve could not be created.",
 					'error'
 				)
+				await sleep(3000)
 
 		   //		   	postGuest_json.balance = data_request["grandTotal"];
 //		   postGuest_json.paid = 0;
 //		   postGuest_json.total = data_request["grandTotal"];
-		   //window.location.href = "picking_date.html";
+		   window.location.href = "picking_date.html";
 	   }
 
 		   postGuest_json.reservationID = data_request["reservationID"];
@@ -626,11 +627,15 @@ async function makePayment_cash(url){
 				Swal.fire(
 				data.message,
 				'error')
+				await sleep(3000);
+				window.location.href = 'pago.html';
 				}
+				
 			else if (data.success == "true")
 				{
 				Swal.fire(
 				data.message)
+				await sleep(3000);
 				window.location.href = 'take_key.html';
 				}
 		
@@ -663,12 +668,14 @@ async function makePayment_TPV(url){
 				Swal.fire(
 				data.message,
 				'error')
-				//window.location.href = 'take_key.html';
+				await sleep(3000);
+				window.location.href = 'pago.html';
 				}
 			else if (data.success == "true")
 				{
 				Swal.fire(
 				data.message)
+				await sleep(3000);
 				window.location.href = 'take_key.html';
 				}
 		

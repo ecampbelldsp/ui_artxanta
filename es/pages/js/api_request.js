@@ -610,6 +610,45 @@ async function fetchAsync_sendGmail() {
 
 };
 
+async function fetchAsync_PostPaymentConfirmation(){
+
+	var postGuest_jsonPago = JSON.parse(localStorage.postGuest);
+	//url = "http://localhost:5000/paymentNotification?amount="+postGuest_jsonPago.balance+"&reservationID="+postGuest_jsonPago.reservationID;
+	url = "http://localhost:5000/paymentNotification?amount="+postGuest_jsonPago.balance+"&reservationID="+postGuest_jsonPago.reservationID;
+	console.log("URL payment confirmation", url);
+
+	console.log("Llamando payment confirmation");
+	try{
+		let response = await fetch(url,  {method: 'GET'});
+		
+		let data =  await response.json();
+		
+					//response = response.json();
+			console.log("Success payment confirmation",data["success"]);
+			console.log("Response",data);
+
+			/*if(data.success === false)
+				{
+
+				}
+				
+			else if (data.success === "true")
+				{
+				
+				Swal.fire(
+				data.message)
+				await sleep(3000);
+				window.location.href = 'take_key.html';
+				}*/
+		
+	
+	} catch(error){
+			console.log("Success payment confirmation",data["success"]);
+
+	}	
+
+};
+
 async function makePayment_cash(url){
 	
 	console.log("Llamando api de pago en efectivo");
@@ -633,6 +672,7 @@ async function makePayment_cash(url){
 				
 			else if (data.success == "true")
 				{
+				fetchAsync_PostPaymentConfirmation();
 				Swal.fire(
 				data.message)
 				await sleep(3000);
@@ -655,6 +695,8 @@ async function makePayment_TPV(url){
 	
 	console.log("Llamando api de pago en tarjeta");
 	try{
+
+		//fetchAsync_PostPaymentConfirmation()
 		let response = await fetch(url);
 		
 		let data =  await response.json();
@@ -673,6 +715,7 @@ async function makePayment_TPV(url){
 				}
 			else if (data.success == "true")
 				{
+				fetchAsync_PostPaymentConfirmation();
 				Swal.fire(
 				data.message)
 				await sleep(3000);

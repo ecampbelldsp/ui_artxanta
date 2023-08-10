@@ -139,11 +139,14 @@ async function fetchAsync_getReservation(url) {
 			// alert("No existe una reserva con la información que nos ha proporcionado");
 			 
 
-			Swal.fire(
-				'Something is wrong...',
-				'There is no reservation with the information you have provided us.',
-				'error'
-			)
+			Swal.fire({
+				  position: 'center',
+				  icon: 'error',
+				  allowOutsideClick: false,
+				  title: 'There is no reservation with the information you have provided us.<br>\n',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
 
 			await sleep(3000);
 

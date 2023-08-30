@@ -323,7 +323,7 @@
 							<div class="inputGroupContainer">
 								<div class="">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-								<input  required autocomplete="off" class="campo campo-form" style="width: 100%;font-size:16px;text-align:center" id="lite_mode_112" name="lite_mode_112lite_mode_112" placeholder="--/--/--"  type="date">
+								<input  required autocomplete="off" class="campo campo-form" style="width: 100%;font-size:16px;text-align:center" id="lite_mode_112" name="lite_mode_112lite_mode_112" placeholder=""  type="date">
 								</div>
 							</div>
 					</div>
@@ -424,10 +424,14 @@
 
 					postGuest_json.guestFirstName = document.getElementById("first_16").value;
 					postGuest_json.guestLastName = document.getElementById("last_16").value;
-					postGuest_json.guestBirthDate = document.getElementById("lite_mode_109").value;
+					
+					postGuest_json.guestBirthDate = formatear_fecha(document.getElementById("lite_mode_109").value);
+					
 					postGuest_json.guestDocumentType = document.getElementById("input_110").value;
-					postGuest_json.guestDocumentIssueDate = document.getElementById("lite_mode_112").value;
-					postGuest_json.guestDocumentExpirationDate = document.getElementById("lite_mode_113").value;
+					postGuest_json.guestDocumentIssueDate = formatear_fecha(document.getElementById("lite_mode_112").value);
+					
+					postGuest_json.guestDocumentExpirationDate = formatear_fecha(document.getElementById("lite_mode_113").value);
+					
 					postGuest_json.guestCountry = document.getElementById("input_107").value;
 					postGuest_json.guestDocumentNumber = document.getElementById("input_114").value;
 					localStorage.setItem("postGuest",JSON.stringify(postGuest_json));
@@ -453,6 +457,19 @@
 					console.log("update",localStorage.getItem("guest_aditional") );
 
 					}
+			}
+			
+			
+			function formatear_fecha(fechao){
+			
+					const fecha = new Date(fechao); // Aquí tendrías tu fecha real
+
+					const dia = String(fecha.getDate()).padStart(2, '0');
+					const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses son 0-indexed
+					const anio = fecha.getFullYear();
+					const fechaFormateada = mes+"-"+dia+"-"+anio;
+					console.log("FECHA::::::"+ fechaFormateada);
+					return fechaFormateada;
 			}
 		
 </script>

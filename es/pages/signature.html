@@ -23,8 +23,8 @@
 
 		#makepdf {
 			box-sizing: content-box;
-			width: 810px;
-			height: 790px;
+			height: 666px;
+			width:500px;
 			padding: 30px;
 			border: 1px solid black;
 			font-style: sans-serif;
@@ -33,6 +33,7 @@
 			top: 4%;
 			left: 2%;
 			border-radius: 7px;
+			line-height:0px;
 		}
 
 		#button {
@@ -54,15 +55,15 @@
 	
 <body style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%;">
     <div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:14px">
-      <h3 style="display:inline-block;font-size:18px; margin-right:50px">Pasos <br>Check-In:</h3>
+      <!-- <h3 style="display:inline-block;font-size:18px; margin-right:50px">Pasos <br>Check-In:</h3> -->
       <div style="display:inline-block; color:#cb30ad;">1<br>Reserva</div>
-      <div style="width:5%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
+      <div style="width:9%;display:inline-block;border-bottom:1px dotted #cb30ad;vertical-align:super;"></div>
       <div style="display:inline-block;font-size:18px;font-weight:800; color:#cb30ad;">2<br>Identificación</div>
-      <div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+      <div style="width:9%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
       <div style="display:inline-block">3<br>Pago</div>
-      <div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+      <div style="width:9%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
       <div style="display:inline-block">4<br>Factura</div>
-      <div style="width:5%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
+      <div style="width:9%;display:inline-block;border-bottom:1px dotted black;vertical-align:super;"></div>
       <div style="display:inline-block">5<br>Llave</div>
     </div>
 	<audio  id="audio" autoplay src="Audios/6.-.mp3"  type="audio/mpeg"> </audio>
@@ -80,7 +81,7 @@
 			</div>
 			<div id="signature_page" > 
 				
-				<div id="makepdf" style="font-family: 'DM Sans';margin:20px;width:500px ;margin-left:70px;margin-top:60px;font-size: 12px;">	
+				<div id="makepdf" style="font-family: 'DM Sans';margin:20px;margin-left:70px;margin-top:60px;font-size: 12px;">	
 					
 					<h3 style="color:#9642E0; text-align:left; "> Parte de viajeros / Hoja de bienvenida</h3>
 					
@@ -90,7 +91,7 @@
 					<strong>NIF:</strong>&nbsp;B95933255 </p> 
 					<hr>
 					<p style="margin-left:20px">
-					<strong>Número de parte:</strong>&nbsp; <span id="parte">K...</span></p> 
+					<strong>Número de parte:</strong>&nbsp; <span id="parte">K</span></p> 
 					<hr>
 					<p style="margin-left:20px">
 					<strong>Nombre del establecimiento:</strong>&nbsp;Hotel Artxanda </p>
@@ -153,7 +154,7 @@
 					
 						
 				</div>
-	<div class="row" style="margin-top:990px;">			
+	<div class="row" style="margin-top:870px;">			
 
 		<div class="col-md-12 " style="margin-top: 5%;">
 		
@@ -196,8 +197,10 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	
-		<script>
-			
+	<script>
+	
+	parteViajero("http://127.0.0.1:5000/parteDeViajero")
+
 			function modal_ley(){
 				$("#modal_ley").toggle();
 			}
@@ -223,8 +226,8 @@
 		var postGuest_json2 = JSON.parse(postGuest2);
 		console.log("default data",postGuest_json2);
 		
-		
-		
+
+
 		var guestDocumentNumber = document.getElementById("guestDocumentNumber");
 		var guestDocumentType = document.getElementById("guestDocumentType");
 		var guestDocumentExpirationDate = document.getElementById("guestDocumentExpirationDate");

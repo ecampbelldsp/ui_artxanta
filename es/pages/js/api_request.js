@@ -139,14 +139,11 @@ async function fetchAsync_getReservation(url) {
 			// alert("No existe una reserva con la información que nos ha proporcionado");
 			 
 
-			Swal.fire({
-				  position: 'center',
-				  icon: 'error',
-				  allowOutsideClick: false,
-				  title: 'There is no reservation with the information you have provided us.<br>\n',
-				  showConfirmButton: false,
-				  timer: 3000
-				})
+			Swal.fire(
+				'Something is wrong...',
+				'There is no reservation with the information you have provided us.',
+				'error'
+			)
 
 			await sleep(3000);
 
@@ -771,6 +768,42 @@ async function fetchAsync_print_ticket(url, data){
 	
 }
 
+async function parteViajero(url){
+	
+	console.log("Cargando numero de parte de viajero");
+	try{
+		let response = await fetch(url);
+		
+		let data =  await response.json();
+		
+					//response = response.json();
+			console.log("Success",data["success"]);
+			console.log("Response",data);
+
+			if(data.success == "false")
+				{
+				console.log("Error creando parte e viajero");
+
+				}
+				
+			else if (data.success == "true")
+				{
+					var num_parte = data["data"];
+					var parte = document.getElementById("parte");
+					parte.textContent += data["data"];
+				}
+		
+		//return data;
+	
+	} catch(error){
+		console.log("Error creando nuemro de parte de viajero");
+		/*Swal.fire(
+			'Something is wrong...',
+			"The system is down. Contact Technical Support",
+			'error'
+		)*/
+	}	
+};
 
 
 async function fetchAsync_getPicture(url) {

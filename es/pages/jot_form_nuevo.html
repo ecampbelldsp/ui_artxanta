@@ -17,8 +17,14 @@
 	<meta property="og:title" content="Hotel Booking Form">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap-grid.min.css" integrity="sha512-Aa+z1qgIG+Hv4H2W3EMl3btnnwTQRA47ZiSecYSkWavHUkBF2aPOIIvlvjLCsjapW1IfsGrEO3FU693ReouVTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	</head>
+
 	
+<style>
+  .input::placeholder {
+    color: red; /* Cambia el color aquí */
+  }
+</style>
+	</head>
 <body oncontextmenu="return false" style="background: #EBEBEB;justify-content:center;display:flex;margin:0px; font-family: 'DM Sans';zoom:150%">
     <div style="width:70%;position:absolute;text-align:center;margin-top:20px;user-select:none;font-size:14px">
       <!-- <h3 style="display:inline-block;font-size:18px; margin-right:50px">Pasos <br>Check-In:</h3> -->
@@ -76,7 +82,7 @@
 								<div class="inputGroupContainer">
 									<div class="">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-									<input required autocomplete="off" class="campo campo-form" style="width: 100%;font-size:16px;text-align:center" id="lite_mode_109" name="lite_mode_109" placeholder="--/--/--"  type="date">
+									<input required autocomplete="off" class="campo campo-form " style="width: 100%;font-size:16px;text-align:center" id="lite_mode_109" name="lite_mode_109" placeholder="--/--/--"  type="date">
 									</div>
 								</div>
 						</div>
@@ -87,7 +93,7 @@
 				<div class="col-sm-6">
 				<label class="" id="label_107" for="input_107" style="color:#AAAAAA"> Nacionalidad </label>
 				<div id="cid_107" class="" data-layout="">
-				  <select required class=" campo" id="input_107" name="q107_citizenship" style="width:100%;color: #AAAAAA;" data-component="dropdown">
+				  <select required class=" campo" id="input_107" name="q107_citizenship" style="width:100%;" data-component="dropdown">
 					<option value=""> Please Select </option>
 					<option value="Afghanistan"> Afghanistan </option>
 					<option value="Albania"> Albania </option>
@@ -295,7 +301,7 @@
 				  <div class="col-sm-6">
 					<label class="" id="label_110" for="input_110" style="color: #AAAAAA;"> Tipo de documento </label>
 						<div id="cid_110" class="" data-layout="">
-						  <select  required class=" campo" id="input_110" name="q110_documentType" style="width:100%;color: #AAAAAA;" data-component="dropdown">
+						  <select  required class=" campo" id="input_110" name="q110_documentType" style="width:100%;" data-component="dropdown">
 							<option value=""> Please Select </option>
 							<option value="Passport"> Pasaporte </option>
 							<option value="DNI"> DNI </option>
@@ -309,7 +315,7 @@
 					  <div class="col-sm-6">
 						<label class="" id="label_114" for="input_114" style="white-space:nowrap; color: #AAAAAA;"> Número de Documento </label>
 						<div id="cid_114" class="" data-layout="">
-						  <input  required autocomplete="off" autocomplete="off" type="text" id="input_114" name="q114_documentNumber" data-type="input-number" class=" campo form-number-input " data-defaultvalue="" style="width:100%" size="310" value="" placeholder="xxxx" data-component="number" aria-labelledby="label_114" step="any" />
+						  <input  required autocomplete="off" autocomplete="off" type="text" id="input_114" name="q114_documentNumber" data-type="input-number" class=" campo form-number-input " data-defaultvalue="" style="width:100%" size="310" value="" placeholder="" data-component="number" aria-labelledby="label_114" step="any" />
 						</div>
 					</div>
 				</div>

@@ -154,7 +154,7 @@
 	
 	localStorage.with_reservation_flag = false;
 	
-	console.log("localStorage.with_reservation_flag", localStorage.with_reservation_flag);
+	//console.log("localStorage.with_reservation_flag", localStorage.with_reservation_flag);
 	
 	$(window).load(function(){
 		$(".fundir").animate({opacity:"1"});
@@ -237,6 +237,7 @@
 		guest2process_data_json = JSON.stringify(guest2process_data);
 		localStorage.setItem('guest2process_data', guest2process_data_json);	
 
+        console.log("localStorage.postGuest", localStorage.postGuest)
 		localStorage.postGuest = JSON.stringify(postGuest_json);
 			
 		var guest_information = '{"startDate":"","endDate":"", "guestFirstName":"","guestLastName":"","guestCountry":"","guestZip":"","guestEmail":"","guestPhone":"","rooms":"","adults":"","children":""}';

@@ -465,6 +465,10 @@ async function fetchAsync_getScan(url,tipo) {
 				'Something is wrong with the scanner...',
 				"You are required to submmited manually your personal information",
 				'error')
+			
+			await sleep(3000);
+			
+			window.location.href = "jot_form.html";
 	
 		
 		}

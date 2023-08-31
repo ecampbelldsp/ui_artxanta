@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\es",
-    "\\es\\pages"
+    "\\es\\pages",
+    "\\es\\pages\\js"
   ],
-  "SelectedNode": "\\es\\pages\\buscar_reserva_opciones.html",
+  "SelectedNode": "\\es\\pages\\pago.html",
   "PreviewInSolutionExplorer": false
 }

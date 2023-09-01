@@ -193,11 +193,11 @@ function writing_parte_de_viajero(postGuest_json3, startDate_in){
 			doc.setLineWidth(0.5);
 			doc.line(20, 50, 200, 50);
 				
-			doc.text(20, 60, 'NIF:xxxxx ');
-			doc.text(20, 70, 'Número de parte:xxxxx');
-			doc.text(20, 80, 'Nombre del establecimiento:xxxxx');
-			doc.text(20, 90, 'Municipio: Vigo');
-			doc.text(20, 100, 'Provincia: Pontevedra');
+			doc.text(20, 60, 'NIF:B95933255 ');
+			//doc.text(20, 70, 'Número de parte:xxxxx');
+			doc.text(20, 80, 'Nombre del establecimiento:Hotel Artxanda');
+			doc.text(20, 90, 'Municipio: Bilbao');
+			doc.text(20, 100, 'Provincia: Vizcaya');
 			
 			doc.line(20, 105, 200, 105);
 			doc.setFontSize(16);

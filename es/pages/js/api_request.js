@@ -596,10 +596,12 @@ async function fetchAsync_sendGmail() {
 	var postGuest = localStorage.postGuest;				
 	var postGuest_json = JSON.parse(postGuest);
 	var reservationID = postGuest_json.reservationID;
+	var emailClient = postGuest_json.guestEmail;
+
 	console.log("Reservation ", reservationID);
-	 
+	 http://localhost:5000/sendEmail?TO=ecampbelldsp%40gmail.com&reservationID=22
 	try{
-	var response = await fetch("http://localhost:5000/sendEmail?reservationID="+reservationID, {method: 'GET'});
+	var response = await fetch("http://localhost:5000/sendEmail?reservationID="+reservationID+"&TO="+emailClient, {method: 'GET'});
 
   	} catch(error){
 		Swal.fire(

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html class="supernova"><head>
 	<script>console.warn("Server Side Rendering => render-from: frontend");</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.all.js" integrity="sha512-7TfWz/1TEVLE2pG8KLC/suq4qgXocI+/sNKfX0yifGXBbSKPoA9wcQ2GDublV7SSCu90vnW1q7+TUXOYaCIshA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
@@ -595,18 +596,23 @@ li{
 		header.textContent += guest2process_data.i; 
 //		"Datos Personales - Huésped #"
 
-		function get_values() {
+		async function get_values() {
 			
-				
+				//
+			const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 				// Validation fields
-				if(document.getElementById("first_16").value == ""){alert("Ingrese todos los datos");document.getElementById("222401954771354").action = "";return}
-				if(document.getElementById("last_16").value == ""){alert("Ingrese todos los datos");document.getElementById("222401954771354").action = "";return}
-				if(document.getElementById("lite_mode_109").value == ""){alert("Ingrese todos los datos");document.getElementById("222401954771354").action = "";return}
-				if(document.getElementById("input_110").value == ""){alert("Ingrese todos los datos");document.getElementById("222401954771354").action = "";return}
-				if(document.getElementById("lite_mode_112").value == ""){alert("Ingrese todos los datos");document.getElementById("222401954771354").action = "";return}
-				if(document.getElementById("lite_mode_113").value == ""){alert("Ingrese todos los datos");document.getElementById("222401954771354").action = "";return}
-				if(document.getElementById("input_107").value == ""){alert("Ingrese todos los datos");document.getElementById("222401954771354").action = "";return}
+				Swal.fire({position: 'top-end',icon: 'warning',title: 'Fill in all fields', showConfirmButton: false,timer: 3000})
+				
+				if(document.getElementById("first_16").value == ""){alert("Fill in all fields");document.getElementById("222401954771354").action = "";return}
+			
+			
+				if(document.getElementById("last_16").value == ""){alert("Fill in all fields");document.getElementById("222401954771354").action = "";return}
+				if(document.getElementById("lite_mode_109").value == ""){alert("Fill in all fields");document.getElementById("222401954771354").action = "";return}
+				if(document.getElementById("input_110").value == ""){alert("Fill in all fields");document.getElementById("222401954771354").action = "";return}
+				if(document.getElementById("lite_mode_112").value == ""){alert("Fill in all fields");document.getElementById("222401954771354").action = "";return}
+				if(document.getElementById("lite_mode_113").value == ""){alert("Fill in all fields");document.getElementById("222401954771354").action = "";return}
+				if(document.getElementById("input_107").value == ""){alert("Fill in all fields");document.getElementById("222401954771354").action = "";return}
 
 
 

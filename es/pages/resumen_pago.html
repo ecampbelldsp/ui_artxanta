@@ -59,6 +59,11 @@
 </body>
 	
 	<script>
+
+		async function wait_goint_take_key() {
+			await sleep(3000);
+            window.location.href = "take_key.html";
+        }
 		$(window).load(function(){
 			$(".fundir").animate({opacity:"1"});
 		})
@@ -82,7 +87,20 @@
 		totalmoney.textContent = postGuest_jsonPago.total + " €";
 		pagado.textContent += postGuest_jsonPago.paid + " €";
 		deuda.textContent += postGuest_jsonPago.balance + " €";
-		
+
+		if (postGuest_jsonPago.balance == 0) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                allowOutsideClick: false,
+                title: 'Reservation already paid.<br>\n',
+                showConfirmButton: false,
+            })
+
+            wait_goint_take_key()
+			console.log("Going take_key.html")
+			
+        }
 		console.log("Pagado ",postGuest_jsonPago.paid);
 		console.log("postGuest_jsonPago ",postGuest_jsonPago);
 
